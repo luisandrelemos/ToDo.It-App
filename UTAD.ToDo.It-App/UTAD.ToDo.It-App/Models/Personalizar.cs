@@ -7,12 +7,10 @@ using UTAD.ToDo.It_App.Models.Shared;
 
 namespace UTAD.ToDo.It_App.Models
 {
-    public class Perfil : BaseModel
+    public class Personalizar : BaseModel
     {
-        public string Nome { get; set; }
+        public string Tema { get; set; }
 
-        public string Email { get; set; }
-
-        public string Fotografia { get; set; }
+        public string Cores { get; set; }
     }
 }

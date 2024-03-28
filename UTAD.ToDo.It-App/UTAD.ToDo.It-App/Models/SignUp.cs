@@ -7,12 +7,12 @@ using UTAD.ToDo.It_App.Models.Shared;
 
 namespace UTAD.ToDo.It_App.Models
 {
-    public class Perfil : BaseModel
+    public class SignUp : BaseModel
     {
-        public string Nome { get; set; }
+        public string id { get; set; }
 
         public string Email { get; set; }
 
-        public string Fotografia { get; set; }
+        public string Password { get; set; }
     }
 }

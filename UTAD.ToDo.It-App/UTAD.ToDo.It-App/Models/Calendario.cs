@@ -7,12 +7,15 @@ using UTAD.ToDo.It_App.Models.Shared;
 
 namespace UTAD.ToDo.It_App.Models
 {
-    public class Perfil : BaseModel
+    public class Calendario : BaseModel
     {
-        public string Nome { get; set; }
+        public int Dia { get; set; }
 
-        public string Email { get; set; }
+        public int Semana { get; set; }
 
-        public string Fotografia { get; set; }
+        public int Mes { get; set; }
+
+        public int Ano { get; set; }
     }
 }
+
