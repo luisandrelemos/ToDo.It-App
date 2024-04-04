@@ -7,11 +7,13 @@ using UTAD.ToDo.It_App.Models.Shared;
 
 namespace UTAD.ToDo.It_App.Models
 {
-    public class DefinicaoAlerta : BaseModel
+    public class DefinicaoNotificacao : BaseModel
     {
         public string Som { get; set; }
 
         public string Volume { get; set; }
+
+        public string Repetição { get; set; }
 
     }
 }

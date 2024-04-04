@@ -14,5 +14,9 @@ namespace UTAD.ToDo.It_App.Models
         public string Email { get; set; }
 
         public string Fotografia { get; set; }
+
+        public string PalavraPasseAtual { get; set; }
+
+        public string PalavraPasseNova { get; set; }
     }
 }
