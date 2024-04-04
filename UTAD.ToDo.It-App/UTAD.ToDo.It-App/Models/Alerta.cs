@@ -7,6 +7,13 @@ using UTAD.ToDo.It_App.Models.Shared;
 
 namespace UTAD.ToDo.It_App.Models
 {
+    public enum TipoAlerta
+    {
+        MuitoImportante,
+        Importante,
+        PoucoImportante
+    }
+
     public class Alerta : BaseModel
     {
         public string Mensagem { get; set; }
@@ -15,6 +22,6 @@ namespace UTAD.ToDo.It_App.Models
 
         public bool Desligado { get; set; }
 
-        //TODO : Falta tipos
+        public TipoAlerta Tipo { get; set; }
     }
 }
