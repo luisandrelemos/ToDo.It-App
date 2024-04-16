@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTAD.ToDo.It-App", "UTAD.ToDo.It-App\UTAD.ToDo.It-App.csproj", "{E943A376-B322-4095-85CA-E504E31CE1CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UTAD.ToDo.It-App", "UTAD.ToDo.It-App\UTAD.ToDo.It-App.csproj", "{E943A376-B322-4095-85CA-E504E31CE1CE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Login Page", "Página Autenticação\Login Page.csproj", "{12B6F65E-7B37-43C3-97B7-99DF20F0B7BB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Página Inicial", "Página Inicial\Página Inicial.csproj", "{36B15577-C217-4A1F-ACF7-4120AAA34448}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{E943A376-B322-4095-85CA-E504E31CE1CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E943A376-B322-4095-85CA-E504E31CE1CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E943A376-B322-4095-85CA-E504E31CE1CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12B6F65E-7B37-43C3-97B7-99DF20F0B7BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12B6F65E-7B37-43C3-97B7-99DF20F0B7BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12B6F65E-7B37-43C3-97B7-99DF20F0B7BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12B6F65E-7B37-43C3-97B7-99DF20F0B7BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36B15577-C217-4A1F-ACF7-4120AAA34448}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36B15577-C217-4A1F-ACF7-4120AAA34448}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36B15577-C217-4A1F-ACF7-4120AAA34448}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36B15577-C217-4A1F-ACF7-4120AAA34448}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
