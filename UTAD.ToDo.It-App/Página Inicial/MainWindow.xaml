@@ -1,0 +1,44 @@
+﻿<Window x:Class="Página_Inicial.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Página_Inicial"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="768" Width="1366"
+        AllowsTransparency="True"
+        Background="Transparent" 
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <!-- Conteúdo principal -->
+        <Border Background="#1e1e1e" Margin="0,0,0,0" CornerRadius="25,25,25,25">
+
+        </Border>
+        
+
+        <!-- Sidepanel esquerdo -->
+        <Border Width="250" Background="#2a2a2a" CornerRadius="25,25,25,25" HorizontalAlignment="Left">
+            <Grid>
+                <!-- Adicione os controles do sidepanel esquerdo aqui -->
+            </Grid>
+        </Border>
+
+        <!-- Sidepanel direito -->
+        <Border Width="250" Background="#2a2a2a" CornerRadius="25,25,25,25" HorizontalAlignment="Right">
+            <Grid>
+                <!-- Adicione o título do sidebar direito aqui -->
+                <TextBlock FontFamily="Montserrat" Text="As Minhas Tarefas" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="White" Margin="0,28,0,0" FontSize="16" FontWeight="Bold"/>
+            </Grid>
+        </Border>
+
+        <!-- Sidepanel Meio -->
+        <Border Width="712" Background="#2a2a2a" CornerRadius="0,0,15,15" HorizontalAlignment="Center" Margin="0,0,0,689">
+            <Grid>
+                <!-- Adicione os controles do sidepanel meio aqui -->
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
