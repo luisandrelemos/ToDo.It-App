@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<registros>
+  <userData>
+    <email>lemosluis547@gmail.com</email>
+    <username>Luis Lemos</username>
+    <password>1234</password>
+  </userData>
+  <userData>
+    <email>admin@admin.com</email>
+    <username>admin</username>
+    <password>admin</password>
+  </userData>
+  <userData>
+    <email>bruno@gmail.com</email>
+    <username>Bruno Costa</username>
+    <password>12345</password>
+  </userData>
+  <userData>
+    <email>carol@sapo.pt</email>
+    <username>Carolina</username>
+    <password>12345</password>
+  </userData>
+</registros>

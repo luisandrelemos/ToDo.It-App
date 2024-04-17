@@ -1,7 +1,9 @@
 ﻿using System.Windows;
 using System.Windows.Input;
-using System.Data.SqlClient;
 using System;
+using System.Xml.Linq;
+using System.IO;
+using System.Linq;
 using Página_Inicial;
 
 namespace Login_Page
@@ -41,21 +43,16 @@ namespace Login_Page
         {
             try
             {
-                SqlConnection con = new SqlConnection(@"Server=LEMOS-TUF;Database=LoginRegisterDB;Integrated Security=True;");
-                con.Open();
-                string add_data = "SELECT * FROM [dbo].[userData] where email=@email and password=@password";
-                SqlCommand cmd = new SqlCommand(add_data, con);
+                // Carregar o arquivo XML
+                XDocument doc = XDocument.Load("C:\\Users\\Luís Lemos\\source\\repos\\TODO.IT LAB\\Página Autenticação\\SaveData\\registros.xml");
 
-                cmd.Parameters.AddWithValue("@email", email.Text);
-                cmd.Parameters.AddWithValue("@password", password.Password);
-                cmd.ExecuteNonQuery();
-                int Count = Convert.ToInt32(cmd.ExecuteScalar());
+                // Encontrar o usuário correspondente ao e-mail e senha
+                var user = (from u in doc.Root.Elements("userData")
+                            where (string)u.Element("email") == email.Text &&
+                                  (string)u.Element("password") == password.Password
+                            select u).FirstOrDefault();
 
-                con.Close();
-
-                email.Text = "";
-                password.Password = "";
-                if (Count > 0)
+                if (user != null)
                 {
                     MainWindow mainWindow = new MainWindow();
                     mainWindow.Show();
@@ -65,13 +62,13 @@ namespace Login_Page
                 {
                     MessageBox.Show("O E-Mail ou a Password estão incorretos!");
                 }
-
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageBox.Show("Ocorreu um erro ao tentar fazer login: " + ex.Message);
             }
         }
+
 
         private void txtEmail_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {

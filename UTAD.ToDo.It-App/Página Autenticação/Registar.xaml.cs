@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
+using System.Windows;
+using System.Xml.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -52,50 +54,64 @@ namespace Login_Page
         {
             try
             {
-                SqlConnection con = new SqlConnection(@"Server=LEMOS-TUF;Database=LoginRegisterDB;Integrated Security=True;");
-                con.Open();
-
+                // Verificar se os campos foram preenchidos
                 if (string.IsNullOrEmpty(username.Text) || string.IsNullOrEmpty(password.Password) || string.IsNullOrEmpty(email.Text))
                 {
-                    throw new Exception("Introduza os campos!");
+                    throw new Exception("Introduza todos os campos!");
                 }
 
+                // Verificar se o e-mail é válido
                 if (!IsValidEmail(email.Text))
                 {
                     throw new Exception("O E-Mail digitado não é válido!");
                 }
 
-                // Verifica se o e-mail já existe no banco de dados
-                string checkEmailQuery = "SELECT COUNT(*) FROM [dbo].[userData] WHERE email = @email";
-                SqlCommand checkEmailCmd = new SqlCommand(checkEmailQuery, con);
-                checkEmailCmd.Parameters.AddWithValue("@email", email.Text);
-                int emailCount = (int)checkEmailCmd.ExecuteScalar();
+                // Carregar o arquivo XML ou criar um novo se não existir
+                XDocument doc;
+                string caminhoArquivoXml = "C:\\Users\\Luís Lemos\\source\\repos\\TODO.IT LAB\\Página Autenticação\\SaveData\\registros.xml";
+                if (File.Exists(caminhoArquivoXml))
+                {
+                    doc = XDocument.Load(caminhoArquivoXml);
+                }
+                else
+                {
+                    doc = new XDocument(new XElement("registros"));
+                }
 
-                if (emailCount > 0)
+                // Verificar se o e-mail já está em uso
+                var usuarioExistente = doc.Root.Elements("userData").FirstOrDefault(u => (string)u.Element("email") == email.Text);
+                if (usuarioExistente != null)
                 {
                     throw new Exception("O E-Mail já está em uso!");
                 }
 
-                string add_data = "INSERT INTO [dbo].[userData] VALUES(@email, @username, @password)";
-                SqlCommand cmd = new SqlCommand(add_data, con);
+                // Criar elemento XML para o novo usuário
+                XElement novoUsuario = new XElement("userData",
+                    new XElement("email", email.Text),
+                    new XElement("username", username.Text),
+                    new XElement("password", password.Password)
+                );
 
-                cmd.Parameters.AddWithValue("@email", email.Text);
-                cmd.Parameters.AddWithValue("@username", username.Text);
-                cmd.Parameters.AddWithValue("@password", password.Password);
-                cmd.ExecuteNonQuery();
-                con.Close();
+                // Adicionar o novo usuário ao arquivo XML
+                doc.Root.Add(novoUsuario);
 
+                // Salvar o arquivo XML
+                doc.Save(caminhoArquivoXml);
+
+                // Limpar campos
                 email.Text = "";
                 username.Text = "";
                 password.Password = "";
 
+                // Exibir mensagem de sucesso
+                MessageBox.Show("Registro concluído com sucesso!");
                 Login l1 = new Login();
                 this.Close();
                 l1.Show();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Ocorreu um erro ao tentar registrar: " + ex.Message);
             }
         }
 
