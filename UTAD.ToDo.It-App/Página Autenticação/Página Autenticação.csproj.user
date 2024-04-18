@@ -2,15 +2,12 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="NovaTarefaWindow.xaml.cs">
+    <Compile Update="Registar.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="MainWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="NovaTarefaWindow.xaml">
+    <Page Update="Registar.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

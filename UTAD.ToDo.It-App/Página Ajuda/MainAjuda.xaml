@@ -6,150 +6,201 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ajuda"
         mc:Ignorable="d"
-        Title="Ajuda" Height="768" Width="1368" WindowStartupLocation="CenterScreen" Background="Transparent" WindowStyle="None">
-    <Grid Background="#1e1e1e">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="66*"/>
-            <RowDefinition Height="34*"/>
-            <RowDefinition Height="197*"/>
-            <RowDefinition Height="104*"/>
-            <RowDefinition Height="184*"/>
-            <RowDefinition Height="174*"/>
-            <RowDefinition Height="8*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="271*"/>
-            <ColumnDefinition Width="101*"/>
-            <ColumnDefinition Width="638*"/>
-            <ColumnDefinition Width="142*"/>
-            <ColumnDefinition Width="188*"/>
-            <ColumnDefinition Width="28*"/>
-        </Grid.ColumnDefinitions>
+        Title="Ajuda" Height="768" Width="1366"
+        AllowsTransparency="True"
+        Background="Transparent" 
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <!-- Conteúdo principal -->
+        <Border Background="#1e1e1e" CornerRadius="25,25,25,25">
+        </Border>
+        <!-- Sidepanel esquerdo -->
+        <Border Width="250" Background="#2a2a2a" CornerRadius="25,25,25,25" HorizontalAlignment="Left">
+            <Grid>
+                <!-- Adicione a zona do usuário aqui -->
+                <Button Click="Definições_Click" Margin="8,10,8,693" Background="Transparent" BorderThickness="0">
+                    <Grid Margin="0,20,20,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30*"/>
+                            <ColumnDefinition Width="29*"/>
+                        </Grid.ColumnDefinitions>
+                        <!-- Imagem do usuário -->
+                        <Image Source="C:\Users\Luís Lemos\source\repos\ToDo.It-App\UTAD.ToDo.It-App\Página Inicial\Images\profile.jpg" Width="47" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,-17,0,0">
+                            <Image.Clip>
+                                <EllipseGeometry RadiusX="35" RadiusY="32" Center="23.5,25"/>
+                            </Image.Clip>
+                        </Image>
+                        <!-- Nome do usuário -->
+                        <TextBlock FontFamily="Montserrat" Text="Luís Lemos" Foreground="White" HorizontalAlignment="Left" FontSize="16" Margin="62,-11,0,21" Grid.ColumnSpan="2"/>
+
+                        <!-- Email do usuário -->
+                        <TextBlock FontFamily="Montserrat" Text="email@exemplo.com" Foreground="#aeaeae" HorizontalAlignment="Left" Margin="62,14,0,0" Grid.ColumnSpan="2"/>
+                    </Grid>
+                </Button>
+
+                <!-- Adicione os controles do sidepanel esquerdo aqui -->
+                <Line X1="6" Y1="100" X2="244" Y2="100" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,0,0,0"/>
+                <Button Content="Página Inicial" Style="{StaticResource button1}"  Click="PáginaInicial_Click" Margin="25,122,25,597" />
+                <Button Content="Calendário" Style="{StaticResource button1}" Click="Calendário_Click" Margin="25,176,25,543"/>
+                <Button Content="Tarefas" Style="{StaticResource button1}" Click="Tarefas_Click" Margin="25,230,25,489" />
+                <Line X1="6" Y1="287" X2="244" Y2="287" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,0,0,0"/>
+                <Button Content="Personalizar" Style="{StaticResource button1}" Click="Personalizar_Click" Margin="25,293,25,426" />
+                <Button Content="Definições" Style="{StaticResource button1}" Click="Definições_Click" Margin="25,347,25,372" />
+                <Button Content="Ajuda" Style="{StaticResource buttonSelected}" Click="Ajuda_Click" Margin="25,401,25,318" />
+                <Line X1="6" Y1="455" X2="244" Y2="455" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,0,0,0"/>
+                <Button Content="Sair da Aplicação" Style="{StaticResource buttonQuit}" Margin="25,706,25,10" Click="Sair_Click"/>
+            </Grid>
+        </Border>
+
 
         <!--Parte do retangulo e texblock do "Nivel de importancia" -->
-        <Rectangle Grid.Column="2" Grid.Row="2" Width="225" Height="35" Fill="#FF3A3A3A" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,14,0,0"/>
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="45,20,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Nivel de Importância" VerticalAlignment="Top" Width="320" Background="Transparent" FontSize="17" Foreground="#FF2DB1B9" FontFamily="Montserrat" Height="39"/>
+        <Rectangle Width="225" Height="35" Fill="#FF3A3A3A" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="281,120,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="304,126,0,0" TextWrapping="Wrap" Text="Nivel de Importância" VerticalAlignment="Top" Width="194" Background="Transparent" FontSize="17" Foreground="#FF2DB1B9" FontFamily="Montserrat" Height="29"/>
 
         <!--Parte do retangulo e texblock do "Mensagens Recorrentes" -->
-        <Rectangle Grid.Column="2" Grid.Row="3" Width="280" Height="50" Fill="#FF3A3A3A" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="24,80,0,0" Grid.RowSpan="2"/>
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="40,92,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Mensagens Recorrentes" VerticalAlignment="Top" Width="272" Background="Transparent" FontSize="20" Foreground="#FF2DB1B9" FontFamily="Montserrat" Height="39" Grid.RowSpan="2"/>
+        <Rectangle Width="280" Height="50" Fill="#FF3A3A3A" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="283,383,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="299,395,0,0" TextWrapping="Wrap" Text="Mensagens Recorrentes" VerticalAlignment="Top" Width="272" Background="Transparent" FontSize="20" Foreground="#FF2DB1B9" FontFamily="Montserrat" Height="39"/>
 
         <!--Parte do retangulo e texblock do "Muito Importante" -->
-        <Rectangle Grid.Column="2" Grid.Row="2" Width="166" Height="28" Fill="#b73737" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="73,86,0,0"></Rectangle>
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="88,89,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Muito Importante" VerticalAlignment="Top" Width="162" Background="Transparent" FontSize="15" Foreground="White" FontFamily="Montserrat" Height="39"/>
-        <Rectangle Grid.Column="2" Grid.Row="2" Width="28" Height="28" Fill="#b73737" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,86,0,0"></Rectangle>
+        <Rectangle Width="166" Height="28" Fill="#b73737" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="332,192,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="347,195,0,0" TextWrapping="Wrap" Text="Muito Importante" VerticalAlignment="Top" Width="138" Background="Transparent" FontSize="15" Foreground="White" FontFamily="Montserrat" Height="23"/>
+        <Rectangle Width="28" Height="28" Fill="#b73737" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="281,192,0,0"/>
 
         <!--Parte do retangulo e texblock do "Importante" -->
-        <Rectangle Grid.Column="2" Grid.Row="2" Width="116" Height="26" Fill="#c3c00b" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="73,143,0,0"/>
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="88,146,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Importante" VerticalAlignment="Top" Width="98" Background="Transparent" FontSize="15" Foreground="white" FontFamily="Montserrat" Height="24"/>
-        <Rectangle Grid.Column="2" Grid.Row="2" Width="28" Height="28" Fill="#c3c00b" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,141,0,0"/>
+        <Rectangle Width="116" Height="26" Fill="#c3c00b" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="332,249,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="347,252,0,0" TextWrapping="Wrap" Text="Importante" VerticalAlignment="Top" Width="88" Background="Transparent" FontSize="15" Foreground="white" FontFamily="Montserrat" Height="23"/>
+        <Rectangle Width="28" Height="28" Fill="#c3c00b" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="281,247,0,0"/>
 
         <!--Parte do retangulo e texblock do "Pouco importante" -->
-        <Rectangle Grid.Column="2" Grid.Row="2" Width="170" Height="28" Fill="#329e3e" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="73,195,0,0" Grid.RowSpan="2"/>
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="88,2,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Pouco Importante" VerticalAlignment="Top" Width="159" Background="Transparent" FontSize="15" Foreground="White" FontFamily="Montserrat" Height="40"/>
-        <Rectangle Grid.Column="2" Grid.Row="2" Width="28" Height="28" Fill="#329e3e" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,195,0,0" Grid.RowSpan="2"/>
+        <Rectangle Width="170" Height="28" Fill="#329e3e" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="332,301,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="347,305,0,0" TextWrapping="Wrap" Text="Pouco Importante" VerticalAlignment="Top" Width="151" Background="Transparent" FontSize="15" Foreground="White" FontFamily="Montserrat" Height="19"/>
+        <Rectangle Width="28" Height="28" Fill="#329e3e" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="281,301,0,0"/>
 
         <!--Cria diferentes zonas da grid (partes cinzentas) -->
-        <Border Grid.Column="0" Grid.Row="1" Background="#2a2a2a " CornerRadius="20" Margin="0,34,2,0" Grid.RowSpan="6"/>
-        <Border Grid.Column="0" Grid.Row="0" Background="#2a2a2a " CornerRadius="20"></Border>
-        <Border Grid.Column="2" Grid.Row="0" Background="#2a2a2a " CornerRadius="20" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="3">
-            <Border.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.226"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Border.RenderTransform>
+        <Border Grid.Row="0" Background="#2a2a2a " CornerRadius="0,0,25,25" Margin="282,1,31,689">
             <!--Ajuda -->
-            <TextBlock TextWrapping="Wrap" Text="Ajuda" FontSize="30" Margin="134,13,652,-18" Foreground="White" FontFamily="Montserrat"/>
+            <TextBlock TextWrapping="Wrap" Text="Ajuda" FontSize="25" Margin="75,24,901,21" Foreground="White" FontFamily="Montserrat"/>
         </Border>
         <!--Icon Ajuda -->
-        <Icon:PackIconMaterial Kind="HelpCircleOutline" Grid.Column="2" Width="50" Height="50" Foreground="#2db1b9" Margin="56,6,0,0"/>
+        <Icon:PackIconMaterial Kind="HelpCircleOutline" Width="40" Height="40" Foreground="#2db1b9" Margin="304,20,0,0"/>
 
         <!--1º Mensagem Recorrente -->
-        <Expander   Header="Como faço para adicionar uma nova tarefa á minha lista?" Margin="24,57,259,0" Grid.Row="4" VerticalAlignment="Top"  Foreground="White" Background="#FF3A3A3A" OpacityMask="Black" Grid.Column="2" Height="23">
+        <Expander   Header="Como faço para adicionar uma nova tarefa á minha lista?" Margin="283,463,640,0" VerticalAlignment="Top"  Foreground="White" Background="#FF3A3A3A" OpacityMask="Black" Height="23">
             <TextBlock Text="..."/>
         </Expander>
 
         <!--1º Mensagem Recorrente -->
-        <Expander   Header="É possível definir lembtretes para as minhas tarefas?" Margin="23,118,260,0" Grid.Row="4" VerticalAlignment="Top"  Foreground="White" Background="#FF3A3A3A" OpacityMask="Black" Grid.Column="2" Height="23">
+        <Expander   Header="É possível definir lembtretes para as minhas tarefas?" Margin="282,524,641,0" VerticalAlignment="Top"  Foreground="White" Background="#FF3A3A3A" OpacityMask="Black" Height="23">
             <TextBlock Text="..."/>
         </Expander>
 
         <!--1º Mensagem Recorrente -->
-        <Expander   Header="Como marcar uma tarefa como concluida?" Margin="23,175,260,0" Grid.Row="4" VerticalAlignment="Top"  Foreground="White" Background="#FF3A3A3A" OpacityMask="Black" Grid.Column="2" Height="23" Grid.RowSpan="2">
+        <Expander   Header="Como marcar uma tarefa como concluida?" Margin="282,581,641,0" VerticalAlignment="Top"  Foreground="White" Background="#FF3A3A3A" OpacityMask="Black" Height="23">
             <TextBlock Text="..."/>
         </Expander>
 
         <!--1º Mensagem Recorrente -->
-        <Expander   Header="É possivel personalizar a aparência da aplicação?" Margin="24,51,259,0" Grid.Row="5" VerticalAlignment="Top"  Foreground="White" Background="#FF3A3A3A" OpacityMask="Black" Grid.Column="2" Height="23">
+        <Expander   Header="É possivel personalizar a aparência da aplicação?" Margin="283,643,640,0" VerticalAlignment="Top"  Foreground="White" Background="#FF3A3A3A" OpacityMask="Black" Height="23">
             <TextBlock Text="..."/>
         </Expander>
 
         <!--1º Mensagem Recorrente -->
-        <Expander   Header="Posso categorizar as minhas tarefas?" Margin="23,112,260,0" Grid.Row="5" VerticalAlignment="Top"  Foreground="White" Background="#FF3A3A3A" OpacityMask="Black" Grid.Column="2" Height="23">
+        <Expander   Header="Posso categorizar as minhas tarefas?" Margin="282,704,641,0" VerticalAlignment="Top"  Foreground="White" Background="#FF3A3A3A" OpacityMask="Black" Height="23">
             <TextBlock Text="..."/>
         </Expander>
 
         <!--mandar email-->
-        <Rectangle RadiusX="10" RadiusY="10" Grid.Column="2" HorizontalAlignment="Left" Height="471" Margin="423,20,0,0" Grid.Row="2" Stroke="White" VerticalAlignment="Top" Width="511" Grid.ColumnSpan="3" Grid.RowSpan="4"/>
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="459,141,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="16" Width="49"/>
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="459,80,0,0" Grid.Row="3" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="16" Width="49"/>
-
-        <Border Grid.Column="3" Grid.Row="1" Margin="0,34,0,0" Grid.RowSpan="2" CornerRadius="30">
-            <Grid Margin="0,-60,0,60">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-
-                <TextBlock Grid.Row="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Primeiro Nome" VerticalAlignment="Top" Foreground="White" FontSize="17" Height="23" Width="114" Margin="0,134,0,0"/>
-                <TextBox Grid.Row="1" HorizontalAlignment="Left" Margin="0,162,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="#FF757575" Height="18"/>
-            </Grid>
-        </Border>
-
-        <Border Grid.Column="4" Grid.Row="1" Margin="0,34,0,0" Grid.RowSpan="2" CornerRadius="30">
-            <Grid Margin="0,-60,0,60">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <TextBox Grid.Row="1" HorizontalAlignment="Left" Margin="10,162,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="117" Background="#FF757575" Height="18"/>
-                <TextBlock Grid.Row="1" HorizontalAlignment="Left" Margin="8,135,0,0" TextWrapping="Wrap" Text="Ultimo Nome" VerticalAlignment="Top" Foreground="White" FontSize="17" Height="23" Width="124"/>
-            </Grid>
-        </Border>
+        <Rectangle RadiusX="10" RadiusY="10" HorizontalAlignment="Left" Height="471" Margin="804,120,0,0" Stroke="White" VerticalAlignment="Top" Width="527"/>
+        <TextBlock HorizontalAlignment="Left" Margin="827,284,0,0" TextWrapping="Wrap" Text="Contacta-nos" VerticalAlignment="Top" Height="48" Width="189" Foreground="White" FontFamily="montserrat" FontSize="25"/>
+        <TextBlock HorizontalAlignment="Left" Margin="827,331,0,0" TextWrapping="Wrap" Text="Precisas de esclarecer alguma cúvida ou tens alguma sugestão ? Entao preenche o inquérito e nós respondemos-te o quanto antes!" VerticalAlignment="Top" Height="97" Width="205" Foreground="#2db1b9" FontFamily="montserrat" FontSize="13"/>
 
 
-        <Border Grid.Column="3" Grid.Row="2" Margin="0,197,0,184" Grid.RowSpan="3" CornerRadius="30">
-            <Grid Margin="0,-91,0,91">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="27*"/>
-                    <ColumnDefinition Width="115*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
+        <!--primeiro nome-->
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Primeiro Nome" VerticalAlignment="Top" Foreground="White" FontSize="15" Height="23" Width="151" Margin="1040,200,0,0" FontFamily="Montserrat"/>
+        <TextBox TextWrapping="Wrap" Margin="1040,220,202,527">
+            <TextBox.Style>
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="Foreground" Value="White"></Setter>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TextBox}">
+                                <Border CornerRadius="3" Background="#FF757575">
+                                    <!-- Adiciona o elemento de conteúdo -->
+                                    <ScrollViewer x:Name="PART_ContentHost"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
 
-                <TextBlock Grid.Row="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Email" VerticalAlignment="Center" Foreground="White" FontSize="17" Height="24" Width="66" Grid.ColumnSpan="2"/>
-                <TextBox Grid.Row="1" Margin="0,56,-128,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Background="#FF757575" Height="24" Grid.ColumnSpan="2"/>
+        <!--ultimo nome-->
+        <TextBlock HorizontalAlignment="Left" Margin="1191,201,0,0" TextWrapping="Wrap" Text="Ultimo Nome" VerticalAlignment="Top" Foreground="White" FontSize="15" Height="23" Width="124" FontFamily="Montserrat"/>
+        <TextBox TextWrapping="Wrap" Margin="1192,221,65,527">
+            <TextBox.Style>
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="Foreground" Value="White"></Setter>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TextBox}">
+                                <Border CornerRadius="3" Background="#FF757575">
+                                    <!-- Adiciona o elemento de conteúdo -->
+                                    <ScrollViewer x:Name="PART_ContentHost"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
 
-            </Grid>
-        </Border>
+        <!--email-->
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Foreground="White" FontSize="15" Height="24" Width="66" Margin="1041,272,0,0" FontFamily="Montserrat"/>
+        <TextBox TextWrapping="Wrap" Margin="1042,294,65,453">
+            <TextBox.Style>
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="Foreground" Value="White"></Setter>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TextBox}">
+                                <Border CornerRadius="3" Background="#FF757575">
+                                    <!-- Adiciona o elemento de conteúdo -->
+                                    <ScrollViewer x:Name="PART_ContentHost"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
 
+        <!--em q podemos ajuda-->
+        <TextBlock TextWrapping="Wrap" Text="Em que podemos ajudar?" VerticalAlignment="Top" Foreground="White" FontSize="15" Height="23" Margin="1041,339,-36,0" FontFamily="Montserrat"/>
+        <TextBox TextWrapping="Wrap" Margin="1042,361,65,272">
+            <TextBox.Style>
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="Foreground" Value="White"></Setter>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TextBox}">
+                                <Border CornerRadius="3" Background="#FF757575">
+                                    <!-- Adiciona o elemento de conteúdo -->
+                                    <ScrollViewer x:Name="PART_ContentHost"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
 
-        <Border Grid.Column="3" Grid.Row="4" Margin="0,0,0,174" Grid.RowSpan="2" CornerRadius="30">
-            <Grid Margin="0,-82,0,82">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <TextBox Grid.Row="0" Margin="0,32,-128,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Background="#FF757575" Height="142" Grid.RowSpan="2"/>
-                <TextBlock TextWrapping="Wrap" Text="Em que podemos ajudar?" VerticalAlignment="Top" Foreground="White" FontSize="17" Height="23" Margin="0,0,-90,0"/>
-            </Grid>
-        </Border>
-        <Button Grid.Column="3" Content="Enviar" HorizontalAlignment="Left" Margin="0,118,0,0" Grid.Row="4" VerticalAlignment="Top" Height="40" Width="113" Background="#FF2DB1B9" />
+        <!--botao enviar-->
+        <Button Content="Enviar" HorizontalAlignment="Left" Margin="1040,518,0,0" VerticalAlignment="Top" Height="29" Width="97" Background="#FF2DB1B9" Foreground="White" FontFamily="Montserrat" />
+
 
 
     </Grid>

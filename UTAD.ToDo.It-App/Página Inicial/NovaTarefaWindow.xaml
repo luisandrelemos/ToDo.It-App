@@ -1,0 +1,21 @@
+﻿<Window x:Class="Página_Inicial.NovaTarefaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Página_Inicial"
+        mc:Ignorable="d"
+        Title="NovaTarefaWindow" Height="450" Width="800"
+        AllowsTransparency="True"
+        Background="Transparent" 
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    
+    <Grid>
+        <Image Source="C:\Users\Luís Lemos\source\repos\ToDo.It-App\UTAD.ToDo.It-App\Página Autenticação\Images\close.png" Panel.ZIndex="1" MouseUp="Image_MouseUp" Style="{StaticResource imgClose}"/>
+        <Border Background="#8a8a8a" Margin="0,0,0,0" CornerRadius="25,25,25,25">
+
+        </Border>
+    </Grid>
+</Window>

@@ -3,19 +3,15 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
-    <RootNamespace>Página_Inicial</RootNamespace>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>
-    <Page Remove="HomePageApp.xaml" />
-  </ItemGroup>
-
-    <ItemGroup>
-        <PackageReference Include="Syncfusion.Grid.WPF" Version="25.1.40" />
-        <PackageReference Include="Syncfusion.SfGrid.WPF" Version="25.1.40" />
+    <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.11.0" />
+      <PackageReference Include="Syncfusion.Grid.WPF" Version="25.1.40" />
+    <PackageReference Include="Syncfusion.SfGrid.WPF" Version="25.1.40" />
     <PackageReference Include="Syncfusion.Shared.WPF" Version="25.1.40" />
     <PackageReference Include="Syncfusion.SfChart.WPF" Version="25.1.40" />
     <PackageReference Include="Syncfusion.SfBulletGraph.WPF" Version="25.1.40" />
@@ -57,9 +53,9 @@
     <PackageReference Include="Syncfusion.SfTreeMap.WPF" Version="25.1.40" />
     <PackageReference Include="Syncfusion.SfHeatMap.WPF" Version="25.1.40" />
     <PackageReference Include="Syncfusion.SfSmithChart.WPF" Version="25.1.40" />
-    <PackageReference Include="Syncfusion.Themes.Windows11Dark.WPF" Version="25.1.40" />
-    <PackageReference Include="Syncfusion.SfSkinManager.WPF" Version="25.1.40" />
     <PackageReference Include="Syncfusion.Themes.Windows11Light.WPF" Version="25.1.40" />
+    <PackageReference Include="Syncfusion.SfSkinManager.WPF" Version="25.1.40" />
+    <PackageReference Include="Syncfusion.Themes.Windows11Dark.WPF" Version="25.1.40" />
     <PackageReference Include="Syncfusion.Themes.FluentLight.WPF" Version="25.1.40" />
     <PackageReference Include="Syncfusion.Themes.FluentDark.WPF" Version="25.1.40" />
     <PackageReference Include="Syncfusion.Themes.MaterialLight.WPF" Version="25.1.40" />
@@ -91,7 +87,4 @@
     <PackageReference Include="Syncfusion.Themes.VisualStudio2015.WPF" Version="25.1.40" />
 </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\Página Ajuda\Página Ajuda.csproj" />
-    </ItemGroup>
 </Project>
