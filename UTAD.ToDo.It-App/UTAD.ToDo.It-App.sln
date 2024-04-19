@@ -3,11 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Página Autenticação", "Página Autenticação\Página Autenticação.csproj", "{12B6F65E-7B37-43C3-97B7-99DF20F0B7BB}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Página Inicial", "Página Inicial\Página Inicial.csproj", "{36B15577-C217-4A1F-ACF7-4120AAA34448}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Página Ajuda", "Página Ajuda\Página Ajuda.csproj", "{5CD7706E-3B7E-41F3-9820-D595ED787D0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aplicação ToDo.IT", "Aplicação ToDo.IT\Aplicação ToDo.IT.csproj", "{1B46C73C-CCD2-44B3-8E29-25D7BF5048CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{12B6F65E-7B37-43C3-97B7-99DF20F0B7BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{12B6F65E-7B37-43C3-97B7-99DF20F0B7BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{12B6F65E-7B37-43C3-97B7-99DF20F0B7BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{12B6F65E-7B37-43C3-97B7-99DF20F0B7BB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{36B15577-C217-4A1F-ACF7-4120AAA34448}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{36B15577-C217-4A1F-ACF7-4120AAA34448}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{36B15577-C217-4A1F-ACF7-4120AAA34448}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{36B15577-C217-4A1F-ACF7-4120AAA34448}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5CD7706E-3B7E-41F3-9820-D595ED787D0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5CD7706E-3B7E-41F3-9820-D595ED787D0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5CD7706E-3B7E-41F3-9820-D595ED787D0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5CD7706E-3B7E-41F3-9820-D595ED787D0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B46C73C-CCD2-44B3-8E29-25D7BF5048CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B46C73C-CCD2-44B3-8E29-25D7BF5048CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B46C73C-CCD2-44B3-8E29-25D7BF5048CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B46C73C-CCD2-44B3-8E29-25D7BF5048CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

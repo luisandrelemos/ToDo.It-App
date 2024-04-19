@@ -1,0 +1,83 @@
+﻿<Window x:Class="Aplicação_ToDo.IT.Página_Inicial.PáginaInicial"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Aplicação_ToDo.IT.Página_Inicial"
+        xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        syncfusionskin:SfSkinManager.Theme="{syncfusionskin:SkinManagerExtension ThemeName=Windows11Dark}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="768" Width="1366"
+        AllowsTransparency="True"
+        Background="Transparent" 
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <!-- Conteúdo principal -->
+        <Border Background="#1e1e1e" CornerRadius="25,25,25,25">
+            <!-- Botão para adicionar nova tarefa -->
+            <Button Content="+" Style="{StaticResource buttonNew}"  Click="NovaTarefa_Click" Margin="1022,680,284,28" />
+        </Border>
+
+
+        <!-- Sidepanel esquerdo -->
+        <Border Width="250" Background="#2a2a2a" CornerRadius="25,25,25,25" HorizontalAlignment="Left">
+            <Grid>
+                <!-- Adicione a zona do usuário aqui -->
+                <Button Click="Definições_Click" Margin="8,10,8,693" Background="Transparent" BorderThickness="0">
+                    <Grid Margin="0,20,20,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30*"/>
+                            <ColumnDefinition Width="29*"/>
+                        </Grid.ColumnDefinitions>
+                        <!-- Imagem do usuário -->
+                        <Image Source="C:\Users\Luís Lemos\source\repos\ToDo.It-App\UTAD.ToDo.It-App\Aplicação ToDo.IT\Images\profile.jpg" Width="47" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,-17,0,0">
+                            <Image.Clip>
+                                <EllipseGeometry RadiusX="35" RadiusY="32" Center="23.5,25"/>
+                            </Image.Clip>
+                        </Image>
+                        <!-- Nome do usuário -->
+                        <TextBlock FontFamily="Montserrat" Text="Luís Lemos" Foreground="White" HorizontalAlignment="Left" FontSize="16" Margin="62,-11,0,21" Grid.ColumnSpan="2"/>
+
+                        <!-- Email do usuário -->
+                        <TextBlock FontFamily="Montserrat" Text="email@exemplo.com" Foreground="#aeaeae" HorizontalAlignment="Left" Margin="62,14,0,0" Grid.ColumnSpan="2"/>
+                    </Grid>
+                </Button>
+
+                <!-- Adicione os controles do sidepanel esquerdo aqui -->
+                <Line X1="6" Y1="80" X2="244" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,0,0,0"/>
+                <Line X1="6" Y1="355" X2="244" Y2="355" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,0,0,0"/>
+                <Button Content="Página Inicial" Style="{StaticResource buttonSelected}"  Click="PáginaInicial_Click" Margin="25,364,25,355" />
+                <Button Content="Calendário" Style="{StaticResource button1}" Click="Calendário_Click" Margin="25,418,25,301"/>
+                <Button Content="Tarefas" Style="{StaticResource button1}" Click="Tarefas_Click" Margin="25,472,25,247" />
+                <Line X1="6" Y1="528" X2="244" Y2="528" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,0,0,0"/>
+                <Button Content="Personalizar" Style="{StaticResource button1}" Click="Personalizar_Click" Margin="25,535,25,184" />
+                <Button Content="Definições" Style="{StaticResource button1}" Click="Definições_Click" Margin="25,589,25,130" />
+                <Button Content="Ajuda" Style="{StaticResource button1}" Click="Ajuda_Click" Margin="25,643,25,76" />
+                <Line X1="6" Y1="699" X2="244" Y2="699" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,0,0,0"/>
+                <Button Content="Sair da Aplicação" Style="{StaticResource buttonQuit}" Margin="25,706,25,10" Click="Sair_Click"/>
+            </Grid>
+        </Border>
+
+        <!-- Calendário SyncFusion -->
+        <syncfusion:CalendarEdit x:Name="Side_Calendar" Margin="3,93,1119,429" Culture="pt-PT"/>
+
+        <!-- Sidepanel direito -->
+        <Border Width="250" Background="#2a2a2a" CornerRadius="25,25,25,25" HorizontalAlignment="Left" Margin="1116,0,0,0">
+            <Grid>
+                <!-- Adicione o título do sidebar direito aqui -->
+                <TextBlock FontFamily="Montserrat" Text="As Minhas Tarefas" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="White" Margin="0,28,0,0" FontSize="16" FontWeight="Bold"/>
+
+                <!-- Adicione os controles do sidepanel esquerdo aqui -->
+                <Line X1="6" Y1="80" X2="244" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,0,0,0"/>
+            </Grid>
+        </Border>
+
+        <!-- Sidepanel Meio -->
+        <Border Width="802" Background="#2a2a2a" CornerRadius="0,0,15,15" HorizontalAlignment="Center" Margin="0,0,0,689"/>
+    </Grid>
+</Window>
+
