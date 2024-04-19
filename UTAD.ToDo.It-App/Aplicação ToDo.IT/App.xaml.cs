@@ -15,5 +15,4 @@ namespace Aplicação_ToDo.IT
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NBaF5cWWNCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWXtfeXRdRmJfUEZyVko=");
         }
     }
-
 }

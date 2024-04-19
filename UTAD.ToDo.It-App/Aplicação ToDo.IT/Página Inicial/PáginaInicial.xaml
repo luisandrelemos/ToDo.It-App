@@ -27,12 +27,8 @@
         <Border Width="250" Background="#2a2a2a" CornerRadius="25,25,25,25" HorizontalAlignment="Left">
             <Grid>
                 <!-- Adicione a zona do usuário aqui -->
-                <Button Click="Definições_Click" Margin="8,10,8,693" Background="Transparent" BorderThickness="0">
-                    <Grid Margin="0,20,20,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="30*"/>
-                            <ColumnDefinition Width="29*"/>
-                        </Grid.ColumnDefinitions>
+                <Button Click="Definições_Click" Margin="8,16,8,687" Background="Transparent" BorderThickness="0">
+                    <Grid>
                         <!-- Imagem do usuário -->
                         <Image Source="C:\Users\Luís Lemos\source\repos\ToDo.It-App\UTAD.ToDo.It-App\Aplicação ToDo.IT\Images\profile.jpg" Width="47" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,-17,0,0">
                             <Image.Clip>
