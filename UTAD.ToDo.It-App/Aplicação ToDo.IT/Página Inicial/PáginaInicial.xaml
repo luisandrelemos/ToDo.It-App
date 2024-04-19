@@ -26,22 +26,26 @@
         <!-- Sidepanel esquerdo -->
         <Border Width="250" Background="#2a2a2a" CornerRadius="25,25,25,25" HorizontalAlignment="Left">
             <Grid>
+                
                 <!-- Adicione a zona do usuário aqui -->
-                <Button Click="Definições_Click" Margin="8,16,8,687" Background="Transparent" BorderThickness="0">
-                    <Grid>
-                        <!-- Imagem do usuário -->
-                        <Image Source="C:\Users\Luís Lemos\source\repos\ToDo.It-App\UTAD.ToDo.It-App\Aplicação ToDo.IT\Images\profile.jpg" Width="47" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,-17,0,0">
-                            <Image.Clip>
-                                <EllipseGeometry RadiusX="35" RadiusY="32" Center="23.5,25"/>
-                            </Image.Clip>
-                        </Image>
-                        <!-- Nome do usuário -->
-                        <TextBlock FontFamily="Montserrat" Text="Luís Lemos" Foreground="White" HorizontalAlignment="Left" FontSize="16" Margin="62,-11,0,21" Grid.ColumnSpan="2"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="174"/>
+                    </Grid.ColumnDefinitions>
+                    <!-- Imagem do usuário -->
+                    <Image Source="C:\Users\Luís Lemos\source\repos\ToDo.It-App\UTAD.ToDo.It-App\Aplicação ToDo.IT\Images\profile.jpg" Width="47" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="28,15,0,0">
+                        <Image.Clip>
+                            <EllipseGeometry RadiusX="35" RadiusY="32" Center="23.5,25"/>
+                        </Image.Clip>
+                    </Image>
+                    <!-- Nome do usuário -->
+                    <TextBlock FontFamily="Montserrat" Text="Luís Lemos" Foreground="White" FontSize="16" Margin="10,21,70,728" Grid.Column="1"/>
 
-                        <!-- Email do usuário -->
-                        <TextBlock FontFamily="Montserrat" Text="email@exemplo.com" Foreground="#aeaeae" HorizontalAlignment="Left" Margin="62,14,0,0" Grid.ColumnSpan="2"/>
-                    </Grid>
-                </Button>
+                    <!-- Email do usuário -->
+                    <TextBlock FontFamily="Montserrat" Text="email@exemplo.com" Foreground="#aeaeae"  Margin="10,46,33,707" Grid.Column="1"/>
+                </Grid>
+                <Button Click="Definições_Click" Margin="20,10,20,698" Background="Transparent" BorderThickness="0"/>
 
                 <!-- Adicione os controles do sidepanel esquerdo aqui -->
                 <Line X1="6" Y1="80" X2="244" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,0,0,0"/>
