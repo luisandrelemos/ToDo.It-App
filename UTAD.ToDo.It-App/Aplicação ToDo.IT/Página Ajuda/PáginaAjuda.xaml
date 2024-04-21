@@ -128,7 +128,7 @@
 
         <!--primeiro nome-->
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Primeiro Nome" VerticalAlignment="Top" Foreground="White" FontSize="13" Height="15" Width="107" Margin="1040,201,0,0" FontFamily="Montserrat"/>
-        <TextBox TextWrapping="Wrap" Margin="1040,220,202,521">
+        <TextBox x:Name="tb_primeironome" TextWrapping="Wrap" Margin="1040,220,202,521">
             <TextBox.Style>
                 <Style TargetType="{x:Type TextBox}">
                     <Setter Property="Foreground" Value="White"></Setter>
@@ -148,7 +148,7 @@
 
         <!--ultimo nome-->
         <TextBlock HorizontalAlignment="Left" Margin="1192,201,0,0" TextWrapping="Wrap" Text="Ultimo Nome" VerticalAlignment="Top" Foreground="White" FontSize="13" Height="15" Width="93" FontFamily="Montserrat"/>
-        <TextBox TextWrapping="Wrap" Margin="1192,221,65,521">
+        <TextBox x:Name="tb_ultimonome" TextWrapping="Wrap" Margin="1192,221,65,521">
             <TextBox.Style>
                 <Style TargetType="{x:Type TextBox}">
                     <Setter Property="Foreground" Value="White"></Setter>
@@ -168,7 +168,7 @@
 
         <!--email-->
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="E-mail" VerticalAlignment="Top" Foreground="White" FontSize="13" Height="17" Width="47" Margin="1043,272,0,0" FontFamily="Montserrat"/>
-        <TextBox TextWrapping="Wrap" Margin="1042,294,65,447">
+        <TextBox x:Name="tb_email" TextWrapping="Wrap" Margin="1042,294,65,447">
             <TextBox.Style>
                 <Style TargetType="{x:Type TextBox}">
                     <Setter Property="Foreground" Value="White"></Setter>
@@ -188,7 +188,7 @@
 
         <!--em q podemos ajuda-->
         <TextBlock TextWrapping="Wrap" Text="Em que podemos ajudar?" VerticalAlignment="Top" Foreground="White" FontSize="13" Height="17" Margin="1041,339,150,0" FontFamily="Montserrat"/>
-        <TextBox TextWrapping="Wrap" Margin="1042,361,65,272">
+        <TextBox x:Name="tb_mensagem" TextWrapping="Wrap" Margin="1042,361,65,272">
             <TextBox.Style>
                 <Style TargetType="{x:Type TextBox}">
                     <Setter Property="Foreground" Value="White"></Setter>
@@ -207,7 +207,7 @@
         </TextBox>
 
         <!--botao enviar-->
-        <Button Content="Enviar" Style="{StaticResource buttonEnviar}"  Margin="1042,520,244,218" />
+        <Button Content="Enviar" Style="{StaticResource buttonEnviar}"  Margin="1042,520,244,218" Click="Button_Click" />
 
         <!--About Us-->
         <Rectangle Width="120" Height="30" Fill="#FF3A3A3A" RadiusX="8" RadiusY="8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="980,605,0,0"/>
