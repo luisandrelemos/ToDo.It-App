@@ -11,12 +11,24 @@
 
   <ItemGroup>
     <None Remove="Images\close.png" />
+    <None Remove="Images\profile.jpg" />
+    <None Remove="Images\question.png" />
+    <None Remove="SaveData\registros.xml" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Images\close.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\profile.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\question.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="SaveData\registros.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
     <ItemGroup>

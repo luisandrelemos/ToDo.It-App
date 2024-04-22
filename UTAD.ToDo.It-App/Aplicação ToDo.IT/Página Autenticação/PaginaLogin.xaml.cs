@@ -45,7 +45,7 @@ namespace Aplicação_ToDo.IT.Página_Autenticação
             try
             {
                 // Carregar o arquivo XML
-                XDocument doc = XDocument.Load("C:\\Users\\Luís Lemos\\source\\repos\\ToDo.It-App\\UTAD.ToDo.It-App\\Aplicação ToDo.IT\\SaveData\\registros.xml");
+                XDocument doc = XDocument.Load("SaveData\\registros.xml");
 
                 // Encontrar o usuário correspondente ao e-mail e senha
                 var user = (from u in doc.Root.Elements("userData")

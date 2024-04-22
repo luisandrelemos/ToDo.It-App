@@ -28,7 +28,7 @@
                     <ColumnDefinition Width="174"/>
                 </Grid.ColumnDefinitions>
                 <!-- Imagem do usuário -->
-                <Image Source="C:\Users\Luís Lemos\source\repos\ToDo.It-App\UTAD.ToDo.It-App\Aplicação ToDo.IT\Images\profile.jpg" Width="47" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="28,15,0,0">
+                <Image Source="\Images\profile.jpg" Width="47" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="28,15,0,0">
                     <Image.Clip>
                         <EllipseGeometry RadiusX="35" RadiusY="32" Center="23.5,25"/>
                     </Image.Clip>
@@ -39,7 +39,7 @@
                 <!-- Email do usuário -->
                 <TextBlock FontFamily="Montserrat" Text="email@exemplo.com" Foreground="#aeaeae"  Margin="89,45,970,708" />
             </Grid>
-            <Button Click="Definições_Click" Margin="23,10,1141,698" Background="Transparent" BorderThickness="0"/>
+            <Button Click="Definições_Click" Margin="22,10,1142,698" Background="Transparent" BorderThickness="0"/>
         </Grid>
 
         <!-- Sidepanel esquerdo -->

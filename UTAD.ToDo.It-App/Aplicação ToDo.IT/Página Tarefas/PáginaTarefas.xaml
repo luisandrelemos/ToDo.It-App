@@ -28,7 +28,7 @@
                     <ColumnDefinition Width="174"/>
                 </Grid.ColumnDefinitions>
                 <!-- Imagem do usuário -->
-                <Image Source="C:\Users\Luís Lemos\source\repos\ToDo.It-App\UTAD.ToDo.It-App\Aplicação ToDo.IT\Images\profile.jpg" Width="47" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="28,15,0,0">
+                <Image Source="\Images\profile.jpg" Width="47" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="28,15,0,0">
                     <Image.Clip>
                         <EllipseGeometry RadiusX="35" RadiusY="32" Center="23.5,25"/>
                     </Image.Clip>
