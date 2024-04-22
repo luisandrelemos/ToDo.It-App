@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Aplicação_ToDo.IT.Página_Inicial"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         Title="Nova Tarefa" Height="450" Width="720"
         AllowsTransparency="True"
@@ -42,11 +43,6 @@
                 <!-- Retângulo para o título da tarefa -->
                 <Border BorderBrush="#00cafc" BorderThickness="2" Margin="98,19,98,0" CornerRadius="5" Grid.Row="0">
                     <Grid Margin="8,9,6,9">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto" />
-                            <ColumnDefinition Width="171*" />
-                            <ColumnDefinition Width="335*"/>
-                        </Grid.ColumnDefinitions>
 
                         <TextBlock  FontFamily="Montserrat" x:Name="textAdd" MouseDown="textAdd_MouseDown" FontSize="18" Text="Adicionar Titulo" Style="{StaticResource textHintADD}" Grid.ColumnSpan="3" Margin="10,0,0,0" />
                         <TextBox x:Name="add" Background="Transparent" TextChanged="txtAdd_TextChanged" Style="{StaticResource textBoxADD}" Grid.ColumnSpan="3" Margin="10,-3,0,-3" />
@@ -61,12 +57,13 @@
 
                 <!-- Título "Prioridade" e caixa de seleção -->
                 <Grid Grid.Row="2" Margin="98,38,98,-38">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
+                    
 
-                    <TextBlock Grid.Column="0" Foreground="White" FontFamily="Montserrat" FontSize="18" Text="Prioridade" Margin="0,6,429,224" Grid.ColumnSpan="2" />
+                    <TextBlock Grid.Column="0" Foreground="White" FontFamily="Montserrat" FontSize="18" Text="Prioridade" Margin="30,5,399,225" />
+                    <Icon:PackIconEvaIcons Kind="Flag" Width="20" Height="20" Foreground="#00f0ff" Margin="0,6,0,0"/>
+                    <Icon:PackIconFeatherIcons Kind="Clock"  Width="20" Height="20" Foreground="#00f0ff" Margin="0,72,0,0"/>
+                    <Icon:PackIconForkAwesome Kind="BellRinging" Width="20" Height="20" Foreground="#00f0ff" Margin="0,139,0,0"/>
+                    <Icon:PackIconUnicons Kind="AlignLeftJustify" Width="20" Height="20" Foreground="#00f0ff" Margin="0,202,0,0"/>
                     <Syncfusion:DateTimeEdit Grid.Column="1" Margin="332,52,0,173" />
                     <ComboBox x:Name="PriorityComboBox" Grid.Column="1" Margin="332,2,0,224" SelectionChanged="PriorityComboBox_SelectionChanged" Style="{StaticResource ComboBox}">
                         <ComboBoxItem Style="{StaticResource ComboBoxItenm}">Importante</ComboBoxItem>
@@ -77,7 +74,7 @@
 
                 <!-- Título "Data e Hora" e caixa de seleção -->
                 <Grid>
-                    <TextBlock Grid.Column="0" Foreground="White" FontFamily="Montserrat" FontSize="18" Text="Data e Hora" Margin="97,172,498,-131" />
+                    <TextBlock Grid.Column="0" Foreground="White" FontFamily="Montserrat" FontSize="18" Text="Data e Hora" Margin="130,172,465,-131" />
                     <ComboBox x:Name="RepeatComboBox" Margin="430,189,97,-151" SelectionChanged="RepeatComboBox_SelectionChanged" Style="{StaticResource ComboBox}">
                         <ComboBoxItem Style="{StaticResource ComboBoxItenm}">Todos os Dias</ComboBoxItem>
                         <ComboBoxItem Style="{StaticResource ComboBoxItenm}">Semanalmente</ComboBoxItem>
@@ -87,7 +84,7 @@
 
                 <!-- Título "Data e Hora" e caixa de seleção -->
                 <Grid>
-                    <TextBlock Grid.Column="0" Foreground="White" FontFamily="Montserrat" FontSize="18" Text="Lembrete" Margin="99,239,526,-200" />
+                    <TextBlock Grid.Column="0" Foreground="White" FontFamily="Montserrat" FontSize="18" Text="Lembrete" Margin="130,239,495,-200" />
                     <Button Content="+" Style="{StaticResource buttonLembrete}"  Click="LembreteTarefa_Click" Margin="580,231,100,-208" />
                 </Grid>
 
