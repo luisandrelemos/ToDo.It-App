@@ -1,9 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Input;
-using System;
 using System.Xml.Linq;
-using System.IO;
-using System.Linq;
 using Aplicação_ToDo.IT.Página_Inicial;
 
 namespace Aplicação_ToDo.IT.Página_Autenticação

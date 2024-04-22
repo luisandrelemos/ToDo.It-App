@@ -1,5 +1,4 @@
 ﻿using Aplicação_ToDo.IT.Página_Inicial;
-using System.Text.RegularExpressions;
 using System.Net.Mail;
 using System.Net;
 using System.Windows;
