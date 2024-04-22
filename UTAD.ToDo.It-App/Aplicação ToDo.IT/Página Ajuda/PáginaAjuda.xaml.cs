@@ -4,6 +4,7 @@ using System.Net.Mail;
 using System.Net;
 using System.Windows;
 using Aplicação_ToDo.IT.Página_Tarefas;
+using Aplicação_ToDo.IT.Página_Personalizar;
 
 namespace Aplicação_ToDo.IT.Página_Ajuda
 {
@@ -35,7 +36,9 @@ namespace Aplicação_ToDo.IT.Página_Ajuda
 
         private void Personalizar_Click(object sender, RoutedEventArgs e)
         {
-
+            PáginaPersonalizar mainWindow = new PáginaPersonalizar();
+            mainWindow.Show();
+            this.Close();
         }
 
         private void Definições_Click(object sender, RoutedEventArgs e)

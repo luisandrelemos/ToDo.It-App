@@ -2,11 +2,17 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="Página Personalizar\PáginaPersonalizar.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Página Tarefas\PáginaTarefas.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Página Personalizar\PáginaPersonalizar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Página Tarefas\PáginaTarefas.xaml">
       <SubType>Designer</SubType>
     </Page>

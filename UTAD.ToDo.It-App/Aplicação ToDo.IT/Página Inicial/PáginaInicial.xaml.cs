@@ -1,4 +1,5 @@
 ﻿using Aplicação_ToDo.IT.Página_Ajuda;
+using Aplicação_ToDo.IT.Página_Personalizar;
 using Aplicação_ToDo.IT.Página_Tarefas;
 using System.Windows;
 
@@ -43,7 +44,9 @@ namespace Aplicação_ToDo.IT.Página_Inicial
 
         private void Personalizar_Click(object sender, RoutedEventArgs e)
         {
-
+            PáginaPersonalizar mainWindow = new PáginaPersonalizar();
+            mainWindow.Show();
+            this.Close();
         }
 
         private void Definições_Click(object sender, RoutedEventArgs e)
