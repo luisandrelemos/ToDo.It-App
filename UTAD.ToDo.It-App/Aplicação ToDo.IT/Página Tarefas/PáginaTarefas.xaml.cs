@@ -1,25 +1,11 @@
 ﻿using Aplicação_ToDo.IT.Página_Ajuda;
+using Aplicação_ToDo.IT.Página_Definições;
 using Aplicação_ToDo.IT.Página_Inicial;
 using Aplicação_ToDo.IT.Página_Personalizar;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Aplicação_ToDo.IT.Página_Tarefas
 {
-    /// <summary>
-    /// Interaction logic for PáginaTarefas.xaml
-    /// </summary>
     public partial class PáginaTarefas : Window
     {
         public PáginaTarefas()
@@ -55,7 +41,9 @@ namespace Aplicação_ToDo.IT.Página_Tarefas
 
         private void Definições_Click(object sender, RoutedEventArgs e)
         {
-
+            PáginaDefinições mainWindow = new PáginaDefinições();
+            mainWindow.Show();
+            this.Close();
         }
 
         private void Ajuda_Click(object sender, RoutedEventArgs e)

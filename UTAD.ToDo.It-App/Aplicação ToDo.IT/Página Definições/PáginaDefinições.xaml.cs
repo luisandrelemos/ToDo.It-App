@@ -1,6 +1,6 @@
 ﻿using Aplicação_ToDo.IT.Página_Ajuda;
-using Aplicação_ToDo.IT.Página_Definições;
 using Aplicação_ToDo.IT.Página_Inicial;
+using Aplicação_ToDo.IT.Página_Personalizar;
 using Aplicação_ToDo.IT.Página_Tarefas;
 using System;
 using System.Collections.Generic;
@@ -16,11 +16,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Aplicação_ToDo.IT.Página_Personalizar
+namespace Aplicação_ToDo.IT.Página_Definições
 {
-    public partial class PáginaPersonalizar : Window
+    public partial class PáginaDefinições : Window
     {
-        public PáginaPersonalizar()
+        public PáginaDefinições()
         {
             InitializeComponent();
         }
