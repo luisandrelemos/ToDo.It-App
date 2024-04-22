@@ -191,6 +191,64 @@
             </Style.Triggers>
         </Style>
 
+        <Style x:Key="buttonLembrete" TargetType="{x:Type Button}">
+            <Setter Property="FontFamily" Value="Montserrat" />
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="Width" Value="40" />
+            <Setter Property="Height" Value="40" />
+            <Setter Property="Background" Value="#2db1b9" />
+            <Setter Property="Foreground" Value="#ffffff" />
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="15" BorderBrush="Transparent" Padding="0" BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#276d71" />
+                    <Setter Property="Foreground" Value="#00fcff" />
+                </Trigger>
+                <Trigger Property="IsMouseCaptured" Value="True">
+                    <Setter Property="Background" Value="#1e484a" />
+                    <Setter Property="Foreground" Value="#00fcff" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="buttonGuardarLembrete" TargetType="{x:Type Button}">
+            <Setter Property="FontFamily" Value="Montserrat" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="Width" Value="90" />
+            <Setter Property="Height" Value="35" />
+            <Setter Property="Background" Value="#2db1b9" />
+            <Setter Property="Foreground" Value="#ffffff" />
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="Transparent" Padding="0" BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#276d71" />
+                    <Setter Property="Foreground" Value="#00fcff" />
+                </Trigger>
+                <Trigger Property="IsMouseCaptured" Value="True">
+                    <Setter Property="Background" Value="#1e484a" />
+                    <Setter Property="Foreground" Value="#00fcff" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
         <Style x:Key="buttonEnviar" TargetType="{x:Type Button}">
             <Setter Property="FontFamily" Value="Montserrat" />
             <Setter Property="FontSize" Value="12" />
@@ -257,6 +315,25 @@
             <Setter Property="BorderThickness" Value="0" />
         </Style>
 
+        <Style x:Key="textHintADD" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Grid.Column" Value="1" />
+            <Setter Property="Panel.ZIndex" Value="1" />
+            <Setter Property="Margin" Value="10 0 0 0" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+
+        <Style x:Key="textBoxADD" TargetType="Control">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontFamily" Value="Montserrat"/>
+            <Setter Property="Grid.Column" Value="1" />
+            <Setter Property="Margin" Value="10 0 0 0" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+
 
         <Style x:Key="mainButton" TargetType="{x:Type Button}">
             <Setter Property="FontSize" Value="18" />
@@ -284,6 +361,30 @@
                 <Trigger Property="IsMouseCaptured" Value="True">
                     <Setter Property="Background" Value="#2f919c" />
                     <Setter Property="Foreground" Value="White" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="ComboBox" TargetType="{x:Type ComboBox}">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontFamily" Value="Montserrat"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Background" Value="DarkGray"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+        <Style x:Key="ComboBoxItenm" TargetType="{x:Type ComboBoxItem}">
+            <Setter Property="Foreground" Value="black"/>
+            <Setter Property="FontFamily" Value="Montserrat"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Background" Value="DarkGray"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="5"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="LightGray"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
