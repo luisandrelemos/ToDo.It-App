@@ -3,6 +3,7 @@ using System.Text.RegularExpressions;
 using System.Net.Mail;
 using System.Net;
 using System.Windows;
+using Aplicação_ToDo.IT.Página_Tarefas;
 
 namespace Aplicação_ToDo.IT.Página_Ajuda
 {
@@ -27,7 +28,9 @@ namespace Aplicação_ToDo.IT.Página_Ajuda
 
         private void Tarefas_Click(object sender, RoutedEventArgs e)
         {
-
+            PáginaTarefas mainWindow = new PáginaTarefas();
+            mainWindow.Show();
+            this.Close();
         }
 
         private void Personalizar_Click(object sender, RoutedEventArgs e)

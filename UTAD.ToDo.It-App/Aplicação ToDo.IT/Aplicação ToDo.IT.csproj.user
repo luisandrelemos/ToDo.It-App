@@ -2,44 +2,12 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <ApplicationDefinition Update="App.xaml">
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="Página Ajuda\PáginaAjuda.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Página Autenticação\PaginaLogin.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Página Autenticação\PáginaRegisto.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Página Inicial\PáginaInicial.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Página Inicial\PáginaNovaTarefa.xaml.cs">
+    <Compile Update="Página Tarefas\PáginaTarefas.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Página Ajuda\PáginaAjuda.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Página Autenticação\PaginaLogin.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Página Autenticação\PáginaRegisto.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Página Inicial\PáginaInicial.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Página Inicial\PáginaNovaTarefa.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Temas\Dark.xaml">
+    <Page Update="Página Tarefas\PáginaTarefas.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

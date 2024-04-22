@@ -1,25 +1,29 @@
 ﻿using Aplicação_ToDo.IT.Página_Ajuda;
-using Aplicação_ToDo.IT.Página_Tarefas;
+using Aplicação_ToDo.IT.Página_Inicial;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
-namespace Aplicação_ToDo.IT.Página_Inicial
+namespace Aplicação_ToDo.IT.Página_Tarefas
 {
-
-    public partial class PáginaInicial : Window
+    /// <summary>
+    /// Interaction logic for PáginaTarefas.xaml
+    /// </summary>
+    public partial class PáginaTarefas : Window
     {
-        public PáginaInicial()
+        public PáginaTarefas()
         {
             InitializeComponent();
-        }
-
-        private void NovaTarefa_Click(object sender, RoutedEventArgs e)
-        {
-            // Crie uma nova instância da janela de criação de tarefa
-            PáginaNovaTarefa novaTarefaWindow = new PáginaNovaTarefa();
-
-            // Exiba a nova janela como um diálogo modal
-            novaTarefaWindow.Owner = this;
-            novaTarefaWindow.ShowDialog();
         }
 
         private void PáginaInicial_Click(object sender, RoutedEventArgs e)
@@ -61,6 +65,16 @@ namespace Aplicação_ToDo.IT.Página_Inicial
         private void Sair_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void NovaTarefa_Click(object sender, RoutedEventArgs e)
+        {
+            // Crie uma nova instância da janela de criação de tarefa
+            PáginaNovaTarefa novaTarefaWindow = new PáginaNovaTarefa();
+
+            // Exiba a nova janela como um diálogo modal
+            novaTarefaWindow.Owner = this;
+            novaTarefaWindow.ShowDialog();
         }
     }
 }
