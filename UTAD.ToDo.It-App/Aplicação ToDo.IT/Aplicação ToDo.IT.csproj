@@ -12,7 +12,6 @@
   <ItemGroup>
     <None Remove="Images\close.png" />
     <None Remove="Images\profile.jpg" />
-    <None Remove="Images\question.png" />
     <None Remove="SaveData\registros.xml" />
   </ItemGroup>
 
@@ -23,9 +22,6 @@
     <Resource Include="Images\profile.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\question.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
     <Content Include="SaveData\registros.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -33,6 +29,7 @@
 
     <ItemGroup>
         <PackageReference Include="MahApps.Metro.IconPacks" Version="4.11.0" />
+        <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.11.0" />
         <PackageReference Include="Syncfusion.Grid.WPF" Version="25.1.40" />
         <PackageReference Include="Syncfusion.SfGrid.WPF" Version="25.1.40" />
     <PackageReference Include="Syncfusion.Shared.WPF" Version="25.1.40" />

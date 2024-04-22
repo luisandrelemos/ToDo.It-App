@@ -52,14 +52,21 @@
 
                 <!-- Adicione os controles do sidepanel esquerdo aqui -->
                 <Button Content="Página Inicial" Style="{StaticResource button1}"  Click="PáginaInicial_Click" Margin="25,26,25,597" Grid.RowSpan="2" />
+                <Icon:PackIconCodicons Kind="Home" Width="20" Height="20" Foreground="White" Margin="41,-1,0,0" Grid.Row="1"/>
                 <Button Content="Calendário" Style="{StaticResource button1}" Click="Calendário_Click" Margin="25,40,25,543" Grid.Row="1"/>
+                <Icon:PackIconCoolicons Kind="Calendar" Width="20" Height="20" Foreground="White" Margin="41,55,0,0" Grid.Row="1"/>
                 <Button Content="Tarefas" Style="{StaticResource button1}" Click="Tarefas_Click" Margin="25,94,25,489" Grid.Row="1" />
+                <Icon:PackIconFontAwesome Kind="TasksSolid" Width="20" Height="20" Foreground="White" Margin="41,109,0,0" Grid.Row="1"/>
                 <Line X1="6" Y1="190" X2="244" Y2="190" Stroke="#4e4e4e" StrokeThickness="1" Grid.RowSpan="2"/>
                 <Button Content="Personalizar" Style="{StaticResource button1}" Click="Personalizar_Click" Margin="25,155,25,428" Grid.Row="1" />
+                <Icon:PackIconRemixIcon Kind="PaintFill" Width="20" Height="20" Foreground="White" Margin="41,169,0,0" Grid.Row="1"/>
                 <Button Content="Definições" Style="{StaticResource button1}" Click="Definições_Click" Margin="25,209,25,374" Grid.Row="1" />
+                <Icon:PackIconVaadinIcons Kind="CogOutline" Width="20" Height="20" Foreground="White" Margin="41,223,0,0" Grid.Row="1"/>
                 <Button Content="Ajuda" Style="{StaticResource buttonSelected}" Click="Ajuda_Click" Margin="25,263,25,320" Grid.Row="1" />
+                <Icon:PackIconMaterial Kind="HelpCircleOutline" Width="20" Height="20" Foreground="#00f0ff" Margin="41,278,0,0" Grid.Row="1"/>
                 <Line X1="6" Y1="365" X2="244" Y2="365" Stroke="#4e4e4e" StrokeThickness="1" Grid.RowSpan="2"/>
                 <Button Content="Sair da Aplicação" Style="{StaticResource buttonQuit}" Margin="25,564,25,18" Click="Sair_Click" Grid.Row="1"/>
+                <Icon:PackIconUnicons Kind="Signout"  Width="20" Height="20" Foreground="White" Margin="41,579,0,0" Grid.Row="1"/>
             </Grid>
         </Border>
 
