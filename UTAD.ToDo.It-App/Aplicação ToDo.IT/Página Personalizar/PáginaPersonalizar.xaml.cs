@@ -1,21 +1,10 @@
 ﻿using Aplicação_ToDo.IT.Página_Ajuda;
+using Aplicação_ToDo.IT.Página_Calendário;
 using Aplicação_ToDo.IT.Página_Definições;
 using Aplicação_ToDo.IT.Página_Inicial;
 using Aplicação_ToDo.IT.Página_Tarefas;
 using Aplicação_ToDo.IT.SaveData;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Aplicação_ToDo.IT.Página_Personalizar
 {
@@ -39,7 +28,9 @@ namespace Aplicação_ToDo.IT.Página_Personalizar
 
         private void Calendário_Click(object sender, RoutedEventArgs e)
         {
-
+            PáginaCalendário mainWindow = new PáginaCalendário();
+            mainWindow.Show();
+            this.Close();
         }
 
         private void Tarefas_Click(object sender, RoutedEventArgs e)

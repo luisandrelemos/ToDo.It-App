@@ -1,16 +1,17 @@
 ﻿using Aplicação_ToDo.IT.Página_Ajuda;
-using Aplicação_ToDo.IT.Página_Calendário;
+using Aplicação_ToDo.IT.Página_Definições;
 using Aplicação_ToDo.IT.Página_Inicial;
 using Aplicação_ToDo.IT.Página_Personalizar;
 using Aplicação_ToDo.IT.Página_Tarefas;
 using Aplicação_ToDo.IT.SaveData;
 using System.Windows;
 
-namespace Aplicação_ToDo.IT.Página_Definições
+namespace Aplicação_ToDo.IT.Página_Calendário
 {
-    public partial class PáginaDefinições : Window
+
+    public partial class PáginaCalendário : Window
     {
-        public PáginaDefinições()
+        public PáginaCalendário()
         {
             InitializeComponent();
 
@@ -64,11 +65,6 @@ namespace Aplicação_ToDo.IT.Página_Definições
         private void Sair_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
-        }
-
-        private void tb_primeironome_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-
         }
     }
 }

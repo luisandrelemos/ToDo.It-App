@@ -6,6 +6,7 @@ using Aplicação_ToDo.IT.Página_Tarefas;
 using Aplicação_ToDo.IT.Página_Personalizar;
 using Aplicação_ToDo.IT.Página_Definições;
 using Aplicação_ToDo.IT.SaveData;
+using Aplicação_ToDo.IT.Página_Calendário;
 
 namespace Aplicação_ToDo.IT.Página_Ajuda
 {
@@ -29,7 +30,9 @@ namespace Aplicação_ToDo.IT.Página_Ajuda
 
         private void Calendário_Click(object sender, RoutedEventArgs e)
         {
-
+            PáginaCalendário mainWindow = new PáginaCalendário();
+            mainWindow.Show();
+            this.Close();
         }
 
         private void Tarefas_Click(object sender, RoutedEventArgs e)
