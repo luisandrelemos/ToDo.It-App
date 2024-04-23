@@ -73,5 +73,12 @@ namespace Aplicação_ToDo.IT.Página_Inicial
         {
             Application.Current.Shutdown();
         }
+
+        private void Perfil_Click(object sender, RoutedEventArgs e)
+        {
+            PáginaDefinições mainWindow = new PáginaDefinições();
+            mainWindow.Show();
+            this.Close();
+        }
     }
 }

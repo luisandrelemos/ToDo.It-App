@@ -51,6 +51,35 @@
             </Style.Triggers>
         </Style>
 
+        <Style x:Key="buttonPerfil" TargetType="{x:Type Button}">
+            <Setter Property="FontFamily" Value="Montserrat" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Width" Value="230" />
+            <Setter Property="Height" Value="64" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="#FDFEFE" />
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="15" BorderBrush="Transparent" Padding="9" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#40636363" />
+                    <Setter Property="Foreground" Value="#70636363" />
+                </Trigger>
+                <Trigger Property="IsMouseCaptured" Value="True">
+                    <Setter Property="Background" Value="#70636363" />
+                    <Setter Property="Foreground" Value="#80636363" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
         <Style x:Key="buttonSide" TargetType="{x:Type Button}">
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Width" Value="170" />

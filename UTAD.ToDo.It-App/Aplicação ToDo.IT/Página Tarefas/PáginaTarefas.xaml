@@ -29,18 +29,18 @@
                     <ColumnDefinition Width="174"/>
                 </Grid.ColumnDefinitions>
                 <!-- Imagem do usuário -->
-                <Image Source="\Images\profile.jpg" Width="47" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="28,15,0,0">
+                <Image Source="\Images\profile.jpg" Width="47" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="22,16,0,0">
                     <Image.Clip>
                         <EllipseGeometry RadiusX="35" RadiusY="32" Center="23.5,25"/>
                     </Image.Clip>
                 </Image>
 
                 <!-- Nome do usuário -->
-                <TextBlock x:Name="UsernameTextBlock" FontFamily="Montserrat" Text="Utilizador" Foreground="White" FontSize="16"  Margin="82,20,953,729" />
+                <TextBlock x:Name="UsernameTextBlock" FontFamily="Montserrat" Text="Utilizador" Foreground="White" FontSize="16"  Margin="76,21,959,728" />
                 <!-- Email do usuário -->
-                <TextBlock x:Name="EmailTextBlock" FontFamily="Montserrat" Text="email@exemplo.com" Foreground="#aeaeae"  Margin="82,45,949,708" />
+                <TextBlock x:Name="EmailTextBlock" FontFamily="Montserrat" Text="email@exemplo.com" Foreground="#aeaeae"  Margin="76,46,955,707" />
             </Grid>
-            <Button Click="Definições_Click" Margin="25,10,1127,698" Background="Transparent" BorderThickness="0"/>
+            <Button Click="Definições_Click" Style="{StaticResource buttonPerfil}" Margin="6,10,1130,694"/>
         </Grid>
 
         <!-- Sidepanel esquerdo -->

@@ -39,18 +39,18 @@
                         <ColumnDefinition Width="174"/>
                     </Grid.ColumnDefinitions>
                     <!-- Imagem do usuário -->
-                    <Image Source="\Images\profile.jpg" Width="47" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="28,15,0,0" Grid.RowSpan="2">
+                    <Image Source="\Images\profile.jpg" Width="47" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="22,16,0,0" Grid.RowSpan="2">
                         <Image.Clip>
                             <EllipseGeometry RadiusX="35" RadiusY="32" Center="23.5,25"/>
                         </Image.Clip>
                     </Image>
                     <!-- Nome do usuário -->
-                    <TextBlock x:Name="UsernameTextBlock" FontFamily="Montserrat" Text="Utilizador" Foreground="White" FontSize="16" Margin="6,20,13,12" Grid.Column="1"/>
+                    <TextBlock x:Name="UsernameTextBlock" FontFamily="Montserrat" Text="Utilizador" Foreground="White" FontSize="16" Margin="0,21,19,11" Grid.Column="1"/>
 
                     <!-- Email do usuário -->
-                    <TextBlock x:Name="EmailTextBlock" FontFamily="Montserrat" Text="email@exemplo.com" Foreground="#aeaeae"  Margin="6,45,10,707" Grid.Column="1" Grid.RowSpan="2"/>
+                    <TextBlock x:Name="EmailTextBlock" FontFamily="Montserrat" Text="email@exemplo.com" Foreground="#aeaeae"  Margin="0,46,16,706" Grid.Column="1" Grid.RowSpan="2"/>
                 </Grid>
-                <Button Click="Definições_Click"  Margin="25,10,10,698" Background="Transparent" BorderThickness="0"/>
+                <Button Click="Perfil_Click" Style="{StaticResource buttonPerfil}" Margin="10,10,10,695"/>
 
                 <!-- Adicione os controles do sidepanel esquerdo aqui -->
                 <Line X1="6" Y1="80" X2="244" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,0,0,0"/>
