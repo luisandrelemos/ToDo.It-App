@@ -36,11 +36,11 @@
                 </Image>
 
                 <!-- Nome do usuário -->
-                <TextBlock FontFamily="Montserrat" Text="Luís Lemos" Foreground="White" FontSize="16"  Margin="89,20,1009,729" />
+                <TextBlock x:Name="UsernameTextBlock" FontFamily="Montserrat" Text="Utilizador" Foreground="White" FontSize="16"  Margin="82,20,953,729" />
                 <!-- Email do usuário -->
-                <TextBlock FontFamily="Montserrat" Text="email@exemplo.com" Foreground="#aeaeae"  Margin="89,45,970,708" />
+                <TextBlock x:Name="EmailTextBlock" FontFamily="Montserrat" Text="email@exemplo.com" Foreground="#aeaeae"  Margin="82,45,949,708" />
             </Grid>
-            <Button Click="Definições_Click" Margin="23,10,1141,698" Background="Transparent" BorderThickness="0"/>
+            <Button Click="Definições_Click" Margin="25,10,1127,698" Background="Transparent" BorderThickness="0"/>
         </Grid>
 
         <!-- Sidepanel esquerdo -->

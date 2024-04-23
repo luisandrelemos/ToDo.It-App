@@ -5,6 +5,7 @@ using System.Windows;
 using Aplicação_ToDo.IT.Página_Tarefas;
 using Aplicação_ToDo.IT.Página_Personalizar;
 using Aplicação_ToDo.IT.Página_Definições;
+using Aplicação_ToDo.IT.SaveData;
 
 namespace Aplicação_ToDo.IT.Página_Ajuda
 {
@@ -14,6 +15,10 @@ namespace Aplicação_ToDo.IT.Página_Ajuda
         public PáginaAjuda()
         {
             InitializeComponent();
+
+            // Exibir o nome de usuário e o e-mail do usuário
+            UsernameTextBlock.Text = UserData.Username;
+            EmailTextBlock.Text = UserData.Email;
         }
         private void PáginaInicial_Click(object sender, RoutedEventArgs e)
         {

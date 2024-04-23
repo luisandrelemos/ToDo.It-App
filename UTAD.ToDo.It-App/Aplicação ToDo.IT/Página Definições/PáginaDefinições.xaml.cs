@@ -2,19 +2,8 @@
 using Aplicação_ToDo.IT.Página_Inicial;
 using Aplicação_ToDo.IT.Página_Personalizar;
 using Aplicação_ToDo.IT.Página_Tarefas;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Aplicação_ToDo.IT.SaveData;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Aplicação_ToDo.IT.Página_Definições
 {
@@ -23,6 +12,10 @@ namespace Aplicação_ToDo.IT.Página_Definições
         public PáginaDefinições()
         {
             InitializeComponent();
+
+            // Exibir o nome de usuário e o e-mail do usuário
+            UsernameTextBlock.Text = UserData.Username;
+            EmailTextBlock.Text = UserData.Email;
         }
 
         private void PáginaInicial_Click(object sender, RoutedEventArgs e)

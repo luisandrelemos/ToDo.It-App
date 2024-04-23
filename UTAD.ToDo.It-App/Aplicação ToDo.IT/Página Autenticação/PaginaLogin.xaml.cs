@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using System.Xml.Linq;
 using Aplicação_ToDo.IT.Página_Inicial;
+using Aplicação_ToDo.IT.SaveData;
 
 namespace Aplicação_ToDo.IT.Página_Autenticação
 {
@@ -52,6 +53,10 @@ namespace Aplicação_ToDo.IT.Página_Autenticação
 
                 if (user != null)
                 {
+                    // Salvar o nome de usuário e o e-mail na classe UserData
+                    UserData.Username = (string)user.Element("username");
+                    UserData.Email = (string)user.Element("email");
+
                     PáginaInicial mainWindow = new PáginaInicial();
                     mainWindow.Show();
                     this.Close();
