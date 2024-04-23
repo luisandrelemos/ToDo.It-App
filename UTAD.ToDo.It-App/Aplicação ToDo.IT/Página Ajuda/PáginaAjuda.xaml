@@ -13,7 +13,7 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
 
-    <Grid>
+    <Grid x:Name="ContentGrid">
         <!-- Conteúdo principal -->
         <Border Background="#1e1e1e" CornerRadius="25,25,25,25" RenderTransformOrigin="0.5,0.5"/>
 
@@ -103,28 +103,28 @@
         <Icon:PackIconMaterial Kind="HelpCircleOutline" Width="40" Height="40" Foreground="#00f0ff" Margin="304,20,0,0"/>
 
         <!--1º Mensagem Recorrente -->
-        <Expander   Header="Como faço para adicionar uma nova tarefa á minha lista?" Margin="283,463,640,0" VerticalAlignment="Top"  Foreground="White" Background="#FF3A3A3A" OpacityMask="Black" Height="23">
-            <TextBlock Text="..."/>
+        <Expander   Header="Como faço para adicionar uma nova tarefa á minha lista?" Margin="283,457,640,0" VerticalAlignment="Top"  Foreground="White" Background="#FF3A3A3A" OpacityMask="Black"  >
+            <TextBlock TextWrapping="Wrap" Text=" Para adicionar uma tarefa á sua lista de tarefas, você precisa de ir á página inicial, clicar no +, após isso preenche a página da tarefa e confirma!" Height="32" Width="443"/>
         </Expander>
 
-        <!--1º Mensagem Recorrente -->
-        <Expander   Header="É possível definir lembtretes para as minhas tarefas?" Margin="282,524,641,0" VerticalAlignment="Top"  Foreground="White" Background="#FF3A3A3A" OpacityMask="Black" Height="23">
-            <TextBlock Text="..."/>
+        <!--2º Mensagem Recorrente -->
+        <Expander   Header="É possível definir lembretes para as minhas tarefas?" Margin="282,518,641,0" VerticalAlignment="Top"  Foreground="White" Background="#FF3A3A3A" OpacityMask="Black"  >
+            <TextBlock TextWrapping="Wrap" Text=" Sim, você pode definir os lembretes ou por via email ou através de uma notificação do windows á hora que desejar."/>
         </Expander>
 
-        <!--1º Mensagem Recorrente -->
-        <Expander   Header="Como marcar uma tarefa como concluida?" Margin="282,581,641,0" VerticalAlignment="Top"  Foreground="White" Background="#FF3A3A3A" OpacityMask="Black" Height="23">
-            <TextBlock Text="..."/>
+        <!--3º Mensagem Recorrente -->
+        <Expander   Header="Como marcar uma tarefa como concluida?" Margin="282,581,641,0" VerticalAlignment="Top"  Foreground="White" Background="#FF3A3A3A" OpacityMask="Black">
+            <TextBlock TextWrapping="Wrap" Text="..."/>
         </Expander>
 
-        <!--1º Mensagem Recorrente -->
-        <Expander   Header="É possivel personalizar a aparência da aplicação?" Margin="283,643,640,0" VerticalAlignment="Top"  Foreground="White" Background="#FF3A3A3A" OpacityMask="Black" Height="23">
-            <TextBlock Text="..."/>
+        <!--4º Mensagem Recorrente -->
+        <Expander   Header="É possivel personalizar a aparência da aplicação?" Margin="283,643,640,0" VerticalAlignment="Top"  Foreground="White" Background="#FF3A3A3A" OpacityMask="Black"  >
+            <TextBlock TextWrapping="Wrap" Text=" Sim, existe uma página Personalizar onde pode personalizar o tema da aplicação como tambem a cor dos icons á sua preferência"/>
         </Expander>
 
-        <!--1º Mensagem Recorrente -->
-        <Expander   Header="Posso categorizar as minhas tarefas?" Margin="282,704,641,0" VerticalAlignment="Top"  Foreground="White" Background="#FF3A3A3A" OpacityMask="Black" Height="23">
-            <TextBlock Text="..."/>
+        <!--5º Mensagem Recorrente -->
+        <Expander   Header="Posso categorizar as minhas tarefas?" Margin="282,704,641,0" VerticalAlignment="Top"  Foreground="White" Background="#FF3A3A3A" OpacityMask="Black" >
+            <TextBlock  TextWrapping="Wrap" Text="..."/>
         </Expander>
 
         <!--mandar email-->
@@ -138,7 +138,8 @@
         <TextBox x:Name="tb_primeironome" TextWrapping="Wrap" Margin="1040,220,202,521">
             <TextBox.Style>
                 <Style TargetType="{x:Type TextBox}">
-                    <Setter Property="Foreground" Value="White"></Setter>
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="FontSize" Value="20" />
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type TextBox}">
@@ -158,7 +159,8 @@
         <TextBox x:Name="tb_ultimonome" TextWrapping="Wrap" Margin="1192,221,65,521">
             <TextBox.Style>
                 <Style TargetType="{x:Type TextBox}">
-                    <Setter Property="Foreground" Value="White"></Setter>
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="FontSize" Value="20" />
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type TextBox}">
@@ -178,7 +180,8 @@
         <TextBox x:Name="tb_email" TextWrapping="Wrap" Margin="1042,294,65,447">
             <TextBox.Style>
                 <Style TargetType="{x:Type TextBox}">
-                    <Setter Property="Foreground" Value="White"></Setter>
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="FontSize" Value="20" />
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type TextBox}">
@@ -198,7 +201,8 @@
         <TextBox x:Name="tb_mensagem" TextWrapping="Wrap" Margin="1042,361,65,272">
             <TextBox.Style>
                 <Style TargetType="{x:Type TextBox}">
-                    <Setter Property="Foreground" Value="White"></Setter>
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="FontSize" Value="20" />
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type TextBox}">
