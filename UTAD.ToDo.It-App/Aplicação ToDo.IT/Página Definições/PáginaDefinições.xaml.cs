@@ -62,5 +62,10 @@ namespace Aplicação_ToDo.IT.Página_Definições
         {
             Application.Current.Shutdown();
         }
+
+        private void tb_primeironome_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+
+        }
     }
 }

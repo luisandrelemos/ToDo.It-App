@@ -14,7 +14,115 @@
         WindowStartupLocation="CenterScreen">
     <Grid>
         <!-- Conteúdo principal -->
-        <Border Background="#1e1e1e" CornerRadius="25,25,25,25" RenderTransformOrigin="0.5,0.5"/>
+        <Border Background="#1e1e1e" CornerRadius="25,25,25,25" RenderTransformOrigin="0.5,0.5" Margin="6,0,-6,0"/>
+
+        <!-- Titulo Utilizador -->
+        <Rectangle Width="100" Height="25" Fill="#FF3A3A3A" RadiusX="8" RadiusY="8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="283,108,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="301,113,0,0" TextWrapping="Wrap" Text="Utilizador" VerticalAlignment="Top" Background="Transparent" FontSize="13" Foreground="#00f0ff" FontFamily="Montserrat"/>
+
+        <!-- Imagem do usuário -->
+        <Image Source="\Images\profile.jpg" Width="88" Height="94" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="290,159,0,0"/>
+
+        <!-- Nome -->
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Nome" VerticalAlignment="Top" Foreground="White" FontSize="12" Height="15" Width="42" Margin="422,159,0,0" FontFamily="Montserrat"/>
+        <TextBox x:Name="tb_primeironome" TextWrapping="Wrap" Margin="422,179,790,569" TextChanged="tb_primeironome_TextChanged">
+            <TextBox.Style>
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="FontSize" Value="10" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TextBox}">
+                                <Border CornerRadius="3" Background="Transparent" BorderBrush="White" BorderThickness="1">
+                                    <!-- Adiciona o elemento de conteúdo -->
+                                    <ScrollViewer x:Name="PART_ContentHost"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+
+        <!-- E-Mail -->
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="E-Mail" VerticalAlignment="Top" Foreground="White" FontSize="12" Height="15" Width="42" Margin="422,215,0,0" FontFamily="Montserrat"/>
+        <TextBox x:Name="tb_email" TextWrapping="Wrap" Margin="422,232,790,516" TextChanged="tb_primeironome_TextChanged">
+            <TextBox.Style>
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="FontSize" Value="10" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TextBox}">
+                                <Border CornerRadius="3" Background="Transparent" BorderBrush="White" BorderThickness="1">
+                                    <!-- Adiciona o elemento de conteúdo -->
+                                    <ScrollViewer x:Name="PART_ContentHost"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+
+        <!-- Password Atual -->
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Palavra-Passe Atual" VerticalAlignment="Top" Foreground="White" FontSize="12" Height="15" Width="124" Margin="654,159,0,0" FontFamily="Montserrat"/>
+        <TextBox x:Name="tb_password" TextWrapping="Wrap" Margin="654,179,558,569" TextChanged="tb_primeironome_TextChanged">
+            <TextBox.Style>
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="FontSize" Value="10" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TextBox}">
+                                <Border CornerRadius="3" Background="Transparent" BorderBrush="White" BorderThickness="1">
+                                    <!-- Adiciona o elemento de conteúdo -->
+                                    <ScrollViewer x:Name="PART_ContentHost"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+
+        <!-- Password Nova -->
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Palavra-Passe nova" VerticalAlignment="Top" Foreground="White" FontSize="12" Height="14" Width="136" Margin="654,215,0,0" FontFamily="Montserrat"/>
+        <TextBox x:Name="tb_passwordNova" TextWrapping="Wrap" Margin="654,232,558,516" TextChanged="tb_primeironome_TextChanged">
+            <TextBox.Style>
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="FontSize" Value="10" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TextBox}">
+                                <Border CornerRadius="3" Background="Transparent" BorderBrush="White" BorderThickness="1">
+                                    <!-- Adiciona o elemento de conteúdo -->
+                                    <ScrollViewer x:Name="PART_ContentHost"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+
+        <Line X1="283" Y1="280" X2="1335" Y2="280" Stroke="#4e4e4e" StrokeThickness="1" Grid.ColumnSpan="3"/>
+
+
+        <!-- .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-. -->
+
+        <!-- Titulo Geral -->
+        <Rectangle Width="100" Height="25" Fill="#FF3A3A3A" RadiusX="8" RadiusY="8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="283,299,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="316,304,0,0" TextWrapping="Wrap" Text="Geral" VerticalAlignment="Top" Background="Transparent" FontSize="13" Foreground="#00f0ff" FontFamily="Montserrat"/>
+
+        <!-- Titulo Interface -->
+        <Rectangle Width="100" Height="25" Fill="#FF3A3A3A" RadiusX="8" RadiusY="8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="283,524,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="302,529,0,0" TextWrapping="Wrap" Text="Interface" VerticalAlignment="Top" Background="Transparent" FontSize="13" Foreground="#00f0ff" FontFamily="Montserrat"/>
+
+        <!-- Titulo Notificações -->
+        <Rectangle Width="100" Height="25" Fill="#FF3A3A3A" RadiusX="8" RadiusY="8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="283,665,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="291,670,0,0" TextWrapping="Wrap" Text="Notificações" VerticalAlignment="Top" Background="Transparent" FontSize="13" Foreground="#00f0ff" FontFamily="Montserrat"/>
 
         <!-- Barra de Perfil -->
         <Border Width="250" Background="#2a2a2a" CornerRadius="25,0,25,25" HorizontalAlignment="Left" Margin="0,0,0,689"/>
