@@ -87,7 +87,7 @@ namespace Aplicação_ToDo.IT.Página_Ajuda
 
             string toMail = tb_email.Text;
             string subject = "Confirmação de Envio ao Suporte";
-            string body = $"Querido Utilizador/a {tb_primeironome.Text} {tb_ultimonome.Text},\nPor parte do grupo 4 de laboratório de Planeamento e Desenvolvimento de Software, agradecemos o contacto com o nosso suporte.\nA sua mensagem foi recebida com sucesso e será tratada o mais rápido possível.\nAtenciosamente,\nBruno Costa\nCarolina Machado\nLuis Lemos\nPedro Pereira";
+            string body = $"Querido Utilizador/a {tb_primeironome.Text} {tb_ultimonome.Text},\n\nPor parte do grupo 4 de laboratório de Planeamento e Desenvolvimento de Software, agradecemos o contacto com o nosso suporte.\nA sua mensagem foi recebida com sucesso e será tratada o mais rápido possível.\n\nAtenciosamente,\nBruno Costa\nCarolina Machado\nLuis Lemos\nPedro Pereira";
 
 
             MailMessage messageToSupport = new MailMessage(fromMail, "emaildosuporte@exemplo.com")
