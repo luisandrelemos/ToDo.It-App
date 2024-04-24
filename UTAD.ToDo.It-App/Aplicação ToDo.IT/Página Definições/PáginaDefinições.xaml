@@ -14,7 +14,7 @@
         WindowStartupLocation="CenterScreen">
     <Grid>
         <!-- Conteúdo principal -->
-        <Border Background="#1e1e1e" CornerRadius="25,25,25,25" RenderTransformOrigin="0.5,0.5" Margin="6,0,-6,0"/>
+        <Border Background="#1e1e1e" CornerRadius="25,25,25,25" RenderTransformOrigin="0.5,0.5" Margin="0,1,0,-1"/>
 
         <!-- Titulo Utilizador -->
         <Rectangle Width="100" Height="25" Fill="#FF3A3A3A" RadiusX="8" RadiusY="8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="283,108,0,0"/>
