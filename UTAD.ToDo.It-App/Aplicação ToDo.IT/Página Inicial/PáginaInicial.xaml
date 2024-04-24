@@ -23,7 +23,6 @@
             <Button Content="+" Style="{StaticResource buttonNew}"  Click="NovaTarefa_Click" Margin="1022,680,284,28" />
         </Border>
 
-
         <!-- Sidepanel esquerdo -->
         <Border Width="250" Background="#2a2a2a" CornerRadius="25,25,25,25" HorizontalAlignment="Left">
             <Grid>

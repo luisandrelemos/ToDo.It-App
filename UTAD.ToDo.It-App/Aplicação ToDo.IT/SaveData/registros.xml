@@ -6,9 +6,9 @@
     <password>1234</password>
   </userData>
   <userData>
-    <email>admin@admin.com</email>
-    <username>admin</username>
-    <password>admin</password>
+    <email></email>
+    <username></username>
+    <password></password>
   </userData>
   <userData>
     <email>bruno@gmail.com</email>
@@ -24,5 +24,15 @@
     <email>teste@teste.com</email>
     <username>teste</username>
     <password>teste</password>
+  </userData>
+  <userData>
+    <email>teste123@gmail.com</email>
+    <username>Teste123</username>
+    <password>123</password>
+  </userData>
+  <userData>
+    <email>admin@admin.com</email>
+    <username>admin</username>
+    <password>admin</password>
   </userData>
 </registros>
