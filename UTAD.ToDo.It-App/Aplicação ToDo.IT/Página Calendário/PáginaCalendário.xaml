@@ -16,9 +16,23 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
     <Grid>
+        
         <!-- Conteúdo principal -->
         <Border Background="#1e1e1e" CornerRadius="25,25,25,25" RenderTransformOrigin="0.5,0.5"/>
-        <Syncfusion:SfScheduler Margin="250,0,0,0" FirstDayOfWeek="Monday" />
+        <Syncfusion:SfScheduler Margin="250,0,0,0" FirstDayOfWeek="Monday" EnableReminder="True"/>
+        <!--<Syncfusion:SfScheduler Margin="250,0,0,0" x:Name="Schedule">
+            <Syncfusion:SfScheduler.AppointmentMapping>
+                <Syncfusion:AppointmentMapping
+                    Subject="EventName"
+                    StartTime="From"
+                    EndTime="To"
+                    AppointmentBackground="Color"
+                    IsAllDay="IsAllDay"
+                    StartTimeZone="StartTimeZone"
+                    EndTimeZone="EndTimeZone"/>
+            </Syncfusion:SfScheduler.AppointmentMapping>
+        </Syncfusion:SfScheduler> -->
+        
 
         <!-- Barra de Perfil -->
         <Border Width="250" Background="#2a2a2a" CornerRadius="25,0,0,25" HorizontalAlignment="Left" Margin="0,0,0,689"/>
