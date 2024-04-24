@@ -115,15 +115,21 @@
         <!-- Titulo Geral -->
         <Rectangle Width="100" Height="25" Fill="#FF3A3A3A" RadiusX="8" RadiusY="8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="283,299,0,0"/>
         <TextBlock HorizontalAlignment="Left" Margin="316,304,0,0" TextWrapping="Wrap" Text="Geral" VerticalAlignment="Top" Background="Transparent" FontSize="13" Foreground="#00f0ff" FontFamily="Montserrat"/>
+        <TextBlock Text="Ordenar Tarefas de acordo com a prioridade" VerticalAlignment="Top"  Foreground="White" FontFamily="Montserrat" Background="Transparent" Margin="301,368,805,0" FontSize="13" TextWrapping="Wrap"/>
+        <TextBlock Text="Reprouzir Som De Conclusão" VerticalAlignment="Top"  Foreground="White" FontFamily="Montserrat" Background="Transparent" Margin="301,404,805,0" FontSize="13" TextWrapping="Wrap"/>
+        <TextBlock Text="Confirmar Antes de Eliminar Tarefa" VerticalAlignment="Top"  Foreground="White" FontFamily="Montserrat" Background="Transparent" Margin="301,447,805,0" FontSize="13" TextWrapping="Wrap"/>
+
 
         <!-- Titulo Interface -->
-        <Rectangle Width="100" Height="25" Fill="#FF3A3A3A" RadiusX="8" RadiusY="8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="283,524,0,0"/>
-        <TextBlock HorizontalAlignment="Left" Margin="302,529,0,0" TextWrapping="Wrap" Text="Interface" VerticalAlignment="Top" Background="Transparent" FontSize="13" Foreground="#00f0ff" FontFamily="Montserrat"/>
+        <Rectangle Width="100" Height="25" Fill="#FF3A3A3A" RadiusX="8" RadiusY="8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="283,500,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="306,505,0,0" TextWrapping="Wrap" Text="Interface" VerticalAlignment="Top" Background="Transparent" FontSize="13" Foreground="#00f0ff" FontFamily="Montserrat"/>
+        <TextBlock Text="Alterar Esquema de cores" Background="Transparent" FontSize="13" Foreground="White" FontFamily="Montserrat" Margin="301,560,756,190" RenderTransformOrigin="0.503,0.436"/>
 
         <!-- Titulo Notificações -->
-        <Rectangle Width="100" Height="25" Fill="#FF3A3A3A" RadiusX="8" RadiusY="8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="283,665,0,0"/>
-        <TextBlock HorizontalAlignment="Left" Margin="291,670,0,0" TextWrapping="Wrap" Text="Notificações" VerticalAlignment="Top" Background="Transparent" FontSize="13" Foreground="#00f0ff" FontFamily="Montserrat"/>
-
+        <Rectangle Width="100" Height="25" Fill="#FF3A3A3A" RadiusX="8" RadiusY="8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="283,610,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="291,615,0,0" TextWrapping="Wrap" Text="Notificações" VerticalAlignment="Top" Background="Transparent" FontSize="13" Foreground="#00f0ff" FontFamily="Montserrat"/>
+        <TextBlock Text="Tempo de Repetição do Alarme" Margin="301,666,857,80"  Background="Transparent" FontSize="13" Foreground="White" FontFamily="Montserrat" />
+        <TextBlock Text="Notificar Após Concluir Atividade" Margin="301,706,857,46"  Background="Transparent" FontSize="13" Foreground="White" FontFamily="Montserrat" />
         <!-- Barra de Perfil -->
         <Border Width="250" Background="#2a2a2a" CornerRadius="25,0,25,25" HorizontalAlignment="Left" Margin="0,0,0,689"/>
         <Grid>
