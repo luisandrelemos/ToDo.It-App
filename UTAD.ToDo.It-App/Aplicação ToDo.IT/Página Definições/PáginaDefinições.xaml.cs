@@ -74,7 +74,8 @@ namespace Aplicação_ToDo.IT.Página_Definições
             // Verificar se as caixas de texto estão vazias
             if (string.IsNullOrWhiteSpace(tb_primeironome.Text) ||
                 string.IsNullOrWhiteSpace(tb_email.Text) ||
-                string.IsNullOrWhiteSpace(tb_passwordNova.Text))
+                string.IsNullOrWhiteSpace(tb_passwordNova.Text) ||
+                string.IsNullOrWhiteSpace(tb_password.Text))
             {
                 MessageBox.Show("Por favor, preencha todos os campos antes de Guardar as alterações.");
                 return;
@@ -88,9 +89,15 @@ namespace Aplicação_ToDo.IT.Página_Definições
                           .Where(u => u.Element("username").Value == UserData.Username)
                           .FirstOrDefault();
 
-            // Se o usuário foi encontrado, atualizar as informações
+            // Se o usuário foi encontrado, verificar a senha antiga
             if (user != null)
             {
+                if (user.Element("password").Value != tb_password.Text)
+                {
+                    MessageBox.Show("A senha antiga está incorreta.");
+                    return;
+                }
+
                 user.Element("username").Value = tb_primeironome.Text;
                 user.Element("email").Value = tb_email.Text;
                 user.Element("password").Value = tb_passwordNova.Text;
