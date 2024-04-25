@@ -7,6 +7,7 @@ using Aplicação_ToDo.IT.Página_Tarefas;
 using Aplicação_ToDo.IT.SaveData;
 using Microsoft.Win32;
 using System.Windows;
+using System.Windows.Media.Imaging;
 using System.Xml.Linq;
 
 namespace Aplicação_ToDo.IT.Página_Definições
@@ -124,6 +125,21 @@ namespace Aplicação_ToDo.IT.Página_Definições
         private void tb_primeironome_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
 
+        }
+
+        private void ChangeImage_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image files (*.png;*.jpeg;*.jpg;*.bmp)|*.png;*.jpeg;*.jpg;*.bmp|All files (*.*)|*.*";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                Uri fileUri = new Uri(openFileDialog.FileName);
+                userImage.Source = new BitmapImage(fileUri);
+
+                // Mantém a dimensão da imagem
+                userImage.Width = 95;
+                userImage.Height = 101;
+            }
         }
     }
 }

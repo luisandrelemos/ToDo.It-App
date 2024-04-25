@@ -22,7 +22,7 @@
 
         <!-- Botão para o tema light mode -->
         <Button x:Name="LightModeButton" Click="LightModeButton_Click" Width="400" Height="220" Margin="800,-200,0,0" BorderThickness="0" Background="Transparent" BorderBrush="Transparent">
-            <Image Source="C:\Users\Luís Lemos\source\repos\ToDo.It-App\UTAD.ToDo.It-App\Aplicação ToDo.IT\Images\light-mode.jpg" Stretch="Fill"/>
+            <Image Source="\Images\light-mode.jpg" Stretch="Fill"/>
         </Button>
 
         <!-- Botão de texto para o tema light mode -->
@@ -30,7 +30,7 @@
 
         <!-- Botão para o tema dark mode -->
         <Button x:Name="DarkModeButton" Click="DarkModeButton_Click" Width="400" Height="220" Margin="-300,-200,0,0" BorderThickness="0" Background="Transparent" BorderBrush="Transparent">
-            <Image Source="C:\Users\Luís Lemos\source\repos\ToDo.It-App\UTAD.ToDo.It-App\Aplicação ToDo.IT\Images\dark-mode.jpg" Stretch="Fill"/>
+            <Image Source="\Images\dark-mode.jpg" Stretch="Fill"/>
         </Button>
 
         <!-- Botão de texto para o tema dark mode -->

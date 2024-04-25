@@ -21,7 +21,9 @@
         <TextBlock HorizontalAlignment="Left" Margin="301,113,0,0" TextWrapping="Wrap" Text="Utilizador" VerticalAlignment="Top" Background="Transparent" FontSize="13" Foreground="#00f0ff" FontFamily="Montserrat"/>
 
         <!-- Imagem do usuário -->
-        <Image Source="\Images\profile.jpg" Width="95" Height="101" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="292,152,0,0"/>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="292,152,0,0" Click="ChangeImage_Click" Background="Transparent" BorderBrush="Transparent">
+            <Image x:Name="userImage" Source="\Images\profile.jpg" Width="95" Height="101" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Button>
 
         <!-- Nome -->
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Nome" VerticalAlignment="Top" Foreground="White" FontSize="12" Height="15" Width="42" Margin="432,152,0,0" FontFamily="Montserrat"/>
