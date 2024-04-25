@@ -65,5 +65,20 @@ namespace Aplicação_ToDo.IT.Página_Personalizar
         {
             Application.Current.Shutdown();
         }
+
+        private void LightModeButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Código para mudar para o tema light mode
+        }
+
+        private void DarkModeButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Código para mudar para o tema dark mode
+        }
+
+        private void ColorButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

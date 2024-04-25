@@ -11,12 +11,20 @@
 
   <ItemGroup>
     <None Remove="Images\close.png" />
+    <None Remove="Images\dark-mode.jpg" />
+    <None Remove="Images\light-mode.jpg" />
     <None Remove="Images\profile.jpg" />
     <None Remove="SaveData\registros.xml" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Images\close.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\dark-mode.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\light-mode.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\profile.jpg">
@@ -107,19 +115,4 @@
     <PackageReference Include="Syncfusion.Themes.Office2016DarkGray.WPF" Version="25.1.41" />
     <PackageReference Include="Syncfusion.Themes.VisualStudio2015.WPF" Version="25.1.41" />
 </ItemGroup>
-
-    <ItemGroup>
-      <Compile Update="Properties\Resources.Designer.cs">
-        <DesignTime>True</DesignTime>
-        <AutoGen>True</AutoGen>
-        <DependentUpon>Resources.resx</DependentUpon>
-      </Compile>
-    </ItemGroup>
-
-    <ItemGroup>
-      <EmbeddedResource Update="Properties\Resources.resx">
-        <Generator>ResXFileCodeGenerator</Generator>
-        <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      </EmbeddedResource>
-    </ItemGroup>
 </Project>

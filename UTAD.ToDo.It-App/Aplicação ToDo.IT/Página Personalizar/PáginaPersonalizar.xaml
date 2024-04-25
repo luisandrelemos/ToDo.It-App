@@ -16,6 +16,63 @@
         <!-- Conteúdo principal -->
         <Border Background="#1e1e1e" CornerRadius="25,25,25,25" RenderTransformOrigin="0.5,0.5"/>
 
+        <!-- Titulo TEMA -->
+        <Rectangle Width="76" Height="25" Fill="#FF3A3A3A" RadiusX="8" RadiusY="8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="283,108,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="303,113,0,0" TextWrapping="Wrap" Text="Tema" VerticalAlignment="Top" Background="Transparent" FontSize="13" Foreground="#00f0ff" FontFamily="Montserrat"/>
+
+        <!-- Botão para o tema light mode -->
+        <Button x:Name="LightModeButton" Click="LightModeButton_Click" Width="400" Height="220" Margin="800,-200,0,0" BorderThickness="0" Background="Transparent" BorderBrush="Transparent">
+            <Image Source="C:\Users\Luís Lemos\source\repos\ToDo.It-App\UTAD.ToDo.It-App\Aplicação ToDo.IT\Images\light-mode.jpg" Stretch="Fill"/>
+        </Button>
+
+        <!-- Botão de texto para o tema light mode -->
+        <Button x:Name="LightModeTextButton" Click="LightModeButton_Click" Style="{StaticResource buttonTEMA}" Margin="1043,414,243,329" Content="Claro"/>
+
+        <!-- Botão para o tema dark mode -->
+        <Button x:Name="DarkModeButton" Click="DarkModeButton_Click" Width="400" Height="220" Margin="-300,-200,0,0" BorderThickness="0" Background="Transparent" BorderBrush="Transparent">
+            <Image Source="C:\Users\Luís Lemos\source\repos\ToDo.It-App\UTAD.ToDo.It-App\Aplicação ToDo.IT\Images\dark-mode.jpg" Stretch="Fill"/>
+        </Button>
+
+        <!-- Botão de texto para o tema dark mode -->
+        <Button x:Name="DarkModeTextButton" Click="DarkModeButton_Click" Style="{StaticResource buttonSelectedTEMA}"  Margin="493,414,793,329" Content="Escuro"/>
+
+        <Line X1="283" Y1="460" X2="1335" Y2="460" Stroke="#4e4e4e" StrokeThickness="1" Grid.ColumnSpan="3"/>
+
+        <!-- Titulo CORES -->
+        <Rectangle Width="76" Height="25" Fill="#FF3A3A3A" RadiusX="8" RadiusY="8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="286,488,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="305,493,0,0" TextWrapping="Wrap" Text="Cores" VerticalAlignment="Top" Background="Transparent" FontSize="13" Foreground="#00f0ff" FontFamily="Montserrat"/>
+
+        <Line X1="283" Y1="740" X2="1335" Y2="740" Stroke="#4e4e4e" StrokeThickness="1" Grid.ColumnSpan="3"/>
+
+        <!-- Seletor de cores -->
+        <Grid Margin="634,520,384,50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!-- Substitua "ColorButton_Click" pelo nome do seu manipulador de eventos -->
+            <Button Grid.Column="0" Style="{StaticResource ColorDisplay}" Background="Red" Grid.Row="0" Click="ColorButton_Click"/>
+            <Button Grid.Column="1" Style="{StaticResource ColorDisplay}" Background="Green" BorderThickness="0" Click="ColorButton_Click"/>
+            <Button Grid.Column="2" Style="{StaticResource ColorDisplay}" Background="#00f2ff" BorderThickness="0" Click="ColorButton_Click"/>
+            <Button Grid.Column="3" Style="{StaticResource ColorDisplay}" Background="Yellow" BorderThickness="0" Click="ColorButton_Click"/>
+            <Button Grid.Column="0" Grid.Row="1" Style="{StaticResource ColorDisplay}" Background="Orange" BorderThickness="0" Click="ColorButton_Click"/>
+            <Button Grid.Column="1" Grid.Row="1" Style="{StaticResource ColorDisplay}" Background="OrangeRed" BorderThickness="0" Click="ColorButton_Click"/>
+            <Button Grid.Column="2" Grid.Row="1" Style="{StaticResource ColorDisplay}" Background="HotPink" BorderThickness="0" Click="ColorButton_Click"/>
+            <Button Grid.Column="3" Grid.Row="1" Style="{StaticResource ColorDisplay}" Background="Pink" BorderThickness="0" Click="ColorButton_Click"/>
+            <Button Grid.Column="0" Grid.Row="2" Style="{StaticResource ColorDisplay}" Background="Purple" BorderThickness="0" Click="ColorButton_Click"/>
+            <Button Grid.Column="1" Grid.Row="2" Style="{StaticResource ColorDisplay}" Background="Blue" BorderThickness="0" Click="ColorButton_Click"/>
+            <Button Grid.Column="2" Grid.Row="2" Style="{StaticResource ColorDisplay}" Background="CadetBlue" BorderThickness="0" Click="ColorButton_Click"/>
+            <Button Grid.Column="3" Grid.Row="2" Style="{StaticResource ColorDisplay}" Background="DodgerBlue" BorderThickness="0" Click="ColorButton_Click"/>
+        </Grid>
+
         <!-- Barra de Perfil -->
         <Border Width="250" Background="#2a2a2a" CornerRadius="25,0,25,25" HorizontalAlignment="Left" Margin="0,0,0,689"/>
         <Grid>
