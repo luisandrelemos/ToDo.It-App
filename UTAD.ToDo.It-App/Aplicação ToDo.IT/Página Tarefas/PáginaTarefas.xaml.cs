@@ -4,6 +4,7 @@ using Aplicação_ToDo.IT.Página_Definições;
 using Aplicação_ToDo.IT.Página_Inicial;
 using Aplicação_ToDo.IT.Página_Personalizar;
 using Aplicação_ToDo.IT.SaveData;
+using Syncfusion.UI.Xaml.Scheduler;
 using System.Windows;
 
 namespace Aplicação_ToDo.IT.Página_Tarefas
@@ -74,6 +75,11 @@ namespace Aplicação_ToDo.IT.Página_Tarefas
             // Exiba a nova janela como um diálogo modal
             novaTarefaWindow.Owner = this;
             novaTarefaWindow.ShowDialog();
+        }
+
+        private void TaskListView_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
