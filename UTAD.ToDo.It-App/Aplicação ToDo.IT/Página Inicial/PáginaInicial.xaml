@@ -18,13 +18,13 @@
 
     <Grid>
         <!-- Conteúdo principal -->
-        <Border Background="#1e1e1e" CornerRadius="25,25,25,25">
+        <Border Style="{StaticResource Background}" CornerRadius="25,25,25,25">
             <!-- Botão para adicionar nova tarefa -->
             <Button Content="+" Style="{StaticResource buttonNew}"  Click="NovaTarefa_Click" Margin="1022,680,284,28" />
         </Border>
 
         <!-- Sidepanel esquerdo -->
-        <Border Width="250" Background="#2a2a2a" CornerRadius="25,25,25,25" HorizontalAlignment="Left">
+        <Border Width="250" Style="{StaticResource SidePanelBack}" CornerRadius="25,25,25,25" HorizontalAlignment="Left">
             <Grid>
 
                 <!-- Adicione a zona do usuário aqui -->
@@ -47,7 +47,7 @@
                     <TextBlock x:Name="UsernameTextBlock" FontFamily="Montserrat" Text="Utilizador" Foreground="White" FontSize="16" Margin="0,21,19,11" Grid.Column="1"/>
 
                     <!-- Email do usuário -->
-                    <TextBlock x:Name="EmailTextBlock" FontFamily="Montserrat" Text="email@exemplo.com" Foreground="#aeaeae"  Margin="0,46,16,706" Grid.Column="1" Grid.RowSpan="2"/>
+                    <TextBlock x:Name="EmailTextBlock" FontFamily="Montserrat" Text="email@exemplo.com" Style="{StaticResource TextEmail}" Margin="0,46,16,706" Grid.Column="1" Grid.RowSpan="2"/>
                 </Grid>
                 <Button Click="Perfil_Click" Style="{StaticResource buttonPerfil}" Margin="10,10,10,695"/>
 
@@ -57,19 +57,19 @@
                 <Button Content="Página Inicial" Style="{StaticResource buttonSelected}"  Click="PáginaInicial_Click" Margin="25,364,25,355" />
                 <Icon:PackIconCodicons Kind="Home" Width="20" Height="20" Foreground="#00f0ff" Margin="41,378,0,0"/>
                 <Button Content="Calendário" Style="{StaticResource button1}" Click="Calendário_Click" Margin="25,418,25,301"/>
-                <Icon:PackIconCoolicons Kind="Calendar" Width="20" Height="20" Foreground="White" Margin="41,432,0,0"/>
+                <Icon:PackIconCoolicons Kind="Calendar" Width="20" Height="20" Style="{StaticResource IconSide1}" Margin="41,432,0,0"/>
                 <Button Content="Tarefas" Style="{StaticResource button1}" Click="Tarefas_Click" Margin="25,472,25,247" />
-                <Icon:PackIconFontAwesome Kind="TasksSolid" Width="20" Height="20" Foreground="White" Margin="41,486,0,0"/>
+                <Icon:PackIconFontAwesome Kind="TasksSolid" Width="20" Height="20" Style="{StaticResource IconSide2}" Margin="41,486,0,0"/>
                 <Line X1="6" Y1="528" X2="244" Y2="528" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,0,0,0"/>
                 <Button Content="Personalizar" Style="{StaticResource button1}" Click="Personalizar_Click" Margin="25,535,25,184" />
-                <Icon:PackIconRemixIcon Kind="PaintFill" Width="20" Height="20" Foreground="White" Margin="41,550,0,0"/>
+                <Icon:PackIconRemixIcon Kind="PaintFill" Width="20" Height="20" Style="{StaticResource IconSide3}" Margin="41,550,0,0"/>
                 <Button Content="Definições" Style="{StaticResource button1}" Click="Definições_Click" Margin="25,589,25,130" />
-                <Icon:PackIconVaadinIcons Kind="CogOutline" Width="20" Height="20" Foreground="White" Margin="41,604,0,0"/>
+                <Icon:PackIconVaadinIcons Kind="CogOutline" Width="20" Height="20" Style="{StaticResource IconSide4}" Margin="41,604,0,0"/>
                 <Button Content="Ajuda" Style="{StaticResource button1}" Click="Ajuda_Click" Margin="25,643,25,76" />
-                <Icon:PackIconMaterial Kind="HelpCircleOutline" Width="20" Height="20" Foreground="White" Margin="41,658,0,0"/>
+                <Icon:PackIconMaterial Kind="HelpCircleOutline" Width="20" Height="20" Style="{StaticResource IconSide5}" Margin="41,658,0,0"/>
                 <Line X1="6" Y1="699" X2="244" Y2="699" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,0,0,0"/>
                 <Button Content="Sair da Aplicação" Style="{StaticResource buttonQuit}" Margin="25,706,25,10" Click="Sair_Click"/>
-                <Icon:PackIconUnicons Kind="Signout"  Width="20" Height="20" Foreground="White" Margin="41,722,0,0"/>
+                <Icon:PackIconUnicons Kind="Signout"  Width="20" Height="20" Style="{StaticResource IconSide6}" Margin="41,722,0,0"/>
             </Grid>
         </Border>
 
@@ -77,10 +77,10 @@
         <syncfusion:CalendarEdit x:Name="Side_Calendar" Margin="3,93,1119,429" Culture="pt-PT"/>
 
         <!-- Sidepanel direito -->
-        <Border Width="250" Background="#2a2a2a" CornerRadius="25,25,25,25" HorizontalAlignment="Left" Margin="1116,0,0,0">
+        <Border Width="250" Style="{StaticResource SidePanelBack}" CornerRadius="25,25,25,25" HorizontalAlignment="Left" Margin="1116,0,0,0">
             <Grid>
                 <!-- Adicione o título do sidebar direito aqui -->
-                <TextBlock FontFamily="Montserrat" Text="As Minhas Tarefas" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="White" Margin="0,28,0,0" FontSize="16" FontWeight="Bold"/>
+                <TextBlock FontFamily="Montserrat" Text="As Minhas Tarefas" VerticalAlignment="Top" HorizontalAlignment="Center" Style="{StaticResource TextUp}" Margin="0,28,0,0" FontSize="16" FontWeight="Bold"/>
 
                 <!-- Adicione os controles do sidepanel esquerdo aqui -->
                 <Line X1="6" Y1="80" X2="244" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,0,0,0"/>
@@ -88,7 +88,7 @@
         </Border>
 
         <!-- Sidepanel Meio -->
-        <Border Width="802" Background="#2a2a2a" CornerRadius="0,0,15,15" HorizontalAlignment="Center" Margin="0,0,0,689"/>
+        <Border Width="802" Style="{StaticResource SidePanelBack}" CornerRadius="0,0,15,15" HorizontalAlignment="Center" Margin="0,0,0,689"/>
     </Grid>
 </Window>
 

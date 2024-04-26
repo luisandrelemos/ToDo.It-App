@@ -28,5 +28,8 @@
     <Page Update="Página Tarefas\PáginaTarefas.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Temas\Light.xaml">
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 </Project>

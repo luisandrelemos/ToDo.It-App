@@ -69,11 +69,29 @@ namespace Aplicação_ToDo.IT.Página_Personalizar
         private void LightModeButton_Click(object sender, RoutedEventArgs e)
         {
             // Código para mudar para o tema light mode
+            ChangeTheme("Temas/Light.xaml");
+            PáginaPersonalizar mainWindow = new PáginaPersonalizar();
+            mainWindow.Show();
+            this.Close();
         }
 
         private void DarkModeButton_Click(object sender, RoutedEventArgs e)
         {
             // Código para mudar para o tema dark mode
+            ChangeTheme("Temas/Dark.xaml");
+            PáginaPersonalizar mainWindow = new PáginaPersonalizar();
+            mainWindow.Show();
+            this.Close();
+        }
+
+        private void ChangeTheme(string theme)
+        {
+            // Remover todos os dicionários de recursos atuais
+            Application.Current.Resources.MergedDictionaries.Clear();
+
+            // Adicionar o novo dicionário de recursos
+            var resourceDictionary = new ResourceDictionary { Source = new Uri(theme, UriKind.Relative) };
+            Application.Current.Resources.MergedDictionaries.Add(resourceDictionary);
         }
 
         private void ColorButton_Click(object sender, RoutedEventArgs e)

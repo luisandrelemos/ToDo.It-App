@@ -115,4 +115,13 @@
     <PackageReference Include="Syncfusion.Themes.Office2016DarkGray.WPF" Version="25.1.41" />
     <PackageReference Include="Syncfusion.Themes.VisualStudio2015.WPF" Version="25.1.41" />
 </ItemGroup>
+
+    <ItemGroup>
+      <Page Update="Temas\Dark.xaml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Page>
+      <Page Update="Temas\Light.xaml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Page>
+    </ItemGroup>
 </Project>
