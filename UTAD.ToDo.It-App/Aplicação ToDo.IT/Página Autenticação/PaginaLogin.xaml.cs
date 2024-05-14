@@ -56,6 +56,10 @@ namespace Aplicação_ToDo.IT.Página_Autenticação
                     // Salvar o nome de usuário e o e-mail na classe UserData
                     UserData.Username = (string)user.Element("username");
                     UserData.Email = (string)user.Element("email");
+                    UserData.Theme = (string)user.Element("theme");
+
+                    // Aplicar o tema do usuário
+                    ThemeManager.ChangeTheme($"Temas/{UserData.Theme}.xaml");
 
                     PáginaInicial mainWindow = new PáginaInicial();
                     mainWindow.Show();
@@ -71,7 +75,6 @@ namespace Aplicação_ToDo.IT.Página_Autenticação
                 MessageBox.Show("Ocorreu um erro ao tentar fazer login: " + ex.Message);
             }
         }
-
 
         private void txtEmail_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {

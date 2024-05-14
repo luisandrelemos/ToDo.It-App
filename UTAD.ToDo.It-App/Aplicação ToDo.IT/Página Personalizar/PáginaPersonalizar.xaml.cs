@@ -5,6 +5,7 @@ using Aplicação_ToDo.IT.Página_Inicial;
 using Aplicação_ToDo.IT.Página_Tarefas;
 using Aplicação_ToDo.IT.SaveData;
 using System.Windows;
+using System.Xml.Linq;
 
 namespace Aplicação_ToDo.IT.Página_Personalizar
 {
@@ -70,6 +71,11 @@ namespace Aplicação_ToDo.IT.Página_Personalizar
         {
             // Código para mudar para o tema light mode
             ChangeTheme("Temas/Light.xaml");
+
+            // Salve a escolha do tema do usuário
+            UserData.Theme = "Light";
+            SaveUserTheme();
+
             PáginaPersonalizar mainWindow = new PáginaPersonalizar();
             mainWindow.Show();
             this.Close();
@@ -79,9 +85,32 @@ namespace Aplicação_ToDo.IT.Página_Personalizar
         {
             // Código para mudar para o tema dark mode
             ChangeTheme("Temas/Dark.xaml");
+
+            // Salve a escolha do tema do usuário
+            UserData.Theme = "Dark";
+            SaveUserTheme();
+
             PáginaPersonalizar mainWindow = new PáginaPersonalizar();
             mainWindow.Show();
             this.Close();
+        }
+
+        private void SaveUserTheme()
+        {
+            // Carregar o arquivo XML
+            XDocument doc = XDocument.Load("C:\\Users\\Luís Lemos\\source\\repos\\ToDo.It-App\\UTAD.ToDo.It-App\\Aplicação ToDo.IT\\SaveData\\registros.xml");
+
+            // Encontrar o usuário correspondente ao e-mail
+            var user = (from u in doc.Root.Elements("userData")
+                        where (string)u.Element("email") == UserData.Email
+                        select u).FirstOrDefault();
+
+            if (user != null)
+            {
+                // Atualizar o tema do usuário no arquivo XML
+                user.Element("theme").Value = UserData.Theme;
+                doc.Save("C:\\Users\\Luís Lemos\\source\\repos\\ToDo.It-App\\UTAD.ToDo.It-App\\Aplicação ToDo.IT\\SaveData\\registros.xml");
+            }
         }
 
         private void ChangeTheme(string theme)
