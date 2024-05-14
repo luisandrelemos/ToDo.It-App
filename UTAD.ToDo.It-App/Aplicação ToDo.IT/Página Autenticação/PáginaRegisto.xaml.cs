@@ -77,7 +77,8 @@ namespace Aplicação_ToDo.IT.Página_Autenticação
                 XElement novoUsuario = new XElement("userData",
                     new XElement("email", email.Text),
                     new XElement("username", username.Text),
-                    new XElement("password", password.Password)
+                    new XElement("password", password.Password),
+                    new XElement("theme", "dark") // Adicionado elemento para o tema
                 );
 
                 // Adicionar o novo usuário ao arquivo XML
