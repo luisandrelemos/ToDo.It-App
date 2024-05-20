@@ -18,7 +18,69 @@
     <Grid>
         <!-- Conteúdo principal -->
         <Border Style="{StaticResource Background}" CornerRadius="25,25,25,25" RenderTransformOrigin="0.5,0.5"/>
-        <Syncfusion:SfScheduler x:Name="Calendário" Margin="250,0,0,0" FirstDayOfWeek="Monday" ShowBusyIndicator="True" ViewType="Month"/>
+        <Syncfusion:SfScheduler x:Name="Calendário" BorderThickness="0" Margin="250,0,0,0"
+                                ShowBusyIndicator="True" 
+                                FirstDayOfWeek="Monday"
+                                ViewType="Month"
+                                AllowedViewTypes="Month,Day,Week,WorkWeek" >
+            <Syncfusion:SfScheduler.MonthViewSettings>
+                <Syncfusion:MonthViewSettings AppointmentDisplayMode="Appointment"
+                                              AppointmentDisplayCount="1"/>
+            </Syncfusion:SfScheduler.MonthViewSettings>
+            <Syncfusion:SfScheduler.DaysViewSettings>
+                <Syncfusion:DaysViewSettings MinimumAppointmentDuration="0:30:0"/>
+            </Syncfusion:SfScheduler.DaysViewSettings>
+            <Syncfusion:SfScheduler.AppointmentContextMenu>
+                <ContextMenu>
+                    <MenuItem Command="{Binding Source={x:Static Member=Syncfusion:SchedulerCommands.Edit}}"
+                                        CommandParameter ="{Binding}"
+                                        Header="Edit">
+                        <MenuItem.Icon>
+                            <Path x:Name="Edit" 
+                                Data="M4.9375 12.6875L13.6875 3.9375C14.4124 3.21263 14.4124 2.03737 13.6875 1.3125V1.3125C12.9626 0.587626 11.7874 0.587626 11.0625 1.3125L2.3125 10.0625M4.9375 12.6875L1 14L2.3125 10.0625M4.9375 12.6875L2.3125 10.0625M9.75 2.1875L12.375 4.8125"                            
+                                Stroke="#FF5A5A5B" 
+                                Width="14"
+                                Height="14"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Stretch="Fill"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Command="{Binding Source={x:Static Member=Syncfusion:SchedulerCommands.Delete}}"
+                                      CommandParameter ="{Binding}"
+                                      Header="Delete">
+                        <MenuItem.Icon>
+                            <Path x:Name="Delete" 
+                                Data="M1.5 2.44V13H9.5V2.44M3.5 5.32V11.08M5.5 5.32V11.08M7.5 5.32V11.08M0 2.44H11M4 2.44V1H7.5V2.44"
+                                Stroke="#FF5A5A5B" 
+                                Width="11"
+                                Height="12"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Stretch="Fill"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </ContextMenu>
+            </Syncfusion:SfScheduler.AppointmentContextMenu>
+            <Syncfusion:SfScheduler.CellContextMenu>
+                <ContextMenu>
+                    <MenuItem Command="{Binding Source={x:Static Member=Syncfusion:SchedulerCommands.Add}}"
+                              CommandParameter ="{Binding}"
+                              Header="Add">
+                        <MenuItem.Icon>
+                            <Path x:Name="AddNew" 
+                                Data="M5.5 0.5V10.5M10.5 5.5L0.5 5.5"                         
+                                Stroke="#FF5A5A5B" 
+                                Width="10"
+                                Height="10"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Stretch="Fill" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </ContextMenu>
+            </Syncfusion:SfScheduler.CellContextMenu>
+        </Syncfusion:SfScheduler>
 
         <!-- Barra de Perfil -->
         <Border Width="250" Style="{StaticResource SidePanelBack}" CornerRadius="25,0,0,25" HorizontalAlignment="Left" Margin="0,0,0,689"/>

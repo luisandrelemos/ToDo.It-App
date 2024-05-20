@@ -14,7 +14,7 @@
         Width="800">
 
     <Grid>
-        <Image Source="C:\Users\Luís Lemos\source\repos\ToDo.It-App\UTAD.ToDo.It-App\Aplicação ToDo.IT\Images\close.png" Panel.ZIndex="1" MouseUp="Image_MouseUp" Style="{StaticResource imgClose}"/>
+        <Image Source="\Images\close.png" Panel.ZIndex="1" MouseUp="Image_MouseUp" Style="{StaticResource imgClose}"/>
 
         <Border CornerRadius="0 35 35 0" Margin="480,0,0,0">
             <Border.Background>
