@@ -38,6 +38,7 @@
     <ItemGroup>
         <PackageReference Include="MahApps.Metro.IconPacks" Version="4.11.0" />
         <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.11.0" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <PackageReference Include="Syncfusion.Grid.WPF" Version="25.1.41" />
         <PackageReference Include="Syncfusion.Licensing" Version="25.1.41" />
         <PackageReference Include="Syncfusion.SfGrid.WPF" Version="25.1.41" />
