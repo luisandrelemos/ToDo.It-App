@@ -25,7 +25,8 @@
                                 ShowBusyIndicator="True" 
                                 FirstDayOfWeek="Monday"
                                 ViewType="Month"
-                                AllowedViewTypes="Month,Day,Week,WorkWeek" AppointmentEditorClosing="Calendário_AppointmentEditorClosing" AppointmentDeleting="Calendário_AppointmentDeleting">
+                                AllowedViewTypes="Month,Day,Week,WorkWeek" AppointmentEditorClosing="Calendário_AppointmentEditorClosing" AppointmentDeleting="Calendário_AppointmentDeleting"
+                                EnableReminder="True" >
             <Syncfusion:SfScheduler.MonthViewSettings>
                 <Syncfusion:MonthViewSettings AppointmentDisplayMode="Appointment"
                                               AppointmentDisplayCount="1"/>
@@ -83,6 +84,7 @@
                     </MenuItem>
                 </ContextMenu>
             </Syncfusion:SfScheduler.CellContextMenu>
+
         </Syncfusion:SfScheduler>
 
         <!-- Barra de Perfil -->
@@ -133,7 +135,6 @@
                 <Line X1="6" Y1="365" X2="244" Y2="365" Stroke="#4e4e4e" StrokeThickness="1" Grid.RowSpan="2"/>
                 <Button Content="Sair da Aplicação" Style="{StaticResource buttonQuit}" Margin="25,564,25,18" Click="Sair_Click" Grid.Row="1"/>
                 <Icon:PackIconUnicons Kind="Signout"  Width="20" Height="20" Style="{StaticResource IconSide6}" Margin="41,579,0,0" Grid.Row="1"/>
-                <ListBox x:Name="ListaEventos" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,404,0,73" Grid.Row="1"/>
             </Grid>
         </Border>
     </Grid>

@@ -10,8 +10,6 @@ using System.IO;
 using System.Collections.Generic;
 using static Aplicação_ToDo.IT.Página_Calendário.PáginaCalendário;
 
-
-
 namespace Aplicação_ToDo.IT.Página_Inicial
 {
 
@@ -29,7 +27,6 @@ namespace Aplicação_ToDo.IT.Página_Inicial
             List<string> eventos = páginaCalendário.MostrarEventos();
 
             ListaEventos.ItemsSource = eventos;
-           
         }
 
         private void NovaTarefa_Click(object sender, RoutedEventArgs e)
