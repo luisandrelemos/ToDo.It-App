@@ -103,8 +103,7 @@ namespace Aplicação_ToDo.IT.Página_Calendário
 
         public class Evento
         {
-            public int Id { get; set; }
-            public string Assunto { get; set; }
+            public string Titulo { get; set; }
             public DateTime DataInicio { get; set; }
             public DateTime DataFim { get; set; }
 
@@ -120,7 +119,7 @@ namespace Aplicação_ToDo.IT.Página_Calendário
             List<string> eventosFormatados = new List<string>();
             foreach (var evento in eventos)
             {
-                eventosFormatados.Add($"ID: {evento.Id}, Assunto: {evento.Assunto}, Data de Início: {evento.DataInicio}, Data de Fim: {evento.DataFim}");
+                eventosFormatados.Add($"Título: {evento.Titulo}, Data de Início: {evento.DataInicio}, Data de Fim: {evento.DataFim}");
             }
             return eventosFormatados;
         }
@@ -133,8 +132,7 @@ namespace Aplicação_ToDo.IT.Página_Calendário
             {
                 ScheduleAppointment appointment = new ScheduleAppointment
                 {
-                    Id = evento.Id,
-                    Subject = evento.Assunto,
+                    Subject = evento.Titulo,
                     StartTime = evento.DataInicio,
                     EndTime = evento.DataFim,
                 };
@@ -149,19 +147,18 @@ namespace Aplicação_ToDo.IT.Página_Calendário
             {
                 Evento novoEvento = new Evento
                 {
-                    Id = (int)e.Appointment.Id,
-                    Assunto = e.Appointment.Subject,
+                    Titulo = e.Appointment.Subject,
                     DataInicio = e.Appointment.StartTime,
                     DataFim = e.Appointment.EndTime,
                 };
 
                 // Verifique se o evento já existe na lista
-                var eventoExistente = eventos.FirstOrDefault(x => x.Id == novoEvento.Id);
+                var eventoExistente = eventos.FirstOrDefault(x => x.Titulo == novoEvento.Titulo && x.DataInicio == novoEvento.DataInicio && x.DataFim == novoEvento.DataFim);
 
                 if (eventoExistente != null)
                 {
                     // Atualize o evento existente
-                    eventoExistente.Assunto = novoEvento.Assunto;
+                    eventoExistente.Titulo = novoEvento.Titulo;
                     eventoExistente.DataInicio = novoEvento.DataInicio;
                     eventoExistente.DataFim = novoEvento.DataFim;
                 }
@@ -181,7 +178,7 @@ namespace Aplicação_ToDo.IT.Página_Calendário
             if (e.Appointment != null)
             {
                 // Encontre o evento correspondente na lista
-                var evento = eventos.FirstOrDefault(x => x.Id == (int)e.Appointment.Id);
+                var evento = eventos.FirstOrDefault(x => x.Titulo == e.Appointment.Subject && x.DataInicio == e.Appointment.StartTime && x.DataFim == e.Appointment.EndTime);
 
                 if (evento != null)
                 {
@@ -207,7 +204,7 @@ namespace Aplicação_ToDo.IT.Página_Calendário
             if (draggedAppointment != null)
             {
                 // Encontre o evento correspondente na lista
-                var evento = eventos.FirstOrDefault(x => x.Id == (int)draggedAppointment.Id);
+                var evento = eventos.FirstOrDefault(x => x.Titulo == draggedAppointment.Subject && x.DataInicio == draggedAppointment.StartTime && x.DataFim == draggedAppointment.EndTime);
 
                 if (evento != null)
                 {
