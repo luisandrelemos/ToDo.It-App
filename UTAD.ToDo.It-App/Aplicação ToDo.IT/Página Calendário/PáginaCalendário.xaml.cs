@@ -115,13 +115,16 @@ namespace Aplicação_ToDo.IT.Página_Calendário
         {
 
         };
-        public void MostrarEventos()
+        public List<string> MostrarEventos()
         {
-            ListaEventos.Items.Clear();
+            List<string> eventosFormatados = new List<string>();
+
             foreach (var evento in eventos)
             {
-                ListaEventos.Items.Add($"ID: {evento.Id}, Assunto: {evento.Assunto}, Data de Início: {evento.DataInicio}, Data de Fim: {evento.DataFim}");
+                eventosFormatados.Add($"ID: {evento.Id}, Assunto: {evento.Assunto}, Data de Início: {evento.DataInicio}, Data de Fim: {evento.DataFim}");
             }
+
+            return eventosFormatados;
         }
 
         private void CarregarEventosNoCalendario()

@@ -56,7 +56,7 @@ namespace Aplicação_ToDo.IT.Página_Autenticação
 
                 // Carregar o arquivo XML ou criar um novo se não existir
                 XDocument doc;
-                string caminhoArquivoXml = "C:\\Users\\Luís Lemos\\source\\repos\\ToDo.It-App\\UTAD.ToDo.It-App\\Aplicação ToDo.IT\\SaveData\\registros.xml";
+                string caminhoArquivoXml = "C:\\Users\\bruno\\Source\\Repos\\ToDo.It-App\\UTAD.ToDo.It-App\\Aplicação ToDo.IT\\SaveData\\registros.xml";
                 if (File.Exists(caminhoArquivoXml))
                 {
                     doc = XDocument.Load(caminhoArquivoXml);
