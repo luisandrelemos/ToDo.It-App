@@ -23,6 +23,7 @@
                                 ShowBusyIndicator="True" 
                                 FirstDayOfWeek="Monday"
                                 ViewType="Month"
+                                EnableReminder="True"
                                 AllowedViewTypes="Month,Day,Week,WorkWeek" AppointmentEditorClosing="Calendário_AppointmentEditorClosing" AppointmentDeleting="Calendário_AppointmentDeleting" AppointmentDragStarting="Calendário_AppointmentDragStarting" AppointmentDropping="Calendário_AppointmentDropping">
             <Syncfusion:SfScheduler.MonthViewSettings>
                 <Syncfusion:MonthViewSettings AppointmentDisplayMode="Appointment"

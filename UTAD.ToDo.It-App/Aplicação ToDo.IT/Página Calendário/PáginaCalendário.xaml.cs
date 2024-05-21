@@ -9,6 +9,7 @@ using System.Diagnostics.Eventing.Reader;
 using System.Windows;
 using System.IO;
 using Newtonsoft.Json;
+using System.Windows.Media;
 using System.Collections.Generic;
 using System.Linq;
 using System;
@@ -108,6 +109,8 @@ namespace Aplicação_ToDo.IT.Página_Calendário
             public DateTime DataInicio { get; set; }
             public DateTime DataFim { get; set; }
             public bool AllDay { get; set; }
+            public Brush Cor { get; set; }
+            public Brush CorTexto { get; set; }
 
             // Adicionar mais propriedades conforme necessário
         }
@@ -140,6 +143,8 @@ namespace Aplicação_ToDo.IT.Página_Calendário
                     StartTime = evento.DataInicio,
                     EndTime = evento.DataFim,
                     IsAllDay = evento.AllDay,
+                    AppointmentBackground = evento.Cor,
+                    Foreground = evento.CorTexto,
                 };
 
                 Appointments.Add(appointment);
@@ -157,7 +162,8 @@ namespace Aplicação_ToDo.IT.Página_Calendário
                     DataInicio = e.Appointment.IsAllDay ? e.Appointment.StartTime.Date : e.Appointment.StartTime,
                     DataFim = e.Appointment.IsAllDay ? e.Appointment.EndTime.Date : e.Appointment.EndTime,
                     AllDay = e.Appointment.IsAllDay,
-
+                    Cor = e.Appointment.AppointmentBackground,
+                    CorTexto = e.Appointment.Foreground,
                 };
 
                 // Verifique se o evento já existe na lista
@@ -170,7 +176,8 @@ namespace Aplicação_ToDo.IT.Página_Calendário
                     eventoExistente.DataInicio = novoEvento.DataInicio;
                     eventoExistente.DataFim = novoEvento.DataFim;
                     eventoExistente.AllDay = novoEvento.AllDay;
-
+                    eventoExistente.Cor = novoEvento.Cor;
+                    eventoExistente.CorTexto = novoEvento.CorTexto;
                 }
                 else
                 {
