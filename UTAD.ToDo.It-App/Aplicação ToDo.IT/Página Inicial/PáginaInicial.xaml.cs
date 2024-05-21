@@ -5,6 +5,10 @@ using Aplicação_ToDo.IT.Página_Personalizar;
 using Aplicação_ToDo.IT.Página_Tarefas;
 using Aplicação_ToDo.IT.SaveData;
 using System.Windows;
+using Newtonsoft.Json;
+using System.IO;
+using System.Collections.Generic;
+using static Aplicação_ToDo.IT.Página_Calendário.PáginaCalendário;
 
 namespace Aplicação_ToDo.IT.Página_Inicial
 {
@@ -18,6 +22,11 @@ namespace Aplicação_ToDo.IT.Página_Inicial
             // Exibir o nome de usuário e o e-mail do usuário
             UsernameTextBlock.Text = UserData.Username;
             EmailTextBlock.Text = UserData.Email;
+
+            PáginaCalendário páginaCalendário = new PáginaCalendário();
+            List<string> eventos = páginaCalendário.MostrarEventos();
+
+            ListaEventos.ItemsSource = eventos;
         }
 
         private void NovaTarefa_Click(object sender, RoutedEventArgs e)
