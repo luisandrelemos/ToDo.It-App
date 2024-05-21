@@ -18,9 +18,7 @@
 
     <Grid>
         <!-- Conteúdo principal -->
-        <Border Style="{StaticResource Background}" CornerRadius="25,25,25,25" RenderTransformOrigin="0.5,0.5">
-            <ListBox HorizontalAlignment="Left" Height="31" Margin="125,64,0,0" VerticalAlignment="Top" Width="4" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        </Border>
+        <Border Style="{StaticResource Background}" CornerRadius="25,25,25,25" RenderTransformOrigin="0.5,0.5"/>
         <Syncfusion:SfScheduler x:Name="Calendário" BorderThickness="0" Margin="250,0,0,0"
                                 ShowBusyIndicator="True" 
                                 FirstDayOfWeek="Monday"

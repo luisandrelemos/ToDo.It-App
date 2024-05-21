@@ -103,11 +103,13 @@ namespace Aplicação_ToDo.IT.Página_Calendário
 
         public class Evento
         {
+            public int Id { get; set; }
             public string Titulo { get; set; }
             public DateTime DataInicio { get; set; }
             public DateTime DataFim { get; set; }
+            public bool AllDay { get; set; }
 
-            // Adicione mais propriedades conforme necessário
+            // Adicionar mais propriedades conforme necessário
         }
 
         List<Evento> eventos = new List<Evento>
@@ -119,7 +121,8 @@ namespace Aplicação_ToDo.IT.Página_Calendário
             List<string> eventosFormatados = new List<string>();
             foreach (var evento in eventos)
             {
-                eventosFormatados.Add($"Título: {evento.Titulo}, Data de Início: {evento.DataInicio}, Data de Fim: {evento.DataFim}");
+                string formatoData = evento.AllDay ? "dd/MM/yyyy" : "dd/MM/yyyy HH:mm:ss";
+                eventosFormatados.Add($"Título: {evento.Titulo}, Data de Início: {evento.DataInicio.ToString(formatoData)}, Data de Fim: {evento.DataFim.ToString(formatoData)}");
             }
             return eventosFormatados;
         }
@@ -132,9 +135,11 @@ namespace Aplicação_ToDo.IT.Página_Calendário
             {
                 ScheduleAppointment appointment = new ScheduleAppointment
                 {
+                    Id = evento.Id,
                     Subject = evento.Titulo,
                     StartTime = evento.DataInicio,
                     EndTime = evento.DataFim,
+                    IsAllDay = evento.AllDay,
                 };
 
                 Appointments.Add(appointment);
@@ -147,13 +152,16 @@ namespace Aplicação_ToDo.IT.Página_Calendário
             {
                 Evento novoEvento = new Evento
                 {
+                    Id = (int)e.Appointment.Id,
                     Titulo = e.Appointment.Subject,
-                    DataInicio = e.Appointment.StartTime,
-                    DataFim = e.Appointment.EndTime,
+                    DataInicio = e.Appointment.IsAllDay ? e.Appointment.StartTime.Date : e.Appointment.StartTime,
+                    DataFim = e.Appointment.IsAllDay ? e.Appointment.EndTime.Date : e.Appointment.EndTime,
+                    AllDay = e.Appointment.IsAllDay,
+
                 };
 
                 // Verifique se o evento já existe na lista
-                var eventoExistente = eventos.FirstOrDefault(x => x.Titulo == novoEvento.Titulo && x.DataInicio == novoEvento.DataInicio && x.DataFim == novoEvento.DataFim);
+                var eventoExistente = eventos.FirstOrDefault(x => x.Id == novoEvento.Id);
 
                 if (eventoExistente != null)
                 {
@@ -161,6 +169,8 @@ namespace Aplicação_ToDo.IT.Página_Calendário
                     eventoExistente.Titulo = novoEvento.Titulo;
                     eventoExistente.DataInicio = novoEvento.DataInicio;
                     eventoExistente.DataFim = novoEvento.DataFim;
+                    eventoExistente.AllDay = novoEvento.AllDay;
+
                 }
                 else
                 {
@@ -178,7 +188,7 @@ namespace Aplicação_ToDo.IT.Página_Calendário
             if (e.Appointment != null)
             {
                 // Encontre o evento correspondente na lista
-                var evento = eventos.FirstOrDefault(x => x.Titulo == e.Appointment.Subject && x.DataInicio == e.Appointment.StartTime && x.DataFim == e.Appointment.EndTime);
+                var evento = eventos.FirstOrDefault(x => x.Id == (int)e.Appointment.Id);
 
                 if (evento != null)
                 {
@@ -204,7 +214,7 @@ namespace Aplicação_ToDo.IT.Página_Calendário
             if (draggedAppointment != null)
             {
                 // Encontre o evento correspondente na lista
-                var evento = eventos.FirstOrDefault(x => x.Titulo == draggedAppointment.Subject && x.DataInicio == draggedAppointment.StartTime && x.DataFim == draggedAppointment.EndTime);
+                var evento = eventos.FirstOrDefault(x => x.Id == (int)e.Appointment.Id);
 
                 if (evento != null)
                 {
