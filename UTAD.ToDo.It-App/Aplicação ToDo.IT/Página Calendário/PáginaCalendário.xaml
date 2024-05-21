@@ -15,7 +15,7 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
-    
+
     <Grid>
         <!-- Conteúdo principal -->
         <Border Style="{StaticResource Background}" CornerRadius="25,25,25,25" RenderTransformOrigin="0.5,0.5">
@@ -25,7 +25,7 @@
                                 ShowBusyIndicator="True" 
                                 FirstDayOfWeek="Monday"
                                 ViewType="Month"
-                                AllowedViewTypes="Month,Day,Week,WorkWeek" AppointmentEditorClosing="Calendário_AppointmentEditorClosing" AppointmentDeleting="Calendário_AppointmentDeleting">
+                                AllowedViewTypes="Month,Day,Week,WorkWeek" AppointmentEditorClosing="Calendário_AppointmentEditorClosing" AppointmentDeleting="Calendário_AppointmentDeleting" AppointmentDragStarting="Calendário_AppointmentDragStarting" AppointmentDropping="Calendário_AppointmentDropping">
             <Syncfusion:SfScheduler.MonthViewSettings>
                 <Syncfusion:MonthViewSettings AppointmentDisplayMode="Appointment"
                                               AppointmentDisplayCount="1"/>

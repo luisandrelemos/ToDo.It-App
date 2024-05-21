@@ -194,5 +194,36 @@ namespace Aplicação_ToDo.IT.Página_Calendário
                 CarregarEventosNoCalendario();
             }
         }
+
+        private ScheduleAppointment draggedAppointment;
+
+        private void Calendário_AppointmentDragStarting(object sender, Syncfusion.UI.Xaml.Scheduler.AppointmentDragStartingEventArgs e)
+        {
+            draggedAppointment = e.Appointment as ScheduleAppointment;
+        }
+
+        private void Calendário_AppointmentDropping(object sender, Syncfusion.UI.Xaml.Scheduler.AppointmentDroppingEventArgs e)
+        {
+            if (draggedAppointment != null)
+            {
+                // Encontre o evento correspondente na lista
+                var evento = eventos.FirstOrDefault(x => x.Id == (int)draggedAppointment.Id);
+
+                if (evento != null)
+                {
+                    // Calcule a duração do compromisso
+                    var duration = draggedAppointment.EndTime - draggedAppointment.StartTime;
+
+                    // Atualize a data de início e fim do evento
+                    evento.DataInicio = e.DropTime;
+                    evento.DataFim = e.DropTime.Add(duration);
+                }
+
+                MostrarEventos();
+                SalvarEventos();
+            }
+
+            draggedAppointment = null;
+        }
     }
 }
