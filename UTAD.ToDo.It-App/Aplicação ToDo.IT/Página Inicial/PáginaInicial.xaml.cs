@@ -23,7 +23,7 @@ namespace Aplicação_ToDo.IT.Página_Inicial
             EmailTextBlock.Text = UserData.Email;
 
             PáginaCalendário páginaCalendário = new PáginaCalendário();
-            List<string> eventos = páginaCalendário.MostrarEventos();
+            List<Evento> eventos = páginaCalendário.MostrarEventos();
 
             ListaEventos.ItemsSource = eventos;
         }

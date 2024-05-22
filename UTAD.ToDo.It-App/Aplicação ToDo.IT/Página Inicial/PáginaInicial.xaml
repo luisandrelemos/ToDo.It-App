@@ -80,7 +80,7 @@
         <Border Width="250" Style="{StaticResource SidePanelBack}" CornerRadius="25,25,25,25" HorizontalAlignment="Left" Margin="1116,0,0,0">
             <Grid>
                 <!-- Adicione o título do sidebar direito aqui -->
-                <TextBlock FontFamily="Montserrat" Text="As Minhas Tarefas" VerticalAlignment="Top" HorizontalAlignment="Center" Style="{StaticResource TextUp}" Margin="0,28,0,0" FontSize="16" FontWeight="Bold"/>
+                <TextBlock FontFamily="Montserrat" Text="Tarefas Pendentes" VerticalAlignment="Top" HorizontalAlignment="Center" Style="{StaticResource TextUp}" Margin="0,28,0,0" FontSize="16" FontWeight="Bold"/>
 
                 <!-- Adicione os controles do sidepanel esquerdo aqui -->
                 <Line X1="6" Y1="80" X2="244" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,0,0,0"/>
@@ -89,14 +89,23 @@
 
         <!-- Sidepanel Meio -->
         <Border Width="802" Style="{StaticResource SidePanelBack}" CornerRadius="0,0,15,15" HorizontalAlignment="Center" Margin="0,0,0,689"/>
+
+        <!--Icon Pagina -->
+        <Icon:PackIconCodicons Kind="Home" Width="33" Height="31" Foreground="#00f0ff" Margin="304,23,0,0"/>
+
+        <TextBlock TextWrapping="Wrap" Text="Página Inicial" FontSize="25" Margin="346,24,845,712" Style="{StaticResource TextUp}" FontFamily="Montserrat"/>
+
         <ListBox x:Name="ListaEventos" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="307,116,307,116" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <!-- Personalize o design do item aqui -->
-                    <Border BorderBrush="Cyan" BorderThickness="2" CornerRadius="15" Width="730" Height="50" HorizontalAlignment="Center" Margin="0,04">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock FontFamily="Montserrat" Text="{Binding}" Margin="20,16,15,15" />
-                        </StackPanel>
+                    <Border BorderBrush="{Binding Cor}" BorderThickness="1" CornerRadius="15" Width="730" Height="50" HorizontalAlignment="Center" Margin="0,04">
+                        <Grid>
+                            <TextBlock FontFamily="Montserrat" FontSize="13" Text="{Binding Titulo}" Margin="17,16,515,16" />
+                            <TextBlock FontFamily="Montserrat" FontSize="10" Text="{Binding Importancia}" Margin="218,17,365,18" />
+                            <TextBlock FontFamily="Montserrat" FontSize="10" Text="{Binding DataInicio}" Margin="364,17,179,18" />
+                            <TextBlock FontFamily="Montserrat" FontSize="10" Text="{Binding DataFim}" Margin="553,17,13,18" />
+                        </Grid>
                     </Border>
                 </DataTemplate>
             </ListBox.ItemTemplate>

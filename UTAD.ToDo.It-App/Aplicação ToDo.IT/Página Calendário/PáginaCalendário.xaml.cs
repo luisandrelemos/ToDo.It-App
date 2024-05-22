@@ -127,15 +127,9 @@ namespace Aplicação_ToDo.IT.Página_Calendário
         {
 
         };
-        public List<string> MostrarEventos()
+        public List<Evento> MostrarEventos()
         {
-            List<string> eventosFormatados = new List<string>();
-            foreach (var evento in eventos)
-            {
-                string formatoData = evento.AllDay ? "dd/MM/yyyy" : "dd/MM/yyyy (HH:mm)";
-                eventosFormatados.Add($"{evento.Titulo}    Data: {evento.DataInicio.ToString(formatoData)} - {evento.DataFim.ToString(formatoData)}        Importância: {evento.Importancia}");
-            }
-            return eventosFormatados;
+            return eventos;
         }
 
         private void CarregarEventosNoCalendario()
