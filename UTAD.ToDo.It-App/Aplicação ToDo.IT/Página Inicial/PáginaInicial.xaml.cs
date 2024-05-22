@@ -12,7 +12,6 @@ using static Aplicação_ToDo.IT.Página_Calendário.PáginaCalendário;
 
 namespace Aplicação_ToDo.IT.Página_Inicial
 {
-
     public partial class PáginaInicial : Window
     {
         public PáginaInicial()
