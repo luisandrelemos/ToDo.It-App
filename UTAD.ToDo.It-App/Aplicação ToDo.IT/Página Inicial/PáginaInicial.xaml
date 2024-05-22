@@ -89,7 +89,17 @@
 
         <!-- Sidepanel Meio -->
         <Border Width="802" Style="{StaticResource SidePanelBack}" CornerRadius="0,0,15,15" HorizontalAlignment="Center" Margin="0,0,0,689"/>
-        <ListBox x:Name="ListaEventos" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="282,106,282,29"/>
+        <ListBox x:Name="ListaEventos" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="307,116,307,116" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <!-- Personalize o design do item aqui -->
+                    <Border BorderBrush="Cyan" BorderThickness="2" CornerRadius="15" Width="730" Height="50" HorizontalAlignment="Center" Margin="0,04">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="Montserrat" Text="{Binding}" Margin="20,16,15,15" />
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>
-

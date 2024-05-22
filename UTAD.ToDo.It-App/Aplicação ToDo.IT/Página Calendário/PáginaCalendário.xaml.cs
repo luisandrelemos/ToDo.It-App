@@ -101,6 +101,12 @@ namespace Aplicação_ToDo.IT.Página_Calendário
                 eventos = JsonConvert.DeserializeObject<List<Evento>>(json);
             }
         }
+        public enum Importancia
+        {
+            Muito_Importante,
+            Importante,
+            Pouco_Importante
+        }
 
         public class Evento
         {
@@ -109,7 +115,12 @@ namespace Aplicação_ToDo.IT.Página_Calendário
             public DateTime DataInicio { get; set; }
             public DateTime DataFim { get; set; }
             public bool AllDay { get; set; }
+            public Brush Cor { get; set; }
+            public Brush CorTexto { get; set; }
+            public Importancia Importancia { get; set; }
 
+
+            // Adicionar mais propriedades conforme necessário
         }
 
         List<Evento> eventos = new List<Evento>
@@ -121,8 +132,8 @@ namespace Aplicação_ToDo.IT.Página_Calendário
             List<string> eventosFormatados = new List<string>();
             foreach (var evento in eventos)
             {
-                string formatoData = evento.AllDay ? "dd/MM/yyyy" : "dd/MM/yyyy HH:mm:ss";
-                eventosFormatados.Add($"Título: {evento.Titulo}, Data de Início: {evento.DataInicio.ToString(formatoData)}, Data de Fim: {evento.DataFim.ToString(formatoData)}, Importância: {evento.Importancia}");
+                string formatoData = evento.AllDay ? "dd/MM/yyyy" : "dd/MM/yyyy (HH:mm)";
+                eventosFormatados.Add($"{evento.Titulo}    Data: {evento.DataInicio.ToString(formatoData)} - {evento.DataFim.ToString(formatoData)}        Importância: {evento.Importancia}");
             }
             return eventosFormatados;
         }
@@ -140,6 +151,8 @@ namespace Aplicação_ToDo.IT.Página_Calendário
                     StartTime = evento.DataInicio,
                     EndTime = evento.DataFim,
                     IsAllDay = evento.AllDay,
+                    AppointmentBackground = evento.Cor,
+                    Foreground = evento.CorTexto,
                 };
 
                 Appointments.Add(appointment);
@@ -157,6 +170,8 @@ namespace Aplicação_ToDo.IT.Página_Calendário
                     DataInicio = e.Appointment.IsAllDay ? e.Appointment.StartTime.Date : e.Appointment.StartTime,
                     DataFim = e.Appointment.IsAllDay ? e.Appointment.EndTime.Date : e.Appointment.EndTime,
                     AllDay = e.Appointment.IsAllDay,
+                    Cor = e.Appointment.AppointmentBackground,
+                    CorTexto = e.Appointment.Foreground,
                 };
 
                 // Verifique se o evento já existe na lista
@@ -169,6 +184,8 @@ namespace Aplicação_ToDo.IT.Página_Calendário
                     eventoExistente.DataInicio = novoEvento.DataInicio;
                     eventoExistente.DataFim = novoEvento.DataFim;
                     eventoExistente.AllDay = novoEvento.AllDay;
+                    eventoExistente.Cor = novoEvento.Cor;
+                    eventoExistente.CorTexto = novoEvento.CorTexto;
                 }
                 else
                 {
@@ -178,6 +195,25 @@ namespace Aplicação_ToDo.IT.Página_Calendário
 
                 MostrarEventos();
                 SalvarEventos();
+            }
+        }
+
+        private void Calendário_AppointmentDeleting(object sender, Syncfusion.UI.Xaml.Scheduler.AppointmentDeletingEventArgs e)
+        {
+            if (e.Appointment != null)
+            {
+                // Encontre o evento correspondente na lista
+                var evento = eventos.FirstOrDefault(x => x.Id == (int)e.Appointment.Id);
+
+                if (evento != null)
+                {
+                    // Remova o evento da lista
+                    eventos.Remove(evento);
+                }
+
+                MostrarEventos();
+                SalvarEventos();
+                CarregarEventosNoCalendario();
             }
         }
 
