@@ -15,18 +15,16 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
-    
+
     <Grid>
         <!-- Conteúdo principal -->
-        <Border Style="{StaticResource Background}" CornerRadius="25,25,25,25" RenderTransformOrigin="0.5,0.5">
-            <ListBox HorizontalAlignment="Left" Height="31" Margin="125,64,0,0" VerticalAlignment="Top" Width="4" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        </Border>
+        <Border Style="{StaticResource Background}" CornerRadius="25,25,25,25" RenderTransformOrigin="0.5,0.5"/>
         <Syncfusion:SfScheduler x:Name="Calendário" BorderThickness="0" Margin="250,0,0,0"
                                 ShowBusyIndicator="True" 
                                 FirstDayOfWeek="Monday"
                                 ViewType="Month"
-                                AllowedViewTypes="Month,Day,Week,WorkWeek" AppointmentEditorClosing="Calendário_AppointmentEditorClosing" AppointmentDeleting="Calendário_AppointmentDeleting"
-                                EnableReminder="True" >
+                                EnableReminder="True"
+                                AllowedViewTypes="Month,Day,Week,WorkWeek" AppointmentEditorClosing="Calendário_AppointmentEditorClosing" AppointmentDeleting="Calendário_AppointmentDeleting" AppointmentDragStarting="Calendário_AppointmentDragStarting" AppointmentDropping="Calendário_AppointmentDropping">
             <Syncfusion:SfScheduler.MonthViewSettings>
                 <Syncfusion:MonthViewSettings AppointmentDisplayMode="Appointment"
                                               AppointmentDisplayCount="1"/>
@@ -84,7 +82,6 @@
                     </MenuItem>
                 </ContextMenu>
             </Syncfusion:SfScheduler.CellContextMenu>
-
         </Syncfusion:SfScheduler>
 
         <!-- Barra de Perfil -->

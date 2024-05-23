@@ -70,6 +70,7 @@
                 <Line X1="6" Y1="699" X2="244" Y2="699" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,0,0,0"/>
                 <Button Content="Sair da Aplicação" Style="{StaticResource buttonQuit}" Margin="25,706,25,10" Click="Sair_Click"/>
                 <Icon:PackIconUnicons Kind="Signout"  Width="20" Height="20" Style="{StaticResource IconSide6}" Margin="41,722,0,0"/>
+
             </Grid>
         </Border>
 
@@ -78,17 +79,44 @@
 
         <!-- Sidepanel direito -->
         <Border Width="250" Style="{StaticResource SidePanelBack}" CornerRadius="25,25,25,25" HorizontalAlignment="Left" Margin="1116,0,0,0">
+
             <Grid>
                 <!-- Adicione o título do sidebar direito aqui -->
                 <TextBlock FontFamily="Montserrat" Text="As Minhas Tarefas" VerticalAlignment="Top" HorizontalAlignment="Center" Style="{StaticResource TextUp}" Margin="0,28,0,0" FontSize="16" FontWeight="Bold"/>
+                <Border CornerRadius="10" Margin="10,96,10,624" Background="#FF565555" >
+                    <Border.Effect>
+                        <DropShadowEffect Color="Black" Direction="0" ShadowDepth="2" Opacity="0.5" BlurRadius="50"></DropShadowEffect>
+                    </Border.Effect>
+                    <Grid>
 
-                <!-- Adicione os controles do sidepanel esquerdo aqui -->
+                        <Icon:PackIconMaterial Kind="Magnify"  Height="25" Width="22" Foreground="#FF404040" Margin="10,12,0,0" >
+                            <Icon:PackIconMaterial.Effect>
+                                <DropShadowEffect Color="Black" Direction="45" ShadowDepth="1" Opacity="1" BlurRadius="1"/>
+                            </Icon:PackIconMaterial.Effect>
+                        </Icon:PackIconMaterial>
+                        <Icon:PackIconMaterial Kind="SortVariant" Foreground="#FF404040" Height="28" Width="22" Margin="198,0,0,0" VerticalAlignment="Center">
+                            <Icon:PackIconMaterial.Effect>
+                                <DropShadowEffect Color="Black" Direction="45" ShadowDepth="1" Opacity="1" BlurRadius="1"/>
+                            </Icon:PackIconMaterial.Effect>
+                        </Icon:PackIconMaterial>
+                        <TextBox Text="      Procurar Tarefas" FontSize="20" BorderThickness="0" Margin="2,0,2,4" Foreground="#FF404040"/>
+                    </Grid>
+
+                </Border>
+
+
                 <Line X1="6" Y1="80" X2="244" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,0,0,0"/>
+
             </Grid>
+
         </Border>
 
         <!-- Sidepanel Meio -->
-        <Border Width="802" Style="{StaticResource SidePanelBack}" CornerRadius="0,0,15,15" HorizontalAlignment="Center" Margin="0,0,0,689"/>
+        <Border Width="802" Style="{StaticResource SidePanelBack}" CornerRadius="0,0,15,15" HorizontalAlignment="Center" Margin="0,0,0,689">
+            <Border.Effect>
+                <DropShadowEffect Color="Black" Direction="0"  ShadowDepth="5" Opacity="0.5" BlurRadius="10"></DropShadowEffect>
+            </Border.Effect>
+        </Border>
         <ListBox x:Name="ListaEventos" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="282,106,282,29"/>
     </Grid>
 </Window>
