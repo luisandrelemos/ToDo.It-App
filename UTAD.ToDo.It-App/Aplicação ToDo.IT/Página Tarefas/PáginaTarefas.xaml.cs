@@ -16,8 +16,8 @@ namespace Aplicação_ToDo.IT.Página_Tarefas
             InitializeComponent();
 
             // Exibir o nome de usuário e o e-mail do usuário
-            UsernameTextBlock.Text = UserData.Username;
-            EmailTextBlock.Text = UserData.Email;
+            UsernameTextBlock.Text = CurrentUser.User.Username;
+            EmailTextBlock.Text = CurrentUser.User.Email;
         }
 
         private void PáginaInicial_Click(object sender, RoutedEventArgs e)

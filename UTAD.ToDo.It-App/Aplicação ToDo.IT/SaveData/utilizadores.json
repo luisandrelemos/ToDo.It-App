@@ -1,0 +1,23 @@
+[
+  {
+    "Id": "cb6a278b-54cd-46be-b338-a1062cd41433",
+    "Username": "Luis Lemos",
+    "Email": "lemosluis547@gmail.com",
+    "Password": "123",
+    "Tema": "dark"
+  },
+  {
+    "Id": "2a2d7fa0-7ada-4319-8aff-07e50cd4f4ec",
+    "Username": "Jose",
+    "Email": "jluisandra@hotmail.com",
+    "Password": "123",
+    "Tema": "dark"
+  },
+  {
+    "Id": "2a2d7fa0-7ada-4319-8aff-07e50cd4f4ec",
+    "Username": "Admin",
+    "Email": "",
+    "Password": "",
+    "Tema": "Dark"
+  }
+]

@@ -1,12 +1,13 @@
-﻿using System.Windows;
+﻿using Newtonsoft.Json;
+using System.IO;
+using System.Linq;
+using System.Windows;
 using System.Windows.Input;
-using System.Xml.Linq;
 using Aplicação_ToDo.IT.Página_Inicial;
 using Aplicação_ToDo.IT.SaveData;
 
 namespace Aplicação_ToDo.IT.Página_Autenticação
 {
-
     public partial class PaginaLogin : Window
     {
         public PaginaLogin()
@@ -14,7 +15,7 @@ namespace Aplicação_ToDo.IT.Página_Autenticação
             InitializeComponent();
         }
 
-        private void Border_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
@@ -42,24 +43,23 @@ namespace Aplicação_ToDo.IT.Página_Autenticação
         {
             try
             {
-                // Carregar o arquivo XML
-                XDocument doc = XDocument.Load("C:\\Users\\Luís Lemos\\source\\repos\\ToDo.It-App\\UTAD.ToDo.It-App\\Aplicação ToDo.IT\\SaveData\\registros.xml");
+                // Carregar o arquivo JSON
+                string jsonPath = @"C:\Users\Luís Lemos\source\repos\PL5_G04\UTAD.ToDo.It-App\Aplicação ToDo.IT\SaveData\utilizadores.json";
+                string json = File.ReadAllText(jsonPath);
+
+                // Deserializar o JSON para uma lista de usuários
+                List<UserData> users = JsonConvert.DeserializeObject<List<UserData>>(json);
 
                 // Encontrar o usuário correspondente ao e-mail e senha
-                var user = (from u in doc.Root.Elements("userData")
-                            where (string)u.Element("email") == email.Text &&
-                                  (string)u.Element("password") == password.Password
-                            select u).FirstOrDefault();
+                var user = users.FirstOrDefault(u => u.Email == email.Text && u.Password == password.Password);
 
                 if (user != null)
                 {
-                    // Salvar o nome de usuário e o e-mail na classe UserData
-                    UserData.Username = (string)user.Element("username");
-                    UserData.Email = (string)user.Element("email");
-                    UserData.Theme = (string)user.Element("theme");
+                    // Salvar o usuário na classe CurrentUser
+                    CurrentUser.User = user;
 
                     // Aplicar o tema do usuário
-                    ThemeManager.ChangeTheme($"Temas/{UserData.Theme}.xaml");
+                    ThemeManager.ChangeTheme($"Temas/{CurrentUser.User.Tema}.xaml");
 
                     PáginaInicial mainWindow = new PáginaInicial();
                     mainWindow.Show();

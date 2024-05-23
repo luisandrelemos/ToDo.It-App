@@ -101,10 +101,10 @@
                     <!-- Personalize o design do item aqui -->
                     <Border BorderBrush="{Binding Cor}" BorderThickness="1" CornerRadius="15" Width="730" Height="50" HorizontalAlignment="Center" Margin="0,04">
                         <Grid>
-                            <TextBlock FontFamily="Montserrat" FontSize="13" Text="{Binding Titulo}" Margin="17,16,515,16" />
-                            <TextBlock FontFamily="Montserrat" FontSize="10" Text="{Binding Importancia}" Margin="218,17,365,18" />
-                            <TextBlock FontFamily="Montserrat" FontSize="10" Text="{Binding DataInicio}" Margin="364,17,179,18" />
-                            <TextBlock FontFamily="Montserrat" FontSize="10" Text="{Binding DataFim}" Margin="553,17,13,18" />
+                            <TextBlock FontFamily="Montserrat" FontSize="13" Text="{Binding Titulo}" Margin="20,16,512,16" />
+                            <TextBlock FontFamily="Montserrat" FontSize="10" Text="{Binding Importancia}" Margin="221,18,362,19" />
+                            <TextBlock FontFamily="Montserrat" FontSize="10" Text="{Binding DataInicio}" Margin="367,18,176,19" />
+                            <TextBlock FontFamily="Montserrat" FontSize="10" Text="{Binding DataFim}" Margin="556,18,10,19" />
                         </Grid>
                     </Border>
                 </DataTemplate>

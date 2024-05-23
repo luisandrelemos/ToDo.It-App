@@ -6,10 +6,17 @@ using System.Threading.Tasks;
 
 namespace Aplicação_ToDo.IT.SaveData
 {
-    public static class UserData
+    public class UserData
     {
-        public static string Username { get; set; }
-        public static string Email { get; set; }
-        public static string Theme { get; set; }
+        public string Id { get; set; }
+        public string Username { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public string Tema { get; set; }
+    }
+
+    public class CurrentUser
+    {
+        public static UserData User { get; set; }
     }
 }

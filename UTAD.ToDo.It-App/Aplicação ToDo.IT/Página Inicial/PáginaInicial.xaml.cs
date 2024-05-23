@@ -19,8 +19,8 @@ namespace Aplicação_ToDo.IT.Página_Inicial
             InitializeComponent();
 
             // Exibir o nome de usuário e o e-mail do usuário
-            UsernameTextBlock.Text = UserData.Username;
-            EmailTextBlock.Text = UserData.Email;
+            UsernameTextBlock.Text = CurrentUser.User.Username;
+            EmailTextBlock.Text =  CurrentUser.User.Email;
 
             PáginaCalendário páginaCalendário = new PáginaCalendário();
             List<Evento> eventos = páginaCalendário.MostrarEventos();

@@ -1,14 +1,25 @@
 ﻿using System.IO;
 using System.Windows;
+using System;
 using System.Xml.Linq;
 using System.Windows.Input;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json;
 
 namespace Aplicação_ToDo.IT.Página_Autenticação
 {
 
     public partial class PáginaRegisto : Window
     {
+        public class UserData
+        {
+            public string Id { get; set; }
+            public string Username { get; set; }
+            public string Email { get; set; }
+            public string Password { get; set; }
+            public string Tema { get; set; }
+        }
+
         public PáginaRegisto()
         {
             InitializeComponent();
@@ -54,38 +65,50 @@ namespace Aplicação_ToDo.IT.Página_Autenticação
                     throw new Exception("O E-Mail digitado não é válido!");
                 }
 
-                // Carregar o arquivo XML ou criar um novo se não existir
-                XDocument doc;
-                string caminhoArquivoXml = "C:\\Users\\Luís Lemos\\source\\repos\\ToDo.It-App\\UTAD.ToDo.It-App\\Aplicação ToDo.IT\\SaveData\\registros.xml";
-                if (File.Exists(caminhoArquivoXml))
+                // Carregar o arquivo JSON ou criar um novo se não existir
+                string caminhoArquivoJson = "C:\\Users\\Luís Lemos\\source\\repos\\PL5_G04\\UTAD.ToDo.It-App\\Aplicação ToDo.IT\\SaveData\\utilizadores.json";
+                List<UserData> usuarios;
+                string json;
+                if (File.Exists(caminhoArquivoJson))
                 {
-                    doc = XDocument.Load(caminhoArquivoXml);
+                    json = File.ReadAllText(caminhoArquivoJson);
+                    try
+                    {
+                        usuarios = JsonConvert.DeserializeObject<List<UserData>>(json);
+                    }
+                    catch
+                    {
+                        usuarios = new List<UserData>();
+                    }
                 }
                 else
                 {
-                    doc = new XDocument(new XElement("registros"));
+                    usuarios = new List<UserData>();
                 }
 
                 // Verificar se o e-mail já está em uso
-                var usuarioExistente = doc.Root.Elements("userData").FirstOrDefault(u => (string)u.Element("email") == email.Text);
+                var usuarioExistente = usuarios.FirstOrDefault(u => u.Email == email.Text);
                 if (usuarioExistente != null)
                 {
                     throw new Exception("O E-Mail já está em uso!");
                 }
 
-                // Criar elemento XML para o novo usuário
-                XElement novoUsuario = new XElement("userData",
-                    new XElement("email", email.Text),
-                    new XElement("username", username.Text),
-                    new XElement("password", password.Password),
-                    new XElement("theme", "dark") // Adicionado elemento para o tema
-                );
+                // Criar objeto para o novo usuário
+                UserData novoUsuario = new UserData
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Email = email.Text,
+                    Username = username.Text,
+                    Password = password.Password,
+                    Tema = "dark" // Adicionado elemento para o tema
+                };
 
-                // Adicionar o novo usuário ao arquivo XML
-                doc.Root.Add(novoUsuario);
+                // Adicionar o novo usuário à lista
+                usuarios.Add(novoUsuario);
 
-                // Salvar o arquivo XML
-                doc.Save(caminhoArquivoXml);
+                // Salvar a lista de usuários no arquivo JSON
+                json = JsonConvert.SerializeObject(usuarios, Formatting.Indented);
+                File.WriteAllText(caminhoArquivoJson, json);
 
                 // Limpar campos
                 email.Text = "";

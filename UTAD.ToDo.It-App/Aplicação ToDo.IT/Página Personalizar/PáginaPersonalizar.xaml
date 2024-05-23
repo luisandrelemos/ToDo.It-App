@@ -59,18 +59,18 @@
             </Grid.RowDefinitions>
 
             <!-- Substitua "ColorButton_Click" pelo nome do seu manipulador de eventos -->
-            <Button Grid.Column="0" Style="{StaticResource ColorDisplay}" Background="Red" Grid.Row="0" Click="ColorButton_Click"/>
-            <Button Grid.Column="1" Style="{StaticResource ColorDisplay}" Background="Green" BorderThickness="0" Click="ColorButton_Click"/>
-            <Button Grid.Column="2" Style="{StaticResource ColorDisplay}" Background="#00f2ff" BorderThickness="0" Click="ColorButton_Click"/>
-            <Button Grid.Column="3" Style="{StaticResource ColorDisplay}" Background="Yellow" BorderThickness="0" Click="ColorButton_Click"/>
-            <Button Grid.Column="0" Grid.Row="1" Style="{StaticResource ColorDisplay}" Background="Orange" BorderThickness="0" Click="ColorButton_Click"/>
-            <Button Grid.Column="1" Grid.Row="1" Style="{StaticResource ColorDisplay}" Background="OrangeRed" BorderThickness="0" Click="ColorButton_Click"/>
-            <Button Grid.Column="2" Grid.Row="1" Style="{StaticResource ColorDisplay}" Background="HotPink" BorderThickness="0" Click="ColorButton_Click"/>
-            <Button Grid.Column="3" Grid.Row="1" Style="{StaticResource ColorDisplay}" Background="Pink" BorderThickness="0" Click="ColorButton_Click"/>
-            <Button Grid.Column="0" Grid.Row="2" Style="{StaticResource ColorDisplay}" Background="Purple" BorderThickness="0" Click="ColorButton_Click"/>
-            <Button Grid.Column="1" Grid.Row="2" Style="{StaticResource ColorDisplay}" Background="Blue" BorderThickness="0" Click="ColorButton_Click"/>
-            <Button Grid.Column="2" Grid.Row="2" Style="{StaticResource ColorDisplay}" Background="CadetBlue" BorderThickness="0" Click="ColorButton_Click"/>
-            <Button Grid.Column="3" Grid.Row="2" Style="{StaticResource ColorDisplay}" Background="DodgerBlue" BorderThickness="0" Click="ColorButton_Click"/>
+            <Button Grid.Column="0" Style="{StaticResource ColorDisplay}" Background="Red" Grid.Row="0" Click="ColorREDButton_Click"/>
+            <Button Grid.Column="1" Style="{StaticResource ColorDisplay}" Background="Green" BorderThickness="0"/>
+            <Button Grid.Column="2" Style="{StaticResource ColorDisplay}" Background="#00f2ff" BorderThickness="0"/>
+            <Button Grid.Column="3" Style="{StaticResource ColorDisplay}" Background="Yellow" BorderThickness="0"/>
+            <Button Grid.Column="0" Grid.Row="1" Style="{StaticResource ColorDisplay}" Background="Orange" BorderThickness="0"/>
+            <Button Grid.Column="1" Grid.Row="1" Style="{StaticResource ColorDisplay}" Background="OrangeRed" BorderThickness="0"/>
+            <Button Grid.Column="2" Grid.Row="1" Style="{StaticResource ColorDisplay}" Background="HotPink" BorderThickness="0"/>
+            <Button Grid.Column="3" Grid.Row="1" Style="{StaticResource ColorDisplay}" Background="Pink" BorderThickness="0"/>
+            <Button Grid.Column="0" Grid.Row="2" Style="{StaticResource ColorDisplay}" Background="Purple" BorderThickness="0"/>
+            <Button Grid.Column="1" Grid.Row="2" Style="{StaticResource ColorDisplay}" Background="Blue" BorderThickness="0"/>
+            <Button Grid.Column="2" Grid.Row="2" Style="{StaticResource ColorDisplay}" Background="CadetBlue" BorderThickness="0"/>
+            <Button Grid.Column="3" Grid.Row="2" Style="{StaticResource ColorDisplay}" Background="DodgerBlue" BorderThickness="0"/>
         </Grid>
 
         <!-- Barra de Perfil -->

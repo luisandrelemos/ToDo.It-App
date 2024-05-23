@@ -4,7 +4,10 @@ using Aplicação_ToDo.IT.Página_Definições;
 using Aplicação_ToDo.IT.Página_Inicial;
 using Aplicação_ToDo.IT.Página_Tarefas;
 using Aplicação_ToDo.IT.SaveData;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 using System.Windows;
+using System.IO;
 using System.Xml.Linq;
 
 namespace Aplicação_ToDo.IT.Página_Personalizar
@@ -16,8 +19,8 @@ namespace Aplicação_ToDo.IT.Página_Personalizar
             InitializeComponent();
 
             // Exibir o nome de usuário e o e-mail do usuário
-            UsernameTextBlock.Text = UserData.Username;
-            EmailTextBlock.Text = UserData.Email;
+            UsernameTextBlock.Text = CurrentUser.User.Username;
+            EmailTextBlock.Text = CurrentUser.User.Email;
         }
 
         private void PáginaInicial_Click(object sender, RoutedEventArgs e)
@@ -73,7 +76,7 @@ namespace Aplicação_ToDo.IT.Página_Personalizar
             ChangeTheme("Temas/Light.xaml");
 
             // Salve a escolha do tema do usuário
-            UserData.Theme = "Light";
+            CurrentUser.User.Tema = "Light";
             SaveUserTheme();
 
             PáginaPersonalizar mainWindow = new PáginaPersonalizar();
@@ -87,7 +90,7 @@ namespace Aplicação_ToDo.IT.Página_Personalizar
             ChangeTheme("Temas/Dark.xaml");
 
             // Salve a escolha do tema do usuário
-            UserData.Theme = "Dark";
+            CurrentUser.User.Tema = "Dark";
             SaveUserTheme();
 
             PáginaPersonalizar mainWindow = new PáginaPersonalizar();
@@ -95,22 +98,30 @@ namespace Aplicação_ToDo.IT.Página_Personalizar
             this.Close();
         }
 
+        private void ColorButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void SaveUserTheme()
         {
-            // Carregar o arquivo XML
-            XDocument doc = XDocument.Load("C:\\Users\\Luís Lemos\\source\\repos\\ToDo.It-App\\UTAD.ToDo.It-App\\Aplicação ToDo.IT\\SaveData\\registros.xml");
+            // Carregar o arquivo JSON
+            string jsonFilePath = "C:\\Users\\Luís Lemos\\source\\repos\\PL5_G04\\UTAD.ToDo.It-App\\Aplicação ToDo.IT\\SaveData\\utilizadores.json";
+            string json = File.ReadAllText(jsonFilePath);
+            List<UserData> users = JsonConvert.DeserializeObject<List<UserData>>(json);
 
-            // Encontrar o usuário correspondente ao e-mail
-            var user = (from u in doc.Root.Elements("userData")
-                        where (string)u.Element("email") == UserData.Email
-                        select u).FirstOrDefault();
+            // Encontrar o usuário atual na lista
+            UserData user = users.Where(u => u.Email == CurrentUser.User.Email).FirstOrDefault();
 
+            // Se o usuário foi encontrado, atualizar o tema
             if (user != null)
             {
-                // Atualizar o tema do usuário no arquivo XML
-                user.Element("theme").Value = UserData.Theme;
-                doc.Save("C:\\Users\\Luís Lemos\\source\\repos\\ToDo.It-App\\UTAD.ToDo.It-App\\Aplicação ToDo.IT\\SaveData\\registros.xml");
+                user.Tema = CurrentUser.User.Tema;
             }
+
+            // Salvar o arquivo JSON
+            json = JsonConvert.SerializeObject(users, Formatting.Indented);
+            File.WriteAllText(jsonFilePath, json);
         }
 
         private void ChangeTheme(string theme)
@@ -123,9 +134,18 @@ namespace Aplicação_ToDo.IT.Página_Personalizar
             Application.Current.Resources.MergedDictionaries.Add(resourceDictionary);
         }
 
-        private void ColorButton_Click(object sender, RoutedEventArgs e)
+        private void ColorREDButton_Click(object sender, RoutedEventArgs e)
         {
+            // Código para mudar para o tema dark mode
+            ChangeTheme("Temas/DarkRED.xaml");
 
+            // Salve a escolha do tema do usuário
+            CurrentUser.User.Tema = "DarkRED";
+            SaveUserTheme();
+
+            PáginaPersonalizar mainWindow = new PáginaPersonalizar();
+            mainWindow.Show();
+            this.Close();
         }
     }
 }
