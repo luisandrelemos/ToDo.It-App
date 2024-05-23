@@ -101,6 +101,12 @@ namespace Aplicação_ToDo.IT.Página_Calendário
                 eventos = JsonConvert.DeserializeObject<List<Evento>>(json);
             }
         }
+        public enum Importancia
+        {
+            Muito_Importante,
+            Importante,
+            Pouco_Importante
+        }
 
         public class Evento
         {
@@ -111,6 +117,8 @@ namespace Aplicação_ToDo.IT.Página_Calendário
             public bool AllDay { get; set; }
             public Brush Cor { get; set; }
             public Brush CorTexto { get; set; }
+            public Importancia Importancia { get; set; }
+
 
             // Adicionar mais propriedades conforme necessário
         }
@@ -119,15 +127,9 @@ namespace Aplicação_ToDo.IT.Página_Calendário
         {
 
         };
-        public List<string> MostrarEventos()
+        public List<Evento> MostrarEventos()
         {
-            List<string> eventosFormatados = new List<string>();
-            foreach (var evento in eventos)
-            {
-                string formatoData = evento.AllDay ? "dd/MM/yyyy" : "dd/MM/yyyy HH:mm:ss";
-                eventosFormatados.Add($"Título: {evento.Titulo}, Data de Início: {evento.DataInicio.ToString(formatoData)}, Data de Fim: {evento.DataFim.ToString(formatoData)}");
-            }
-            return eventosFormatados;
+            return eventos;
         }
 
         private void CarregarEventosNoCalendario()

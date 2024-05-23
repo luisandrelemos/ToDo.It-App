@@ -9,6 +9,8 @@ using Newtonsoft.Json;
 using System.IO;
 using System.Collections.Generic;
 using static Aplicação_ToDo.IT.Página_Calendário.PáginaCalendário;
+using System.Globalization;
+using System.Windows.Data;
 
 namespace Aplicação_ToDo.IT.Página_Inicial
 {
@@ -24,10 +26,12 @@ namespace Aplicação_ToDo.IT.Página_Inicial
             EmailTextBlock.Text = UserData.Email;
 
             PáginaCalendário páginaCalendário = new PáginaCalendário();
-            List<string> eventos = páginaCalendário.MostrarEventos();
+            List<Evento> eventos = páginaCalendário.MostrarEventos();
 
             ListaEventos.ItemsSource = eventos;
+            ListaEventos2.ItemsSource = eventos;
         }
+       
 
         private void NovaTarefa_Click(object sender, RoutedEventArgs e)
         {
@@ -91,11 +95,6 @@ namespace Aplicação_ToDo.IT.Página_Inicial
             PáginaDefinições mainWindow = new PáginaDefinições();
             mainWindow.Show();
             this.Close();
-        }
-
-        private void TextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-
         }
     }
 }

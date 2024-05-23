@@ -24,8 +24,12 @@
                                 FirstDayOfWeek="Monday"
                                 ViewType="Month"
                                 EnableReminder="True"
-                                AllowedViewTypes="Month,Day,Week,WorkWeek" AppointmentEditorClosing="Calendário_AppointmentEditorClosing" AppointmentDeleting="Calendário_AppointmentDeleting" AppointmentDragStarting="Calendário_AppointmentDragStarting" AppointmentDropping="Calendário_AppointmentDropping">
-            <Syncfusion:SfScheduler.MonthViewSettings>
+                                AllowedViewTypes="Month,Day,Week,WorkWeek" 
+                                AppointmentEditorClosing="Calendário_AppointmentEditorClosing" 
+                                AppointmentDeleting="Calendário_AppointmentDeleting" 
+                                AppointmentDragStarting="Calendário_AppointmentDragStarting" 
+                                AppointmentDropping="Calendário_AppointmentDropping" >
+        <Syncfusion:SfScheduler.MonthViewSettings>
                 <Syncfusion:MonthViewSettings AppointmentDisplayMode="Appointment"
                                               AppointmentDisplayCount="1"/>
             </Syncfusion:SfScheduler.MonthViewSettings>
@@ -36,7 +40,7 @@
                 <ContextMenu>
                     <MenuItem Command="{Binding Source={x:Static Member=Syncfusion:SchedulerCommands.Edit}}"
                                         CommandParameter ="{Binding}"
-                                        Header="Edit">
+                                        Header="Editar">
                         <MenuItem.Icon>
                             <Path x:Name="Edit" 
                                 Data="M4.9375 12.6875L13.6875 3.9375C14.4124 3.21263 14.4124 2.03737 13.6875 1.3125V1.3125C12.9626 0.587626 11.7874 0.587626 11.0625 1.3125L2.3125 10.0625M4.9375 12.6875L1 14L2.3125 10.0625M4.9375 12.6875L2.3125 10.0625M9.75 2.1875L12.375 4.8125"                            
@@ -50,7 +54,7 @@
                     </MenuItem>
                     <MenuItem Command="{Binding Source={x:Static Member=Syncfusion:SchedulerCommands.Delete}}"
                                       CommandParameter ="{Binding}"
-                                      Header="Delete">
+                                      Header="Eliminar">
                         <MenuItem.Icon>
                             <Path x:Name="Delete" 
                                 Data="M1.5 2.44V13H9.5V2.44M3.5 5.32V11.08M5.5 5.32V11.08M7.5 5.32V11.08M0 2.44H11M4 2.44V1H7.5V2.44"
