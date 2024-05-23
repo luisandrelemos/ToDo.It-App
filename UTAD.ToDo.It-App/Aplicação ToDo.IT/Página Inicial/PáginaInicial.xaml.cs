@@ -26,6 +26,7 @@ namespace Aplicação_ToDo.IT.Página_Inicial
             List<Evento> eventos = páginaCalendário.MostrarEventos();
 
             ListaEventos.ItemsSource = eventos;
+            ListaEventos2.ItemsSource = eventos;
         }
 
         private void NovaTarefa_Click(object sender, RoutedEventArgs e)
@@ -90,6 +91,11 @@ namespace Aplicação_ToDo.IT.Página_Inicial
             PáginaDefinições mainWindow = new PáginaDefinições();
             mainWindow.Show();
             this.Close();
+        }
+
+        private void TextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+
         }
     }
 }
