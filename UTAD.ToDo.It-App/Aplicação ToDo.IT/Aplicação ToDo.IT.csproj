@@ -14,7 +14,7 @@
     <None Remove="Images\dark-mode.jpg" />
     <None Remove="Images\light-mode.jpg" />
     <None Remove="Images\profile.jpg" />
-    <None Remove="SaveData\registros.xml" />
+    <None Remove="SaveData\eventos.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,7 +30,7 @@
     <Resource Include="Images\profile.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Content Include="SaveData\registros.xml">
+    <Content Include="SaveData\eventos.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -118,6 +118,9 @@
 </ItemGroup>
 
     <ItemGroup>
+      <Page Update="Temas\DarkRED.xaml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Page>
       <Page Update="Temas\Dark.xaml">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Page>

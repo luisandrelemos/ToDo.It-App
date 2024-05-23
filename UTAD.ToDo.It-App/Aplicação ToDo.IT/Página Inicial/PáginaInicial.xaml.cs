@@ -9,12 +9,11 @@ using Newtonsoft.Json;
 using System.IO;
 using System.Collections.Generic;
 using static Aplicação_ToDo.IT.Página_Calendário.PáginaCalendário;
-using System.Globalization;
-using System.Windows.Data;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Aplicação_ToDo.IT.Página_Inicial
 {
-
     public partial class PáginaInicial : Window
     {
         public PáginaInicial()
@@ -22,8 +21,8 @@ namespace Aplicação_ToDo.IT.Página_Inicial
             InitializeComponent();
 
             // Exibir o nome de usuário e o e-mail do usuário
-            UsernameTextBlock.Text = UserData.Username;
-            EmailTextBlock.Text = UserData.Email;
+            UsernameTextBlock.Text = CurrentUser.User.Username;
+            EmailTextBlock.Text =  CurrentUser.User.Email;
 
             PáginaCalendário páginaCalendário = new PáginaCalendário();
             List<Evento> eventos = páginaCalendário.MostrarEventos();
@@ -32,7 +31,7 @@ namespace Aplicação_ToDo.IT.Página_Inicial
             ListaEventos2.ItemsSource = eventos;
         }
        
-
+  
         private void NovaTarefa_Click(object sender, RoutedEventArgs e)
         {
             // Crie uma nova instância da janela de criação de tarefa
@@ -95,6 +94,11 @@ namespace Aplicação_ToDo.IT.Página_Inicial
             PáginaDefinições mainWindow = new PáginaDefinições();
             mainWindow.Show();
             this.Close();
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            textbox.Background = new SolidColorBrush(Colors.Transparent); 
         }
     }
 }

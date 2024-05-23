@@ -81,44 +81,49 @@
             <Grid>
                 <!-- Adicione o título do sidebar direito aqui -->
                 <TextBlock FontFamily="Montserrat" Text="Tarefas Pendentes" VerticalAlignment="Top" HorizontalAlignment="Center" Style="{StaticResource TextUp}" Margin="0,28,0,0" FontSize="16" FontWeight="Bold"/>
-                <Border CornerRadius="10" Margin="10,96,10,624" Background="#FF565555" >
-                    <Border.Effect>
-                        <DropShadowEffect Color="Black" Direction="0" ShadowDepth="2" Opacity="0.5" BlurRadius="50"></DropShadowEffect>
-                    </Border.Effect>
-                    <Grid>
+                
+                <Grid>
+                    <Border Background="#FF757575" CornerRadius="10" Margin="8,96,10,616">
+                        <Border.Effect>
+                            <DropShadowEffect Color="Black" Direction="0" ShadowDepth="2" Opacity="5" BlurRadius="5"/>
+                        </Border.Effect>
+                        <TextBlock HorizontalAlignment="Center" Margin="0,88,0,0" Text=" Procurar Tarefas" VerticalAlignment="Top" Height="57" Width="230" />
+                    </Border>
+                    
+                    <Icon:PackIconMaterial Kind="Magnify"  Height="33" Width="26" Foreground="#FF404040" Margin="18,110,0,0" >
+                        <Icon:PackIconMaterial.Effect>
+                            <DropShadowEffect Color="Black" Direction="45" ShadowDepth="1" Opacity="1" BlurRadius="1"/>
+                        </Icon:PackIconMaterial.Effect>
+                    </Icon:PackIconMaterial>
+                    <Icon:PackIconMaterial Kind="SortVariant" Foreground="#FF404040" Height="34" Width="26" Margin="208,107,0,0">
+                        <Icon:PackIconMaterial.Effect>
+                            <DropShadowEffect Color="Black" Direction="45" ShadowDepth="1" Opacity="1" BlurRadius="1"/>
+                        </Icon:PackIconMaterial.Effect>
+                    </Icon:PackIconMaterial>
+                    <TextBox x:Name="textbox" FontSize="20" BorderThickness="0" Margin="49,96,10,616" Background="Transparent" TextChanged="TextBox_TextChanged"/>
+                </Grid>
 
-                        <Icon:PackIconMaterial Kind="Magnify"  Height="25" Width="22" Foreground="#FF404040" Margin="10,12,0,0" >
-                            <Icon:PackIconMaterial.Effect>
-                                <DropShadowEffect Color="Black" Direction="45" ShadowDepth="1" Opacity="1" BlurRadius="1"/>
-                            </Icon:PackIconMaterial.Effect>
-                        </Icon:PackIconMaterial>
-                        <Icon:PackIconMaterial Kind="SortVariant" Foreground="#FF404040" Height="28" Width="22" Margin="198,0,0,0" VerticalAlignment="Center">
-                            <Icon:PackIconMaterial.Effect>
-                                <DropShadowEffect Color="Black" Direction="45" ShadowDepth="1" Opacity="1" BlurRadius="1"/>
-                            </Icon:PackIconMaterial.Effect>
-                        </Icon:PackIconMaterial>
-                        <TextBox Text="      Procurar Tarefas" FontSize="20" BorderThickness="0" Margin="2,0,2,4" Foreground="#FF404040"/>
-                    </Grid>
 
-                </Border>
-                <ListBox x:Name="ListaEventos2" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,195,10,242" BorderThickness="0">
+                <ListBox x:Name="ListaEventos2" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,169,10,268" BorderThickness="0">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Border BorderThickness="0" CornerRadius="15" Width="218" Height="46" >
+                            <Border BorderThickness="0" CornerRadius="15" Width="218" Height="46">
                                 <Grid Height="40" Margin="-23,0,-141,0">
-                                    <TextBlock FontFamily="Montserrat" FontSize="18" Text="{Binding Titulo}" Margin="36,10,110,-10" Foreground="White"/>
-                                    <TextBlock FontFamily="Montserrat" FontSize="15" Text="{Binding DataFim, StringFormat='{}{0:dddd, dd/MM}'}" Margin="126,12,130,-236" Foreground="White" />
+                                    <TextBlock FontFamily="Montserrat" FontSize="14" Text="{Binding Titulo}" Margin="38,10,269,-60" Foreground="White" TextWrapping="Wrap"/>
+                                    <TextBlock FontFamily="Montserrat" FontSize="13" Text="{Binding DataFim, StringFormat='{}{0:ddd, dd/MM}'}" Margin="160,12,96,-236" Foreground="White" />
+                                    <Icon:PackIconCodicons Kind="Calendar" Foreground="White" Height="20" Width="20" Margin="126,0,0,0" VerticalAlignment="Center"/>
                                 </Grid>
                             </Border>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                <Line X1="6" Y1="80" X2="244" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,398,0,8"/>
+                <Line X1="6" Y1="80" X2="244" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,372,0,12"/>
                 <Line X1="6" Y1="80" X2="244" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,-8,0,8"/>
-                <Line X1="6" Y1="80" X2="244" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,228,0,0"/>
-                <Line X1="6" Y1="80" X2="244" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,171,0,0"/>
-                <Line X1="6" Y1="80" X2="244" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,342,0,-8"/>
-                <Line X1="6" Y1="80" X2="244" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,285,0,0"/>
+                <Line X1="6" Y1="80" X2="244" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,198,0,-2"/>
+                <Line X1="6" Y1="80" X2="244" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,145,0,4"/>
+                <Line X1="6" Y1="80" X2="244" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,312,0,-8"/>
+                <Line X1="6" Y1="80" X2="244" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,255,0,0"/>
+
             </Grid>
         </Border>
 
@@ -136,8 +141,10 @@
                     <!-- Personalize o design do item aqui -->
                     <Border BorderBrush="{Binding Cor}" BorderThickness="1" CornerRadius="15" Width="730" Height="50" HorizontalAlignment="Center" Margin="0,04">
                         <Grid>
-                            <TextBlock FontFamily="Montserrat" FontSize="17" Text="{Binding Titulo}" Margin="31,16,501,16" Foreground="White"/>
-                            <TextBlock FontFamily="Montserrat" FontSize="13" Text="{Binding Importancia}" Margin="218,17,378,11" Foreground="White"/>
+                            <TextBlock FontFamily="Montserrat" FontSize="13" Text="{Binding Titulo}" Margin="20,16,512,16" />
+                            <TextBlock FontFamily="Montserrat" FontSize="10" Text="{Binding Importancia}" Margin="221,18,362,19" />
+                            <TextBlock FontFamily="Montserrat" FontSize="10" Text="{Binding DataInicio}" Margin="367,18,176,19" />
+                            <TextBlock FontFamily="Montserrat" FontSize="10" Text="{Binding DataFim}" Margin="556,18,10,19" />
                         </Grid>
                     </Border>
                 </DataTemplate>

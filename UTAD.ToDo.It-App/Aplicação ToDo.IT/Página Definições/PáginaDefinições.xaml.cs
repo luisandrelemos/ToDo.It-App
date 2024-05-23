@@ -8,7 +8,10 @@ using Aplicação_ToDo.IT.SaveData;
 using Microsoft.Win32;
 using System.Windows;
 using System.Windows.Media.Imaging;
-using System.Xml.Linq;
+using System.Linq;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.IO;
 
 namespace Aplicação_ToDo.IT.Página_Definições
 {
@@ -19,8 +22,8 @@ namespace Aplicação_ToDo.IT.Página_Definições
             InitializeComponent();
 
             // Exibir o nome de usuário e o e-mail do usuário
-            UsernameTextBlock.Text = UserData.Username;
-            EmailTextBlock.Text = UserData.Email;
+            UsernameTextBlock.Text = CurrentUser.User.Username;
+            EmailTextBlock.Text = CurrentUser.User.Email;
         }
 
         private void PáginaInicial_Click(object sender, RoutedEventArgs e)
@@ -82,34 +85,36 @@ namespace Aplicação_ToDo.IT.Página_Definições
                 return;
             }
 
-            // Carregar o arquivo XML
-            XDocument doc = XDocument.Load("C:\\Users\\Luís Lemos\\source\\repos\\ToDo.It-App\\UTAD.ToDo.It-App\\Aplicação ToDo.IT\\SaveData\\registros.xml");
+            // Carregar o arquivo JSON
+            string jsonFilePath = "C:\\Users\\Luís Lemos\\source\\repos\\PL5_G04\\UTAD.ToDo.It-App\\Aplicação ToDo.IT\\SaveData\\utilizadores.json";
+            string json = File.ReadAllText(jsonFilePath);
+            List<UserData> users = JsonConvert.DeserializeObject<List<UserData>>(json);
 
-            // Encontrar o usuário atual no arquivo XML
-            var user = doc.Descendants("userData")
-                          .Where(u => u.Element("username").Value == UserData.Username)
-                          .FirstOrDefault();
+            // Encontrar o usuário atual na lista
+            UserData user = users.Where(u => u.Username == CurrentUser.User.Username).FirstOrDefault();
 
             // Se o usuário foi encontrado, verificar a senha antiga
             if (user != null)
             {
-                if (user.Element("password").Value != tb_password.Text)
+                if (user.Password != tb_password.Text)
                 {
                     MessageBox.Show("A senha antiga está incorreta.");
                     return;
                 }
 
-                user.Element("username").Value = tb_primeironome.Text;
-                user.Element("email").Value = tb_email.Text;
-                user.Element("password").Value = tb_passwordNova.Text;
+                user.Username = tb_primeironome.Text;
+                user.Email = tb_email.Text;
+                user.Password = tb_passwordNova.Text;
 
                 // Atualizar as propriedades da classe UserData
-                UserData.Username = tb_primeironome.Text;
-                UserData.Email = tb_email.Text;
+                CurrentUser.User.Username = tb_primeironome.Text;
+                CurrentUser.User.Email = tb_email.Text;
             }
 
-            // Salvar o arquivo XML
-            doc.Save("C:\\Users\\Luís Lemos\\source\\repos\\ToDo.It-App\\UTAD.ToDo.It-App\\Aplicação ToDo.IT\\SaveData\\registros.xml");
+            // Salvar o arquivo JSON
+            json = JsonConvert.SerializeObject(users, Formatting.Indented);
+            File.WriteAllText(jsonFilePath, json);
+
             PáginaDefinições mainWindow = new PáginaDefinições();
             mainWindow.Show();
             this.Close();

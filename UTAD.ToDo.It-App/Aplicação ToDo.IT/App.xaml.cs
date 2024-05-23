@@ -9,8 +9,6 @@ namespace Aplicação_ToDo.IT
 
     public partial class App : Application
     {
-        public static string appPath = AppDomain.CurrentDomain.BaseDirectory+ "\\SaveData\\registros.xml";
-
         public App()
         {
             //Register Syncfusion license

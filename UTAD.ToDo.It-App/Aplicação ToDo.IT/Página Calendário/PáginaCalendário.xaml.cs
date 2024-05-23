@@ -25,8 +25,8 @@ namespace Aplicação_ToDo.IT.Página_Calendário
             InitializeComponent();
 
             // Exibir o nome de usuário e o e-mail do usuário
-            UsernameTextBlock.Text = UserData.Username;
-            EmailTextBlock.Text = UserData.Email;
+            UsernameTextBlock.Text = CurrentUser.User.Username;
+            EmailTextBlock.Text = CurrentUser.User.Email;
 
             Calendário.AppointmentDeleting += Calendário_AppointmentDeleting;
 
@@ -85,12 +85,26 @@ namespace Aplicação_ToDo.IT.Página_Calendário
             Application.Current.Shutdown();
         }
 
-        private string arquivoEventos = "eventos.json";
-
+        private string arquivoEventos = @"C:\Users\bruno\Source\Repos\ToDo.It-App\UTAD.ToDo.It-App\Aplicação ToDo.IT\SaveData\eventos.json";
         private void SalvarEventos()
         {
-            string json = JsonConvert.SerializeObject(eventos);
-            File.WriteAllText(arquivoEventos, json);
+            List<Evento> todosEventos = new List<Evento>();
+
+            if (File.Exists(arquivoEventos))
+            {
+                string json = File.ReadAllText(arquivoEventos);
+                todosEventos = JsonConvert.DeserializeObject<List<Evento>>(json);
+            }
+
+            // Remova os eventos do usuário atual
+            todosEventos.RemoveAll(e => e.UserID == CurrentUser.User.Id);
+
+            // Adicione os eventos atualizados do usuário atual
+            todosEventos.AddRange(eventos);
+
+            // Renomeie a segunda variável json para jsonToWrite
+            string jsonToWrite = JsonConvert.SerializeObject(todosEventos);
+            File.WriteAllText(arquivoEventos, jsonToWrite);
         }
 
         private void CarregarEventos()
@@ -98,7 +112,7 @@ namespace Aplicação_ToDo.IT.Página_Calendário
             if (File.Exists(arquivoEventos))
             {
                 string json = File.ReadAllText(arquivoEventos);
-                eventos = JsonConvert.DeserializeObject<List<Evento>>(json);
+                eventos = JsonConvert.DeserializeObject<List<Evento>>(json).Where(e => e.UserID == CurrentUser.User.Id).ToList();
             }
         }
         public enum Importancia
@@ -111,6 +125,7 @@ namespace Aplicação_ToDo.IT.Página_Calendário
         public class Evento
         {
             public int Id { get; set; }
+            public string UserID { get; set; }
             public string Titulo { get; set; }
             public DateTime DataInicio { get; set; }
             public DateTime DataFim { get; set; }
@@ -160,6 +175,7 @@ namespace Aplicação_ToDo.IT.Página_Calendário
                 Evento novoEvento = new Evento
                 {
                     Id = (int)e.Appointment.Id,
+                    UserID = CurrentUser.User.Id,
                     Titulo = e.Appointment.Subject,
                     DataInicio = e.Appointment.IsAllDay ? e.Appointment.StartTime.Date : e.Appointment.StartTime,
                     DataFim = e.Appointment.IsAllDay ? e.Appointment.EndTime.Date : e.Appointment.EndTime,
