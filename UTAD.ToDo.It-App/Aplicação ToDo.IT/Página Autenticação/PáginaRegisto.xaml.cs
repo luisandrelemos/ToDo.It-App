@@ -66,7 +66,7 @@ namespace Aplicação_ToDo.IT.Página_Autenticação
                 }
 
                 // Carregar o arquivo JSON ou criar um novo se não existir
-                string caminhoArquivoJson = "C:\\Users\\bruno\\Source\\Repos\\ToDo.It-App\\UTAD.ToDo.It-App\\Aplicação ToDo.IT\\SaveData\\utilizadores.json";
+                string caminhoArquivoJson = "C:\\Users\\bruno\\Source\\Repos\\PL5_G04\\UTAD.ToDo.It-App\\Aplicação ToDo.IT\\SaveData\\utilizadores.json";
                 List<UserData> usuarios;
                 string json;
                 if (File.Exists(caminhoArquivoJson))

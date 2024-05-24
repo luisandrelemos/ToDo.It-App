@@ -3,19 +3,23 @@
                     xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks">
 
     <Style x:Key="Background" TargetType="Border">
-        <Setter Property="Background" Value="White" />
+        <Setter Property="Background" Value="#1e1e1e" />
     </Style>
 
     <Style x:Key="SidePanelBack" TargetType="Border">
-        <Setter Property="Background" Value="#afafaf" />
+        <Setter Property="Background" Value="#2a2a2a" />
     </Style>
 
     <Style x:Key="TextUp" TargetType="TextBlock">
-        <Setter Property="Foreground" Value="black" />
+        <Setter Property="Foreground" Value="white" />
+    </Style>
+
+    <Style x:Key="RectangleStyle" TargetType="Rectangle">
+        <Setter Property="Stroke" Value="White" />
     </Style>
 
     <Style x:Key="TextEmail" TargetType="TextBlock">
-        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Foreground" Value="#aeaeae" />
     </Style>
 
     <Style x:Key="CustomTextBoxStyle" TargetType="{x:Type TextBox}">
@@ -24,7 +28,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">
-                    <Border CornerRadius="3" Background="Transparent" BorderBrush="Black" BorderThickness="1">
+                    <Border CornerRadius="3" Background="Transparent" BorderBrush="White" BorderThickness="1">
                         <!-- Adiciona o elemento de conteúdo -->
                         <ScrollViewer x:Name="PART_ContentHost"/>
                     </Border>
@@ -48,36 +52,32 @@
         </Setter>
     </Style>
 
-    <Style x:Key="RectangleStyle" TargetType="Rectangle">
-        <Setter Property="Stroke" Value="Black" />
-    </Style>
-
     <Style x:Key="IconSide" TargetType="Icon:PackIconCodicons">
-        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Foreground" Value="White" />
     </Style>
 
     <Style x:Key="IconSide1" TargetType="Icon:PackIconCoolicons">
-        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Foreground" Value="White" />
     </Style>
 
     <Style x:Key="IconSide2" TargetType="Icon:PackIconFontAwesome">
-        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Foreground" Value="White" />
     </Style>
 
     <Style x:Key="IconSide3" TargetType="Icon:PackIconRemixIcon">
-        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Foreground" Value="White" />
     </Style>
 
     <Style x:Key="IconSide4" TargetType="Icon:PackIconVaadinIcons">
-        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Foreground" Value="White" />
     </Style>
 
     <Style x:Key="IconSide5" TargetType="Icon:PackIconMaterial">
-        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Foreground" Value="White" />
     </Style>
 
     <Style x:Key="IconSide6" TargetType="Icon:PackIconUnicons">
-        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Foreground" Value="White" />
     </Style>
 
     <Style x:Key="TitleText" TargetType="TextBlock">
@@ -114,12 +114,12 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#276d71" />
-                <Setter Property="Foreground" Value="#00fcff" />
+                <Setter Property="Background" Value="#cc6402" />
+                <Setter Property="Foreground" Value="Orange" />
             </Trigger>
             <Trigger Property="IsMouseCaptured" Value="True">
-                <Setter Property="Background" Value="#1e484a" />
-                <Setter Property="Foreground" Value="#00fcff" />
+                <Setter Property="Background" Value="#cc6402" />
+                <Setter Property="Foreground" Value="Orange" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -185,7 +185,7 @@
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Width" Value="200" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Foreground" Value="#FDFEFE" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Template">
             <Setter.Value>
@@ -198,12 +198,12 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#276d71" />
-                <Setter Property="Foreground" Value="black" />
+                <Setter Property="Background" Value="#cc6402" />
+                <Setter Property="Foreground" Value="White" />
             </Trigger>
             <Trigger Property="IsMouseCaptured" Value="True">
-                <Setter Property="Background" Value="#1e484a" />
-                <Setter Property="Foreground" Value="Black" />
+                <Setter Property="Background" Value="#cc6402" />
+                <Setter Property="Foreground" Value="White" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -212,8 +212,8 @@
         <Setter Property="FontFamily" Value="Montserrat" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Width" Value="200" />
-        <Setter Property="Background" Value="#276d71" />
-        <Setter Property="Foreground" Value="#00fcff" />
+        <Setter Property="Background" Value="#cc6402" />
+        <Setter Property="Foreground" Value="Orange" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Template">
             <Setter.Value>
@@ -226,12 +226,12 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#276d71" />
-                <Setter Property="Foreground" Value="#00fcff" />
+                <Setter Property="Background" Value="#cc6402" />
+                <Setter Property="Foreground" Value="Orange" />
             </Trigger>
             <Trigger Property="IsMouseCaptured" Value="True">
-                <Setter Property="Background" Value="#1e484a" />
-                <Setter Property="Foreground" Value="#00fcff" />
+                <Setter Property="Background" Value="#cc6402" />
+                <Setter Property="Foreground" Value="Orange" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -242,7 +242,7 @@
         <Setter Property="Width" Value="80" />
         <Setter Property="Height" Value="25" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Foreground" Value="White" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Template">
             <Setter.Value>
@@ -255,12 +255,12 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#276d71" />
-                <Setter Property="Foreground" Value="#00fcff" />
+                <Setter Property="Background" Value="#cc6402" />
+                <Setter Property="Foreground" Value="Orange" />
             </Trigger>
             <Trigger Property="IsMouseCaptured" Value="True">
-                <Setter Property="Background" Value="#1e484a" />
-                <Setter Property="Foreground" Value="#00fcff" />
+                <Setter Property="Background" Value="#cc6402" />
+                <Setter Property="Foreground" Value="Orange" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -294,8 +294,8 @@
         <Setter Property="FontFamily" Value="Montserrat" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Width" Value="200" />
-        <Setter Property="Background" Value="#cf1f1f" />
-        <Setter Property="Foreground" Value="black" />
+        <Setter Property="Background" Value="#cc6402" />
+        <Setter Property="Foreground" Value="#ffffff" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Template">
             <Setter.Value>
@@ -308,11 +308,11 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#961515" />
+                <Setter Property="Background" Value="#cc6402" />
                 <Setter Property="Foreground" Value="#ffffff" />
             </Trigger>
             <Trigger Property="IsMouseCaptured" Value="True">
-                <Setter Property="Background" Value="#661111" />
+                <Setter Property="Background" Value="#cc6402" />
                 <Setter Property="Foreground" Value="#ffffff" />
             </Trigger>
         </Style.Triggers>
@@ -323,7 +323,7 @@
         <Setter Property="FontSize" Value="20" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="#00f0ff" />
+        <Setter Property="Foreground" Value="Orange" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Top" />
@@ -337,7 +337,7 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="#276d71" />
+                <Setter Property="Foreground" Value="#cc6402" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -347,7 +347,7 @@
         <Setter Property="FontSize" Value="20" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="Red" />
+        <Setter Property="Foreground" Value="Orange" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Top" />
@@ -361,7 +361,7 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="#961515" />
+                <Setter Property="Foreground" Value="#cc6402" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -371,7 +371,7 @@
         <Setter Property="FontSize" Value="40" />
         <Setter Property="Width" Value="60" />
         <Setter Property="Height" Value="60" />
-        <Setter Property="Background" Value="#2db1b9" />
+        <Setter Property="Background" Value="#cc6402" />
         <Setter Property="Foreground" Value="#ffffff" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Template">
@@ -385,12 +385,12 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#276d71" />
-                <Setter Property="Foreground" Value="#00fcff" />
+                <Setter Property="Background" Value="#cc6402" />
+                <Setter Property="Foreground" Value="Orange" />
             </Trigger>
             <Trigger Property="IsMouseCaptured" Value="True">
-                <Setter Property="Background" Value="#1e484a" />
-                <Setter Property="Foreground" Value="#00fcff" />
+                <Setter Property="Background" Value="#cc6402" />
+                <Setter Property="Foreground" Value="Orange" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -400,7 +400,7 @@
         <Setter Property="FontSize" Value="30" />
         <Setter Property="Width" Value="40" />
         <Setter Property="Height" Value="40" />
-        <Setter Property="Background" Value="#2db1b9" />
+        <Setter Property="Background" Value="Orange" />
         <Setter Property="Foreground" Value="#ffffff" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Template">
@@ -414,12 +414,12 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#276d71" />
-                <Setter Property="Foreground" Value="#00fcff" />
+                <Setter Property="Background" Value="#cc6402" />
+                <Setter Property="Foreground" Value="Orange" />
             </Trigger>
             <Trigger Property="IsMouseCaptured" Value="True">
-                <Setter Property="Background" Value="#1e484a" />
-                <Setter Property="Foreground" Value="#00fcff" />
+                <Setter Property="Background" Value="#cc6402" />
+                <Setter Property="Foreground" Value="Orange" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -429,7 +429,7 @@
         <Setter Property="FontSize" Value="12" />
         <Setter Property="Width" Value="90" />
         <Setter Property="Height" Value="35" />
-        <Setter Property="Background" Value="#2db1b9" />
+        <Setter Property="Background" Value="Orange" />
         <Setter Property="Foreground" Value="#ffffff" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Template">
@@ -443,12 +443,12 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#276d71" />
-                <Setter Property="Foreground" Value="#00fcff" />
+                <Setter Property="Background" Value="#cc6402" />
+                <Setter Property="Foreground" Value="Orange" />
             </Trigger>
             <Trigger Property="IsMouseCaptured" Value="True">
-                <Setter Property="Background" Value="#1e484a" />
-                <Setter Property="Foreground" Value="#00fcff" />
+                <Setter Property="Background" Value="#cc6402" />
+                <Setter Property="Foreground" Value="Orange" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -458,7 +458,7 @@
         <Setter Property="FontSize" Value="12" />
         <Setter Property="Width" Value="80" />
         <Setter Property="Height" Value="30" />
-        <Setter Property="Background" Value="#2db1b9" />
+        <Setter Property="Background" Value="Orange" />
         <Setter Property="Foreground" Value="#ffffff" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Template">
@@ -472,12 +472,12 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#276d71" />
-                <Setter Property="Foreground" Value="#00fcff" />
+                <Setter Property="Background" Value="#cc6402" />
+                <Setter Property="Foreground" Value="Orange" />
             </Trigger>
             <Trigger Property="IsMouseCaptured" Value="True">
-                <Setter Property="Background" Value="#1e484a" />
-                <Setter Property="Foreground" Value="#00fcff" />
+                <Setter Property="Background" Value="#cc6402" />
+                <Setter Property="Foreground" Value="Orange" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -545,13 +545,13 @@
         <Setter Property="Width" Value="200" />
         <Setter Property="Height" Value="50" />
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="Background" Value="#06cdd7" />
+        <Setter Property="Background" Value="Orange" />
         <Setter Property="Foreground" Value="#FDFEFE" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Background="{TemplateBinding Background}" CornerRadius="13" BorderBrush="#06cdd7" Padding="11" BorderThickness="1">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="13" BorderBrush="Orange" Padding="11" BorderThickness="1">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
                 </ControlTemplate>
@@ -559,11 +559,11 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#34818a" />
+                <Setter Property="Background" Value="#cc6402" />
                 <Setter Property="Foreground" Value="White" />
             </Trigger>
             <Trigger Property="IsMouseCaptured" Value="True">
-                <Setter Property="Background" Value="#2f919c" />
+                <Setter Property="Background" Value="#cc6402" />
                 <Setter Property="Foreground" Value="White" />
             </Trigger>
         </Style.Triggers>

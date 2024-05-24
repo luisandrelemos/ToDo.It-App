@@ -9,7 +9,7 @@
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         syncfusionskin:SfSkinManager.Theme="{syncfusionskin:SkinManagerExtension ThemeName=Windows11Dark}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="768" Width="1366"
+        Title="ToDoIt - Página Inicial" Height="768" Width="1366"
         AllowsTransparency="True"
         Background="Transparent" 
         WindowStyle="None"
@@ -81,48 +81,37 @@
             <Grid>
                 <!-- Adicione o título do sidebar direito aqui -->
                 <TextBlock FontFamily="Montserrat" Text="Tarefas Pendentes" VerticalAlignment="Top" HorizontalAlignment="Center" Style="{StaticResource TextUp}" Margin="0,28,0,0" FontSize="16" FontWeight="Bold"/>
-                
+
                 <Grid>
-                    <Border Background="#FF757575" CornerRadius="10" Margin="8,96,10,616">
-                        <Border.Effect>
-                            <DropShadowEffect Color="Black" Direction="0" ShadowDepth="2" Opacity="5" BlurRadius="5"/>
-                        </Border.Effect>
-                        <TextBlock HorizontalAlignment="Center" Margin="0,88,0,0" Text=" Procurar Tarefas" VerticalAlignment="Top" Height="57" Width="230" />
+                    <Border Background="#FF757575" CornerRadius="10" Margin="8,91,10,632">
+                        <TextBox x:Name="searchTextBox" Text="Procurar Tarefas" FontFamily="Montserrat" FontSize="16" Margin="39,12,39,13" Background="Transparent" BorderThickness="0" Foreground="#FF404040" TextChanged="searchTextBox_TextChanged"/>
                     </Border>
-                    
-                    <Icon:PackIconMaterial Kind="Magnify"  Height="33" Width="26" Foreground="#FF404040" Margin="18,110,0,0" >
-                        <Icon:PackIconMaterial.Effect>
-                            <DropShadowEffect Color="Black" Direction="45" ShadowDepth="1" Opacity="1" BlurRadius="1"/>
-                        </Icon:PackIconMaterial.Effect>
-                    </Icon:PackIconMaterial>
-                    <Icon:PackIconMaterial Kind="SortVariant" Foreground="#FF404040" Height="34" Width="26" Margin="208,107,0,0">
-                        <Icon:PackIconMaterial.Effect>
-                            <DropShadowEffect Color="Black" Direction="45" ShadowDepth="1" Opacity="1" BlurRadius="1"/>
-                        </Icon:PackIconMaterial.Effect>
-                    </Icon:PackIconMaterial>
-                    <TextBox x:Name="textbox" FontSize="20" BorderThickness="0" Margin="49,96,10,616" Background="Transparent" TextChanged="TextBox_TextChanged"/>
+
+                    <Icon:PackIconMaterial Kind="Magnify" Height="33" Width="26" Foreground="#FF404040" Margin="18,97,0,0" />
+                    <Icon:PackIconMaterial Kind="SortVariant" Foreground="#FF404040" Height="33" Width="26" Margin="208,97,0,0"/>
                 </Grid>
 
-
-                <ListBox x:Name="ListaEventos2" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,169,10,268" BorderThickness="0">
+                <ListBox x:Name="ListaEventos2" d:ItemsSource="{d:SampleData ItemCount=7}" Margin="3,153,0,222" BorderThickness="0" PreviewMouseLeftButtonDown="ListaEventos_PreviewMouseLeftButtonDown">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Border BorderThickness="0" CornerRadius="15" Width="218" Height="46">
+                            <Border BorderThickness="0" CornerRadius="15" Width="222" Height="46">
                                 <Grid Height="40" Margin="-23,0,-141,0">
-                                    <TextBlock FontFamily="Montserrat" FontSize="14" Text="{Binding Titulo}" Margin="38,10,269,-60" Foreground="White" TextWrapping="Wrap"/>
-                                    <TextBlock FontFamily="Montserrat" FontSize="13" Text="{Binding DataFim, StringFormat='{}{0:ddd, dd/MM}'}" Margin="160,12,96,-236" Foreground="White" />
-                                    <Icon:PackIconCodicons Kind="Calendar" Foreground="White" Height="20" Width="20" Margin="126,0,0,0" VerticalAlignment="Center"/>
+                                    <TextBlock FontFamily="Montserrat" FontSize="14" Text="{Binding Titulo}" Margin="19,10,244,10" Foreground="White" TextWrapping="Wrap"/>
+                                    <TextBlock FontFamily="Montserrat" FontSize="13" Text="{Binding DataFim, StringFormat='{}{0:ddd, dd/MM}'}" Margin="172,12,135,12" Foreground="{Binding Cor}" />
+                                    <Icon:PackIconCodicons Kind="Calendar" Foreground="{Binding Cor}" Height="15" Width="20" Margin="147,0,0,0" VerticalAlignment="Center" />
                                 </Grid>
                             </Border>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                <Line X1="6" Y1="80" X2="244" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,372,0,12"/>
                 <Line X1="6" Y1="80" X2="244" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,-8,0,8"/>
-                <Line X1="6" Y1="80" X2="244" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,198,0,-2"/>
-                <Line X1="6" Y1="80" X2="244" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,145,0,4"/>
-                <Line X1="6" Y1="80" X2="244" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,312,0,-8"/>
-                <Line X1="6" Y1="80" X2="244" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,255,0,0"/>
+                <Line X1="8" Y1="80" X2="240" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,129,0,4"/>
+                <Line X1="8" Y1="80" X2="240" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,185,0,-2"/>
+                <Line X1="8" Y1="80" X2="240" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,241,0,0"/>
+                <Line X1="8" Y1="80" X2="240" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,297,0,-8"/>
+                <Line X1="8" Y1="80" X2="240" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,353,0,12"/>
+                <Line X1="8" Y1="80" X2="240" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,409,0,12"/>
+                <Line X1="8" Y1="80" X2="240" Y2="80" Stroke="#4e4e4e" StrokeThickness="1" Margin="0,465,0,12"/>
 
             </Grid>
         </Border>
@@ -135,16 +124,46 @@
 
         <TextBlock TextWrapping="Wrap" Text="Página Inicial" FontSize="25" Margin="346,24,845,712" Style="{StaticResource TextUp}" FontFamily="Montserrat"/>
 
-        <ListBox x:Name="ListaEventos" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="307,116,307,116" >
+        <ListBox x:Name="ListaEventos" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="307,116,307,116" PreviewMouseLeftButtonDown="ListaEventos_PreviewMouseLeftButtonDown">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <!-- Personalize o design do item aqui -->
                     <Border BorderBrush="{Binding Cor}" BorderThickness="1" CornerRadius="15" Width="730" Height="50" HorizontalAlignment="Center" Margin="0,04">
+                        <Border.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Editar">
+                                    <MenuItem.Icon>
+                                        <Path x:Name="Edit" 
+                                            Data="M4.9375 12.6875L13.6875 3.9375C14.4124 3.21263 14.4124 2.03737 13.6875 1.3125V1.3125C12.9626 0.587626 11.7874 0.587626 11.0625 1.3125L2.3125 10.0625M4.9375 12.6875L1 14L2.3125 10.0625M4.9375 12.6875L2.3125 10.0625M9.75 2.1875L12.375 4.8125"                            
+                                            Stroke="#FF5A5A5B" 
+                                            Width="14"
+                                            Height="14"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Stretch="Fill"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Header="Eliminar">
+                                    <MenuItem.Icon>
+                                        <Path x:Name="Delete" 
+                                            Data="M1.5 2.44V13H9.5V2.44M3.5 5.32V11.08M5.5 5.32V11.08M7.5 5.32V11.08M0 2.44H11M4 2.44V1H7.5V2.44"
+                                            Stroke="#FF5A5A5B" 
+                                            Width="11"
+                                            Height="12"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Stretch="Fill"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                            </ContextMenu>
+                        </Border.ContextMenu>
                         <Grid>
                             <TextBlock FontFamily="Montserrat" FontSize="13" Text="{Binding Titulo}" Margin="20,16,512,16" />
                             <TextBlock FontFamily="Montserrat" FontSize="10" Text="{Binding Importancia}" Margin="221,18,362,19" />
-                            <TextBlock FontFamily="Montserrat" FontSize="10" Text="{Binding DataInicio}" Margin="367,18,176,19" />
-                            <TextBlock FontFamily="Montserrat" FontSize="10" Text="{Binding DataFim}" Margin="556,18,10,19" />
+                            <TextBlock FontFamily="Montserrat" FontSize="10" Text="{Binding DataInicioFormatada}" Margin="372,9,248,28" />
+                            <TextBlock FontFamily="Montserrat" FontSize="10" Text="{Binding HoraInicioFormatada}" Margin="372,26,248,11" />
+                            <TextBlock FontFamily="Montserrat" FontSize="10" Text="{Binding DataFimFormatada}" Margin="485,9,142,28" />
+                            <TextBlock FontFamily="Montserrat" FontSize="10" Text="{Binding HoraFimFormatada}" Margin="485,26,142,11" />
                         </Grid>
                     </Border>
                 </DataTemplate>

@@ -106,7 +106,7 @@ namespace Aplicação_ToDo.IT.Página_Personalizar
         private void SaveUserTheme()
         {
             // Carregar o arquivo JSON
-            string jsonFilePath = "C:\\Users\\Luís Lemos\\source\\repos\\PL5_G04\\UTAD.ToDo.It-App\\Aplicação ToDo.IT\\SaveData\\utilizadores.json";
+            string jsonFilePath = "C:\\Users\\pedro\\source\\repos\\PL5_G04\\UTAD.ToDo.It-App\\Aplicação ToDo.IT\\SaveData\\utilizadores.json";
             string json = File.ReadAllText(jsonFilePath);
             List<UserData> users = JsonConvert.DeserializeObject<List<UserData>>(json);
 
@@ -134,13 +134,69 @@ namespace Aplicação_ToDo.IT.Página_Personalizar
             Application.Current.Resources.MergedDictionaries.Add(resourceDictionary);
         }
 
-        private void ColorREDButton_Click(object sender, RoutedEventArgs e)
+        private void ColorDarkREDButton_Click(object sender, RoutedEventArgs e)
         {
             // Código para mudar para o tema dark mode
             ChangeTheme("Temas/DarkRED.xaml");
 
             // Salve a escolha do tema do usuário
             CurrentUser.User.Tema = "DarkRED";
+            SaveUserTheme();
+
+            PáginaPersonalizar mainWindow = new PáginaPersonalizar();
+            mainWindow.Show();
+            this.Close();
+        }
+
+        private void ColorGREENButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Código para mudar para o tema dark mode
+            ChangeTheme("Temas/DarkGREEN.xaml");
+
+            // Salve a escolha do tema do usuário
+            CurrentUser.User.Tema = "DarkRED";
+            SaveUserTheme();
+
+            PáginaPersonalizar mainWindow = new PáginaPersonalizar();
+            mainWindow.Show();
+            this.Close();
+        }
+
+        private void ColorYELLOWButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Código para mudar para o tema dark mode
+            ChangeTheme("Temas/DarkYELLOW.xaml");
+
+            // Salve a escolha do tema do usuário
+            CurrentUser.User.Tema = "DarkYELLOW";
+            SaveUserTheme();
+
+            PáginaPersonalizar mainWindow = new PáginaPersonalizar();
+            mainWindow.Show();
+            this.Close();
+        }
+
+        private void ColorPURPLEButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Código para mudar para o tema dark mode
+            ChangeTheme("Temas/DarkPURPLE.xaml");
+
+            // Salve a escolha do tema do usuário
+            CurrentUser.User.Tema = "DarkPURPLE";
+            SaveUserTheme();
+
+            PáginaPersonalizar mainWindow = new PáginaPersonalizar();
+            mainWindow.Show();
+            this.Close();
+        }
+
+        private void ColorORANGEButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Código para mudar para o tema dark mode
+            ChangeTheme("Temas/DarkORANGE.xaml");
+
+            // Salve a escolha do tema do usuário
+            CurrentUser.User.Tema = "DarkORANGE";
             SaveUserTheme();
 
             PáginaPersonalizar mainWindow = new PáginaPersonalizar();

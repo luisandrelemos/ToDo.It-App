@@ -23,13 +23,13 @@
                                 ShowBusyIndicator="True" 
                                 FirstDayOfWeek="Monday"
                                 ViewType="Month"
-                                EnableReminder="True"
+                                EnableReminder="True"       
                                 AllowedViewTypes="Month,Day,Week,WorkWeek" 
                                 AppointmentEditorClosing="Calendário_AppointmentEditorClosing" 
                                 AppointmentDeleting="Calendário_AppointmentDeleting" 
                                 AppointmentDragStarting="Calendário_AppointmentDragStarting" 
-                                AppointmentDropping="Calendário_AppointmentDropping" >
-        <Syncfusion:SfScheduler.MonthViewSettings>
+                                AppointmentDropping="Calendário_AppointmentDropping" ReminderAlertOpening="Calendário_ReminderAlertOpening" >
+            <Syncfusion:SfScheduler.MonthViewSettings>
                 <Syncfusion:MonthViewSettings AppointmentDisplayMode="Appointment"
                                               AppointmentDisplayCount="1"/>
             </Syncfusion:SfScheduler.MonthViewSettings>
@@ -86,6 +86,26 @@
                     </MenuItem>
                 </ContextMenu>
             </Syncfusion:SfScheduler.CellContextMenu>
+            <Syncfusion:SfScheduler.AppointmentMapping>
+                <Syncfusion:AppointmentMapping
+                    Subject="Titulo"
+                    StartTime="Data Inicio"
+                    EndTime="Data Fim"
+                    Id="Id"
+                    AppointmentBackground="Color"
+                    IsAllDay="IsAllDay"
+                    StartTimeZone="StartTimeZone"
+                    EndTimeZone="EndTimeZone"
+                    RecurrenceExceptionDates="RecurrenceExceptions"
+                    RecurrenceRule="RecurrenceRule"
+                    RecurrenceId="RecurrenceId"
+                    Reminders="Lembrete">
+                    <Syncfusion:AppointmentMapping.ReminderMapping>
+                        <Syncfusion:ReminderMapping IsDismissed="Dismissed"
+                                                    ReminderTimeInterval="TimeInterval"/>
+                    </Syncfusion:AppointmentMapping.ReminderMapping>
+                </Syncfusion:AppointmentMapping>
+            </Syncfusion:SfScheduler.AppointmentMapping>
         </Syncfusion:SfScheduler>
 
         <!-- Barra de Perfil -->

@@ -13,12 +13,22 @@ using System.Windows.Media;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using static Aplicação_ToDo.IT.Página_Calendário.PáginaCalendário;
+using System.Collections.ObjectModel;
+using Outlook = Microsoft.Office.Interop.Outlook;
+using Microsoft.Office.Interop.Outlook;
+
 
 namespace Aplicação_ToDo.IT.Página_Calendário
 {
     public partial class PáginaCalendário : Window
     {
+
+
         public ScheduleAppointmentCollection Appointments { get; set; } = new ScheduleAppointmentCollection();
+        public List<TimeSpan> Lembretes { get; set; } = new List<TimeSpan>();
+        
+
 
         public PáginaCalendário()
         {
@@ -29,6 +39,10 @@ namespace Aplicação_ToDo.IT.Página_Calendário
             EmailTextBlock.Text = CurrentUser.User.Email;
 
             Calendário.AppointmentDeleting += Calendário_AppointmentDeleting;
+            Calendário.ReminderAlertOpening += Scheduler_ReminderAlertOpening;
+            Calendário.ReminderAlertOpening += Calendário_ReminderAlertOpening;
+            
+
 
             CarregarEventos();
             MostrarEventos();
@@ -36,7 +50,17 @@ namespace Aplicação_ToDo.IT.Página_Calendário
 
             // Vincular a coleção de compromissos ao controle Scheduler
             Calendário.ItemsSource = Appointments;
+
+
         }
+
+
+        public class Reminder { public bool Dismissed { get; set; }
+            public TimeSpan TimeInterval { get; set; }
+        }
+
+
+
 
         private void PáginaInicial_Click(object sender, RoutedEventArgs e)
         {
@@ -82,10 +106,10 @@ namespace Aplicação_ToDo.IT.Página_Calendário
 
         private void Sair_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
 
-        private string arquivoEventos = @"C:\Users\bruno\Source\Repos\ToDo.It-App\UTAD.ToDo.It-App\Aplicação ToDo.IT\SaveData\eventos.json";
+        private string arquivoEventos = @"C:\Users\bruno\Source\Repos\PL5_G04\UTAD.ToDo.It-App\Aplicação ToDo.IT\SaveData\eventos.json";
         private void SalvarEventos()
         {
             List<Evento> todosEventos = new List<Evento>();
@@ -129,10 +153,30 @@ namespace Aplicação_ToDo.IT.Página_Calendário
             public string Titulo { get; set; }
             public DateTime DataInicio { get; set; }
             public DateTime DataFim { get; set; }
+            public TimeSpan TempoLembrete { get; set; }
+
+            public string DataInicioFormatada
+            {
+                get { return DataInicio.ToString("dd/MM/yyyy"); }
+            }
+            public string DataFimFormatada
+            {
+                get { return DataFim.ToString("dd/MM/yyyy"); }
+            }
+            public string HoraInicioFormatada
+            {
+                get { return DataInicio.ToString("HH:mm"); }
+            }
+
+            public string HoraFimFormatada
+            {
+                get { return DataFim.ToString("HH:mm"); }
+            }
             public bool AllDay { get; set; }
             public Brush Cor { get; set; }
             public Brush CorTexto { get; set; }
             public Importancia Importancia { get; set; }
+            public ObservableCollection<Reminder> Reminders { get; set; }
 
 
             // Adicionar mais propriedades conforme necessário
@@ -182,8 +226,10 @@ namespace Aplicação_ToDo.IT.Página_Calendário
                     AllDay = e.Appointment.IsAllDay,
                     Cor = e.Appointment.AppointmentBackground,
                     CorTexto = e.Appointment.Foreground,
-                };
+                    TempoLembrete = e.Appointment.Reminders?.FirstOrDefault()?.ReminderTimeInterval ?? TimeSpan.Zero,
 
+                };
+                
                 // Verifique se o evento já existe na lista
                 var eventoExistente = eventos.FirstOrDefault(x => x.Id == novoEvento.Id);
 
@@ -196,6 +242,7 @@ namespace Aplicação_ToDo.IT.Página_Calendário
                     eventoExistente.AllDay = novoEvento.AllDay;
                     eventoExistente.Cor = novoEvento.Cor;
                     eventoExistente.CorTexto = novoEvento.CorTexto;
+                    eventoExistente.TempoLembrete = novoEvento.TempoLembrete;
                 }
                 else
                 {
@@ -256,6 +303,42 @@ namespace Aplicação_ToDo.IT.Página_Calendário
             }
 
             draggedAppointment = null;
+        }
+        private void Scheduler_ReminderAlertOpening(object sender, ReminderAlertOpeningEventArgs e)
+        {
+            var reminders = e.Reminders;
+            var appointment = e.Reminders[0].Appointment;
+        }
+
+        private async void Calendário_ReminderAlertOpening(object sender, ReminderAlertOpeningEventArgs e)
+        {
+            await Task.Run(() =>
+            {
+                foreach (var reminder in e.Reminders)
+                {
+                    try
+                    {
+                        System.Diagnostics.Debug.WriteLine("Enviando lembrete para: " + reminder.Appointment.Subject);
+
+                        Outlook.Application application = new Outlook.Application();
+                        Outlook.MailItem mail = (Outlook.MailItem)application.CreateItem(Outlook.OlItemType.olMailItem);
+                        mail.Subject = reminder.Appointment.Subject + "reminder alert";
+                        mail.To = "bruno.rafaelcostab@gmail.com";
+                        mail.Body = reminder.Appointment.Subject + " - " + reminder.Appointment.ActualStartTime.ToString();
+                        mail.Importance = Outlook.OlImportance.olImportanceNormal;
+                        mail.Send();
+
+                        System.Diagnostics.Debug.WriteLine("Lembrete enviado com sucesso para: " + reminder.Appointment.Subject);
+                    }
+                    catch(System.Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Erro ao enviar lembrete para: " + reminder.Appointment.Subject);
+                        System.Diagnostics.Debug.WriteLine("Detalhes do erro: " + ex.ToString());
+                    }
+                }
+                    
+                
+            });
         }
     }
 }

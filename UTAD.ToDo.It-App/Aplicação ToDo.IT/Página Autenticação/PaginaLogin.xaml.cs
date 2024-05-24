@@ -43,8 +43,8 @@ namespace Aplicação_ToDo.IT.Página_Autenticação
         {
             try
             {
-                // Carregar o arquivo JSON
-                string jsonPath = @"C:\Users\bruno\Source\Repos\ToDo.It-App\UTAD.ToDo.It-App\Aplicação ToDo.IT\SaveData\utilizadores.json";
+                // Carregar o arquivo JSON  
+                string jsonPath = @"C:\Users\bruno\Source\Repos\PL5_G04\UTAD.ToDo.It-App\Aplicação ToDo.IT\SaveData\utilizadores.json";
                 string json = File.ReadAllText(jsonPath);
 
                 // Deserializar o JSON para uma lista de usuários

@@ -78,15 +78,15 @@ namespace Aplicação_ToDo.IT.Página_Definições
             // Verificar se as caixas de texto estão vazias
             if (string.IsNullOrWhiteSpace(tb_primeironome.Text) ||
                 string.IsNullOrWhiteSpace(tb_email.Text) ||
-                string.IsNullOrWhiteSpace(tb_passwordNova.Text) ||
-                string.IsNullOrWhiteSpace(tb_password.Text))
+                string.IsNullOrWhiteSpace(tb_passwordNova.Password) ||
+                string.IsNullOrWhiteSpace(tb_password.Password))
             {
                 MessageBox.Show("Por favor, preencha todos os campos antes de Guardar as alterações.");
                 return;
             }
 
             // Carregar o arquivo JSON
-            string jsonFilePath = "C:\\Users\\Luís Lemos\\source\\repos\\PL5_G04\\UTAD.ToDo.It-App\\Aplicação ToDo.IT\\SaveData\\utilizadores.json";
+            string jsonFilePath = "C:\\Users\\pedro\\source\\repos\\PL5_G04\\UTAD.ToDo.It-App\\Aplicação ToDo.IT\\SaveData\\utilizadores.json";
             string json = File.ReadAllText(jsonFilePath);
             List<UserData> users = JsonConvert.DeserializeObject<List<UserData>>(json);
 
@@ -96,7 +96,7 @@ namespace Aplicação_ToDo.IT.Página_Definições
             // Se o usuário foi encontrado, verificar a senha antiga
             if (user != null)
             {
-                if (user.Password != tb_password.Text)
+                if (user.Password != tb_password.Password)
                 {
                     MessageBox.Show("A senha antiga está incorreta.");
                     return;
@@ -104,7 +104,7 @@ namespace Aplicação_ToDo.IT.Página_Definições
 
                 user.Username = tb_primeironome.Text;
                 user.Email = tb_email.Text;
-                user.Password = tb_passwordNova.Text;
+                user.Password = tb_passwordNova.Password;
 
                 // Atualizar as propriedades da classe UserData
                 CurrentUser.User.Username = tb_primeironome.Text;
@@ -129,7 +129,10 @@ namespace Aplicação_ToDo.IT.Página_Definições
 
         private void tb_primeironome_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
+        }
 
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
         }
 
         private void ChangeImage_Click(object sender, RoutedEventArgs e)

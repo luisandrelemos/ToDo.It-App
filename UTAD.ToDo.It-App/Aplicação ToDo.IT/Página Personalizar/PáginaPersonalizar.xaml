@@ -42,13 +42,19 @@
         <Rectangle Width="76" Height="25" Fill="#FF3A3A3A" RadiusX="8" RadiusY="8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="286,488,0,0"/>
         <TextBlock HorizontalAlignment="Left" Margin="305,493,0,0" TextWrapping="Wrap" Text="Cores" VerticalAlignment="Top" Background="Transparent" FontSize="13" Foreground="#00f0ff" FontFamily="Montserrat"/>
 
+        <!-- Titulo CORES -->
+        <Rectangle Width="76" Height="25" Fill="#FF3A3A3A" RadiusX="8" RadiusY="8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="497,492,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="512,497,0,0" TextWrapping="Wrap" Text="Escuro" VerticalAlignment="Top" Background="Transparent" FontSize="13" Foreground="#00f0ff" FontFamily="Montserrat"/>
+
+        <!-- Titulo CORES -->
+        <Rectangle Width="76" Height="25" Fill="#FF3A3A3A" RadiusX="8" RadiusY="8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1048,495,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1068,500,0,0" TextWrapping="Wrap" Text="Claro" VerticalAlignment="Top" Background="Transparent" FontSize="13" Foreground="#00f0ff" FontFamily="Montserrat"/>
+
         <Line X1="283" Y1="740" X2="1335" Y2="740" Stroke="#4e4e4e" StrokeThickness="1" Grid.ColumnSpan="3"/>
 
         <!-- Seletor de cores -->
-        <Grid Margin="634,520,384,50">
+        <Grid Margin="451,520,748,46">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
@@ -59,20 +65,49 @@
             </Grid.RowDefinitions>
 
             <!-- Substitua "ColorButton_Click" pelo nome do seu manipulador de eventos -->
-            <Button Grid.Column="0" Style="{StaticResource ColorDisplay}" Background="Red" Grid.Row="0" Click="ColorREDButton_Click"/>
-            <Button Grid.Column="1" Style="{StaticResource ColorDisplay}" Background="Green" BorderThickness="0"/>
-            <Button Grid.Column="2" Style="{StaticResource ColorDisplay}" Background="#00f2ff" BorderThickness="0"/>
-            <Button Grid.Column="3" Style="{StaticResource ColorDisplay}" Background="Yellow" BorderThickness="0"/>
-            <Button Grid.Column="0" Grid.Row="1" Style="{StaticResource ColorDisplay}" Background="Orange" BorderThickness="0"/>
+            <Button Grid.Column="0" Style="{StaticResource ColorDisplay}" Background="Red" Grid.Row="0" Click="ColorDarkREDButton_Click"/>
+            <Button Grid.Column="1" Grid.Row="3" Style="{StaticResource ColorDisplay}" Background="Green" BorderThickness="0"/>
+            <Button Grid.Column="1" Style="{StaticResource ColorDisplay}" Background="#00f2ff" BorderThickness="0"/>
+            <Button Grid.Column="0" Grid.Row="1" Style="{StaticResource ColorDisplay}" Background="Yellow" BorderThickness="0"/>
             <Button Grid.Column="1" Grid.Row="1" Style="{StaticResource ColorDisplay}" Background="OrangeRed" BorderThickness="0"/>
-            <Button Grid.Column="2" Grid.Row="1" Style="{StaticResource ColorDisplay}" Background="HotPink" BorderThickness="0"/>
-            <Button Grid.Column="3" Grid.Row="1" Style="{StaticResource ColorDisplay}" Background="Pink" BorderThickness="0"/>
             <Button Grid.Column="0" Grid.Row="2" Style="{StaticResource ColorDisplay}" Background="Purple" BorderThickness="0"/>
-            <Button Grid.Column="1" Grid.Row="2" Style="{StaticResource ColorDisplay}" Background="Blue" BorderThickness="0"/>
-            <Button Grid.Column="2" Grid.Row="2" Style="{StaticResource ColorDisplay}" Background="CadetBlue" BorderThickness="0"/>
-            <Button Grid.Column="3" Grid.Row="2" Style="{StaticResource ColorDisplay}" Background="DodgerBlue" BorderThickness="0"/>
         </Grid>
 
+        <!-- Seletor de cores -->
+        <Grid Margin="1006,520,202,46">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!-- Substitua "ColorButton_Click" pelo nome do seu manipulador de eventos -->
+            <Button Grid.Column="0" Style="{StaticResource ColorDisplay}" Background="Red" Grid.Row="0" Click="ColorDarkREDButton_Click"/>
+            <Button Grid.Column="1" Grid.Row="3" Style="{StaticResource ColorDisplay}" Background="Green" BorderThickness="0"/>
+            <Button Grid.Column="1" Style="{StaticResource ColorDisplay}" Background="#00f2ff" BorderThickness="0"/>
+            <Button Grid.Column="0" Grid.Row="1" Style="{StaticResource ColorDisplay}" Background="Yellow" BorderThickness="0"/>
+            <Button Grid.Column="1" Grid.Row="1" Style="{StaticResource ColorDisplay}" Background="OrangeRed" BorderThickness="0"/>
+            <Button Grid.Column="0" Grid.Row="2" Style="{StaticResource ColorDisplay}" Background="Purple" BorderThickness="0"/>
+        </Grid>
+
+        <!--    <Button Grid.Column="0" Style="{StaticResource ColorDisplay}" Background="Red" Grid.Row="0" Click="ColorREDButton_Click"/>
+    <Button Grid.Column="1" Style="{StaticResource ColorDisplay}" Background="Green" BorderThickness="0" Height="34" Margin="26,16,26,0" VerticalAlignment="Top" Click="ColorGreenButton_Click"/>
+    <Button Grid.Column="2" Style="{StaticResource ColorDisplay}" Background="#00f2ff" BorderThickness="0" Click="Color00f2ffButton_Click"/>
+    <Button Grid.Column="3" Style="{StaticResource ColorDisplay}" Background="Yellow" BorderThickness="0" Click="ColorYellowButton_Click"/>
+    <Button Grid.Column="0" Grid.Row="1" Style="{StaticResource ColorDisplay}" Background="Orange" BorderThickness="0" Click="ColorOrangeButton_Click"/>
+    <Button Grid.Column="1" Grid.Row="1" Style="{StaticResource ColorDisplay}" Background="OrangeRed" BorderThickness="0" Click="ColorOrangeRedButton_Click"/>
+    <Button Grid.Column="2" Grid.Row="1" Style="{StaticResource ColorDisplay}" Background="HotPink" BorderThickness="0" Click="ColorHotPinkButton_Click"/>
+    <Button Grid.Column="3" Grid.Row="1" Style="{StaticResource ColorDisplay}" Background="Pink" BorderThickness="0" Click="ColorPinkButton_Click"/>
+    <Button Grid.Column="0" Grid.Row="2" Style="{StaticResource ColorDisplay}" Background="Purple" BorderThickness="0" Click="ColorPurpleButton_Click"/>
+    <Button Grid.Column="1" Grid.Row="2" Style="{StaticResource ColorDisplay}" Background="Blue" BorderThickness="0" Click="ColorBlueButton_Click"/>
+    <Button Grid.Column="2" Grid.Row="2" Style="{StaticResource ColorDisplay}" Background="CadetBlue" BorderThickness="0" Click="ColorCadetBlueButton_Click"/>
+    <Button Grid.Column="3" Grid.Row="2" Style="{StaticResource ColorDisplay}" Background="DodgerBlue" BorderThickness="0" Click="ColorDodgerBlueButton_Click"/>
+</Grid>-->
+        
         <!-- Barra de Perfil -->
         <Border Width="250" Style="{StaticResource SidePanelBack}" CornerRadius="25,0,25,25" HorizontalAlignment="Left" Margin="0,0,0,689"/>
         <Grid>

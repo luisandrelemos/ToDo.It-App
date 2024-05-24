@@ -37,6 +37,21 @@
         </Setter>
     </Style>
 
+    <Style x:Key="CustomPasswordBoxStyle" TargetType="{x:Type PasswordBox}">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type PasswordBox}">
+                    <Border CornerRadius="3" Background="Transparent" BorderBrush="White" BorderThickness="1">
+                        <!-- Adiciona o elemento de conteúdo -->
+                        <ScrollViewer x:Name="PART_ContentHost"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style x:Key="IconSide" TargetType="Icon:PackIconCodicons">
         <Setter Property="Foreground" Value="White" />
     </Style>

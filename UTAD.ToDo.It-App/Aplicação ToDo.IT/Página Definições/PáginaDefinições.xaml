@@ -34,12 +34,12 @@
         <TextBox x:Name="tb_email" TextWrapping="Wrap" Margin="432,223,712,516" TextChanged="tb_primeironome_TextChanged" Style="{StaticResource CustomTextBoxStyle}"/>
 
         <!-- Password Atual -->
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Palavra-Passe Atual" VerticalAlignment="Top" Style="{StaticResource TextUp}" FontSize="12" Height="15" Width="124" Margin="695,152,0,0" FontFamily="Montserrat"/>
-        <TextBox x:Name="tb_password" TextWrapping="Wrap" Margin="695,172,449,568" TextChanged="tb_primeironome_TextChanged" Style="{StaticResource CustomTextBoxStyle}"/>
+        <TextBlock x:Name="textPasswordOld" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Palavra-Passe Atual" VerticalAlignment="Top" Style="{StaticResource TextUp}" FontSize="12" Height="15" Width="124" Margin="695,152,0,0" FontFamily="Montserrat"/>
+        <PasswordBox x:Name="tb_password" Margin="695,172,449,568" PasswordChanged="PasswordBox_PasswordChanged" Style="{StaticResource CustomPasswordBoxStyle}"/>
 
         <!-- Password Nova -->
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Palavra-Passe nova" VerticalAlignment="Top" Style="{StaticResource TextUp}" FontSize="12" Height="14" Width="136" Margin="695,205,0,0" FontFamily="Montserrat"/>
-        <TextBox x:Name="tb_passwordNova" TextWrapping="Wrap" Margin="695,223,449,516" TextChanged="tb_primeironome_TextChanged" Style="{StaticResource CustomTextBoxStyle}"/>
+        <TextBlock x:Name="textPasswordNova" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Palavra-Passe nova" VerticalAlignment="Top" Style="{StaticResource TextUp}" FontSize="12" Height="14" Width="136" Margin="695,205,0,0" FontFamily="Montserrat"/>
+        <PasswordBox x:Name="tb_passwordNova" Margin="695,223,449,516" PasswordChanged="PasswordBox_PasswordChanged" Style="{StaticResource CustomPasswordBoxStyle}"/>
 
         <!-- Botão Guardar -->
         <Button Content="Guardar" Click="Guardar_Click" Style="{StaticResource buttonGuardar}" />

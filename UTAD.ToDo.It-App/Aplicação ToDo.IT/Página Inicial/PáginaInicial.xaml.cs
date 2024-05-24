@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using System.IO;
 using System.Collections.Generic;
 using static Aplicação_ToDo.IT.Página_Calendário.PáginaCalendário;
+using System.Windows.Input;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -30,8 +31,7 @@ namespace Aplicação_ToDo.IT.Página_Inicial
             ListaEventos.ItemsSource = eventos;
             ListaEventos2.ItemsSource = eventos;
         }
-       
-  
+
         private void NovaTarefa_Click(object sender, RoutedEventArgs e)
         {
             // Crie uma nova instância da janela de criação de tarefa
@@ -96,9 +96,22 @@ namespace Aplicação_ToDo.IT.Página_Inicial
             this.Close();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void ListaEventos_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            textbox.Background = new SolidColorBrush(Colors.Transparent); 
+            // Verifique se um item da ListBox foi clicado
+            var item = ItemsControl.ContainerFromElement((ListBox)sender, e.OriginalSource as DependencyObject) as ListBoxItem;
+
+            if (item != null && e.LeftButton == MouseButtonState.Pressed)
+            {
+                PáginaCalendário mainWindow = new PáginaCalendário();
+                mainWindow.Show();
+                this.Close();
+            }
+        }
+
+        private void searchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
