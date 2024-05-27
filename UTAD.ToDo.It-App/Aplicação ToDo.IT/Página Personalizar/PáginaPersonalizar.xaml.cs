@@ -18,7 +18,7 @@ namespace Aplicação_ToDo.IT.Página_Personalizar
         {
             InitializeComponent();
 
-            // Exibir o nome de usuário e o e-mail do usuário
+            // Exibir o nome de Utilizador e o e-mail do Utilizador
             UsernameTextBlock.Text = CurrentUser.User.Username;
             EmailTextBlock.Text = CurrentUser.User.Email;
         }
@@ -75,7 +75,7 @@ namespace Aplicação_ToDo.IT.Página_Personalizar
             // Código para mudar para o tema light mode
             ChangeTheme("Temas/Light.xaml");
 
-            // Salve a escolha do tema do usuário
+            // Salva a escolha do tema do Utilizador
             CurrentUser.User.Tema = "Light";
             SaveUserTheme();
 
@@ -89,7 +89,7 @@ namespace Aplicação_ToDo.IT.Página_Personalizar
             // Código para mudar para o tema dark mode
             ChangeTheme("Temas/Dark.xaml");
 
-            // Salve a escolha do tema do usuário
+            // Salva a escolha do tema do Utilizador
             CurrentUser.User.Tema = "Dark";
             SaveUserTheme();
 
@@ -106,14 +106,14 @@ namespace Aplicação_ToDo.IT.Página_Personalizar
         private void SaveUserTheme()
         {
             // Carregar o arquivo JSON
-            string jsonFilePath = "C:\\Users\\pedro\\source\\repos\\PL5_G04\\UTAD.ToDo.It-App\\Aplicação ToDo.IT\\SaveData\\utilizadores.json";
+            string jsonFilePath = "C:\\Users\\Luís Lemos\\source\\repos\\PL5_G04\\UTAD.ToDo.It-App\\Aplicação ToDo.IT\\SaveData\\utilizadores.json";
             string json = File.ReadAllText(jsonFilePath);
             List<UserData> users = JsonConvert.DeserializeObject<List<UserData>>(json);
 
-            // Encontrar o usuário atual na lista
+            // Encontrar o Utilizador atual na lista
             UserData user = users.Where(u => u.Email == CurrentUser.User.Email).FirstOrDefault();
 
-            // Se o usuário foi encontrado, atualizar o tema
+            // Se o Utilizador foi encontrado, atualizar o tema
             if (user != null)
             {
                 user.Tema = CurrentUser.User.Tema;
@@ -139,7 +139,7 @@ namespace Aplicação_ToDo.IT.Página_Personalizar
             // Código para mudar para o tema dark mode
             ChangeTheme("Temas/DarkRED.xaml");
 
-            // Salve a escolha do tema do usuário
+            // Salva a escolha do tema do Utilizador
             CurrentUser.User.Tema = "DarkRED";
             SaveUserTheme();
 
@@ -153,8 +153,8 @@ namespace Aplicação_ToDo.IT.Página_Personalizar
             // Código para mudar para o tema dark mode
             ChangeTheme("Temas/DarkGREEN.xaml");
 
-            // Salve a escolha do tema do usuário
-            CurrentUser.User.Tema = "DarkRED";
+            // Salva a escolha do tema do Utilizador
+            CurrentUser.User.Tema = "DarkGREEN";
             SaveUserTheme();
 
             PáginaPersonalizar mainWindow = new PáginaPersonalizar();
@@ -167,7 +167,7 @@ namespace Aplicação_ToDo.IT.Página_Personalizar
             // Código para mudar para o tema dark mode
             ChangeTheme("Temas/DarkYELLOW.xaml");
 
-            // Salve a escolha do tema do usuário
+            // Salva a escolha do tema do Utilizador
             CurrentUser.User.Tema = "DarkYELLOW";
             SaveUserTheme();
 
@@ -181,7 +181,7 @@ namespace Aplicação_ToDo.IT.Página_Personalizar
             // Código para mudar para o tema dark mode
             ChangeTheme("Temas/DarkPURPLE.xaml");
 
-            // Salve a escolha do tema do usuário
+            // Salva a escolha do tema do Utilizador
             CurrentUser.User.Tema = "DarkPURPLE";
             SaveUserTheme();
 
@@ -195,7 +195,7 @@ namespace Aplicação_ToDo.IT.Página_Personalizar
             // Código para mudar para o tema dark mode
             ChangeTheme("Temas/DarkORANGE.xaml");
 
-            // Salve a escolha do tema do usuário
+            // Salva a escolha do tema do Utilizador
             CurrentUser.User.Tema = "DarkORANGE";
             SaveUserTheme();
 

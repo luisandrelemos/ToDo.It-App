@@ -17,7 +17,7 @@ namespace Aplicação_ToDo.IT.Página_Ajuda
         {
             InitializeComponent();
 
-            // Exibir o nome de usuário e o e-mail do usuário
+            // Exibir o nome de Utilizador e o e-mail do Utilizador
             UsernameTextBlock.Text = CurrentUser.User.Username;
             EmailTextBlock.Text = CurrentUser.User.Email;
         }
@@ -85,18 +85,18 @@ namespace Aplicação_ToDo.IT.Página_Ajuda
                 return;
             }
 
-            string fromMail = "todoitapplab@gmail.com"; // Insira o seu email aqui
-            string fromPassword = "vyte qpsw zktv xovx"; // Insira a sua senha aqui
+            string fromMail = "todoitapplab@gmail.com";
+            string fromPassword = "vyte qpsw zktv xovx";
 
             string toMail = tb_email.Text;
             string subject = "Confirmação de Envio ao Suporte";
             string body = $"Querido Utilizador/a {tb_primeironome.Text} {tb_ultimonome.Text},\n\nPor parte do grupo 4 de laboratório de Planeamento e Desenvolvimento de Software, agradecemos o contacto com o nosso suporte.\nA sua mensagem foi recebida com sucesso e será tratada o mais rápido possível.\n\nAtenciosamente,\nBruno Costa\nCarolina Machado\nLuis Lemos\nPedro Pereira";
 
 
-            MailMessage messageToSupport = new MailMessage(fromMail, "emaildosuporte@exemplo.com")
+            MailMessage messageToSupport = new MailMessage(fromMail, "todoitapplab@gmail.com")
             {
                 Subject = "Solicitação de Suporte",
-                Body = $"Nome: {tb_primeironome.Text}\nApelido: {tb_ultimonome.Text}\nEmail: {tb_email.Text}\n\n{tb_ultimonome.Text}"
+                Body = $"Nome: {tb_primeironome.Text}\nApelido: {tb_ultimonome.Text}\nEmail: {tb_email.Text}\nMensagem: {tb_mensagem.Text}\n"
             };
 
             MailMessage messageToUser = new MailMessage(fromMail, toMail)

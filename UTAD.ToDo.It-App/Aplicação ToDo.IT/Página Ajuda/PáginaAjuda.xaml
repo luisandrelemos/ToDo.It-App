@@ -20,23 +20,20 @@
         <!-- Barra de Perfil -->
         <Border Width="250" Style="{StaticResource SidePanelBack}" CornerRadius="25,0,25,25" HorizontalAlignment="Left" Margin="0,0,0,689"/>
         <Grid>
-
-            <!-- Adicione a zona do usuário aqui -->
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition Width="174"/>
                 </Grid.ColumnDefinitions>
-                <!-- Imagem do usuário -->
+                <!-- Imagem do Utilizador -->
                 <Image Source="\Images\profile.jpg" Width="47" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="22,16,0,0">
                     <Image.Clip>
                         <EllipseGeometry RadiusX="35" RadiusY="32" Center="23.5,25"/>
                     </Image.Clip>
                 </Image>
-
-                <!-- Nome do usuário -->
+                <!-- Nome do Utilizador -->
                 <TextBlock x:Name="UsernameTextBlock" FontFamily="Montserrat" Text="Utilizador" Foreground="White" FontSize="16"  Margin="76,21,959,728" />
-                <!-- Email do usuário -->
+                <!-- Email do Utilizador -->
                 <TextBlock x:Name="EmailTextBlock" FontFamily="Montserrat" Text="email@exemplo.com" Style="{StaticResource TextEmail}"  Margin="76,46,955,707" />
             </Grid>
             <Button Click="Definições_Click" Style="{StaticResource buttonPerfil}" Margin="6,10,1130,694"/>
@@ -50,7 +47,7 @@
                     <RowDefinition Height="632*"/>
                 </Grid.RowDefinitions>
 
-                <!-- Adicione os controles do sidepanel esquerdo aqui -->
+                <!-- Botôes Navegação e Layout -->
                 <Button Content="Página Inicial" Style="{StaticResource button1}"  Click="PáginaInicial_Click" Margin="25,26,25,597" Grid.RowSpan="2" />
                 <Icon:PackIconCodicons Kind="Home" Width="20" Height="20" Style="{StaticResource IconSide}" Margin="41,-1,0,0" Grid.Row="1"/>
                 <Button Content="Calendário" Style="{StaticResource button1}" Click="Calendário_Click" Margin="25,40,25,543" Grid.Row="1"/>
@@ -196,7 +193,7 @@
             </TextBox.Style>
         </TextBox>
 
-        <!--em q podemos ajuda-->
+        <!-- em que podemos ajudar -->
         <TextBlock TextWrapping="Wrap" Text="Em que podemos ajudar?" VerticalAlignment="Top" Style="{StaticResource TextUp}" FontSize="13" Height="17" Margin="1041,339,150,0" FontFamily="Montserrat"/>
         <TextBox x:Name="tb_mensagem" TextWrapping="Wrap" Margin="1042,361,65,272">
             <TextBox.Style>

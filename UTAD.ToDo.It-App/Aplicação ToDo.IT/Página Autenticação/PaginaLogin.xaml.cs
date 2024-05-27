@@ -47,18 +47,18 @@ namespace Aplicação_ToDo.IT.Página_Autenticação
                 string jsonPath = @"C:\Users\bruno\Source\Repos\PL5_G04\UTAD.ToDo.It-App\Aplicação ToDo.IT\SaveData\utilizadores.json";
                 string json = File.ReadAllText(jsonPath);
 
-                // Deserializar o JSON para uma lista de usuários
+                // Deserializar o JSON para uma lista de Utilizadores
                 List<UserData> users = JsonConvert.DeserializeObject<List<UserData>>(json);
 
-                // Encontrar o usuário correspondente ao e-mail e senha
+                // Encontrar o Utilizador correspondente ao e-mail e senha
                 var user = users.FirstOrDefault(u => u.Email == email.Text && u.Password == password.Password);
 
                 if (user != null)
                 {
-                    // Salvar o usuário na classe CurrentUser
+                    // Salvar o Utilizador na classe CurrentUser
                     CurrentUser.User = user;
 
-                    // Aplicar o tema do usuário
+                    // Aplicar o tema do Utilizador
                     ThemeManager.ChangeTheme($"Temas/{CurrentUser.User.Tema}.xaml");
 
                     PáginaInicial mainWindow = new PáginaInicial();

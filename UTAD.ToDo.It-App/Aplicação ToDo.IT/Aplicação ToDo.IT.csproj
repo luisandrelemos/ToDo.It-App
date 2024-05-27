@@ -18,11 +18,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <COMReference Include="Microsoft.Office.Interop.Outlook">
+    <COMReference Include="Microsoft.Office.Core">
       <WrapperTool>tlbimp</WrapperTool>
-      <VersionMinor>6</VersionMinor>
-      <VersionMajor>9</VersionMajor>
-      <Guid>00062fff-0000-0000-c000-000000000046</Guid>
+      <VersionMinor>8</VersionMinor>
+      <VersionMajor>2</VersionMajor>
+      <Guid>2df8d04c-5bfa-101b-bde5-00aa0044de52</Guid>
       <Lcid>0</Lcid>
       <Isolated>false</Isolated>
       <EmbedInteropTypes>true</EmbedInteropTypes>
@@ -50,6 +50,7 @@
     <ItemGroup>
         <PackageReference Include="MahApps.Metro.IconPacks" Version="4.11.0" />
         <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.11.0" />
+        <PackageReference Include="Microsoft.Office.Interop.Outlook" Version="15.0.4797.1004" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <PackageReference Include="Syncfusion.Grid.WPF" Version="25.2.5" />
         <PackageReference Include="Syncfusion.Licensing" Version="25.2.5" />
@@ -130,10 +131,22 @@
 </ItemGroup>
 
     <ItemGroup>
+      <Page Update="Temas\DarkGREEN.xaml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Page>
+      <Page Update="Temas\DarkORANGE.xaml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Page>
+      <Page Update="Temas\DarkPURPLE.xaml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Page>
       <Page Update="Temas\DarkRED.xaml">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Page>
       <Page Update="Temas\Dark.xaml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Page>
+      <Page Update="Temas\DarkYELLOW.xaml">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Page>
       <Page Update="Temas\Light.xaml">

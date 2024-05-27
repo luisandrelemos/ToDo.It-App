@@ -93,17 +93,17 @@ namespace Aplicação_ToDo.IT.Página_Autenticação
                     throw new Exception("O E-Mail já está em uso!");
                 }
 
-                // Criar objeto para o novo usuário
+                // Criar objeto para o novo Utilizador
                 UserData novoUsuario = new UserData
                 {
                     Id = Guid.NewGuid().ToString(),
                     Email = email.Text,
                     Username = username.Text,
                     Password = password.Password,
-                    Tema = "dark" // Adicionado elemento para o tema
+                    Tema = "dark"
                 };
 
-                // Adicionar o novo usuário à lista
+                // Adicionar o novo Utilizador à lista
                 usuarios.Add(novoUsuario);
 
                 // Salvar a lista de usuários no arquivo JSON

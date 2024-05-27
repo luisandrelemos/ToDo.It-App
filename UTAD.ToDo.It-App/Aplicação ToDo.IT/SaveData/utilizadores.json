@@ -15,9 +15,23 @@
   },
   {
     "Id": "2a2d7fa0-7ada-4319-8aff-07e50cd4f4ec",
-    "Username": "Admin",
+    "Username": "Administrador",
     "Email": "",
     "Password": "",
-    "Tema": "DarkORANGE"
+    "Tema": "Dark"
+  },
+  {
+    "Id": "2ed9551f-dd7f-4f7b-8028-c6d1947c49b1",
+    "Username": "Teste",
+    "Email": "teste@gmail.com",
+    "Password": "123",
+    "Tema": "dark"
+  },
+  {
+    "Id": "09e30ffd-f3da-43ec-8454-732285b2b26b",
+    "Username": "Bruno Costa",
+    "Email": "bruno.rafaelcostab@gmail.com",
+    "Password": "1234",
+    "Tema": "dark"
   }
 ]

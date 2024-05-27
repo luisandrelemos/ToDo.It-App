@@ -20,7 +20,7 @@
         <Rectangle Width="100" Height="25" Fill="#FF3A3A3A" RadiusX="8" RadiusY="8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="283,108,0,0"/>
         <TextBlock HorizontalAlignment="Left" Margin="301,113,0,0" TextWrapping="Wrap" Text="Utilizador" VerticalAlignment="Top" Background="Transparent" FontSize="13" Foreground="#00f0ff" FontFamily="Montserrat"/>
 
-        <!-- Imagem do usuário -->
+        <!-- Imagem do Utilizador -->
         <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="292,152,0,0" Click="ChangeImage_Click" Background="Transparent" BorderBrush="Transparent">
             <Image x:Name="userImage" Source="\Images\profile.jpg" Width="95" Height="101" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Button>
@@ -96,23 +96,20 @@
         <!-- Barra de Perfil -->
         <Border Width="250" Style="{StaticResource SidePanelBack}" CornerRadius="25,0,25,25" HorizontalAlignment="Left" Margin="0,0,0,689"/>
         <Grid>
-
-            <!-- Adicione a zona do usuário aqui -->
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition Width="174"/>
                 </Grid.ColumnDefinitions>
-                <!-- Imagem do usuário -->
+                <!-- Imagem do Utilizador -->
                 <Image Source="\Images\profile.jpg" Width="47" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="22,16,0,0">
                     <Image.Clip>
                         <EllipseGeometry RadiusX="35" RadiusY="32" Center="23.5,25"/>
                     </Image.Clip>
                 </Image>
-
-                <!-- Nome do usuário -->
+                <!-- Nome do Utilizador -->
                 <TextBlock x:Name="UsernameTextBlock" FontFamily="Montserrat" Text="Utilizador" Foreground="White" FontSize="16"  Margin="76,21,959,728" />
-                <!-- Email do usuário -->
+                <!-- Email do Utilizador -->
                 <TextBlock x:Name="EmailTextBlock" FontFamily="Montserrat" Text="email@exemplo.com" Style="{StaticResource TextEmail}"  Margin="76,46,955,707" />
             </Grid>
             <Button Click="Definições_Click" Style="{StaticResource buttonPerfil}" Margin="6,10,1130,694"/>
@@ -128,7 +125,7 @@
                     <RowDefinition Height="632*"/>
                 </Grid.RowDefinitions>
 
-                <!-- Adicione os controles do sidepanel esquerdo aqui -->
+                <!-- Botôes Navegação e Layout -->
                 <Button Content="Página Inicial" Style="{StaticResource button1}"  Click="PáginaInicial_Click" Margin="25,26,25,597" Grid.RowSpan="2" />
                 <Icon:PackIconCodicons Kind="Home" Width="20" Height="20" Style="{StaticResource IconSide}" Margin="41,-1,0,0" Grid.Row="1"/>
                 <Button Content="Calendário" Style="{StaticResource button1}" Click="Calendário_Click" Margin="25,40,25,543" Grid.Row="1"/>
@@ -148,7 +145,7 @@
             </Grid>
         </Border>
 
-        <!--Cria diferentes zonas da grid (partes cinzentas) -->
+        <!-- Cria diferentes zonas da grid (partes cinzentas) -->
         <Border Grid.Row="0" Style="{StaticResource SidePanelBack}" CornerRadius="0,0,25,25" Margin="282,1,31,689">
             <!--Ajuda -->
             <TextBlock TextWrapping="Wrap" Text="Definições" FontSize="25" Margin="75,24,817,21" Style="{StaticResource TextUp}" FontFamily="Montserrat"/>

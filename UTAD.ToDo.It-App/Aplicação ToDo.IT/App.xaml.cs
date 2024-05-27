@@ -11,6 +11,7 @@ namespace Aplicação_ToDo.IT
     {
         public App()
         {
+
             //Register Syncfusion license
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzI0MDk4NkAzMjM1MmUzMDJlMzBIZURTL25TUW8vaFRRVVc4V1pRSGVyVWFBYk1pK3g1NWFQc2w2Qng1WUF3PQ==");
         }

@@ -20,16 +20,17 @@
         <!-- Conteúdo principal -->
         <Border Style="{StaticResource Background}" CornerRadius="25,25,25,25" RenderTransformOrigin="0.5,0.5"/>
         <Syncfusion:SfScheduler x:Name="Calendário" BorderThickness="0" Margin="250,0,0,0"
+                                HeaderHeight="79"
                                 ShowBusyIndicator="True" 
                                 FirstDayOfWeek="Monday"
                                 ViewType="Month"
-                                EnableReminder="True"       
+                                EnableReminder="True"
                                 AllowedViewTypes="Month,Day,Week,WorkWeek" 
                                 AppointmentEditorClosing="Calendário_AppointmentEditorClosing" 
                                 AppointmentDeleting="Calendário_AppointmentDeleting" 
                                 AppointmentDragStarting="Calendário_AppointmentDragStarting" 
                                 AppointmentDropping="Calendário_AppointmentDropping" ReminderAlertOpening="Calendário_ReminderAlertOpening" >
-            <Syncfusion:SfScheduler.MonthViewSettings>
+        <Syncfusion:SfScheduler.MonthViewSettings>
                 <Syncfusion:MonthViewSettings AppointmentDisplayMode="Appointment"
                                               AppointmentDisplayCount="1"/>
             </Syncfusion:SfScheduler.MonthViewSettings>
@@ -86,26 +87,6 @@
                     </MenuItem>
                 </ContextMenu>
             </Syncfusion:SfScheduler.CellContextMenu>
-            <Syncfusion:SfScheduler.AppointmentMapping>
-                <Syncfusion:AppointmentMapping
-                    Subject="Titulo"
-                    StartTime="Data Inicio"
-                    EndTime="Data Fim"
-                    Id="Id"
-                    AppointmentBackground="Color"
-                    IsAllDay="IsAllDay"
-                    StartTimeZone="StartTimeZone"
-                    EndTimeZone="EndTimeZone"
-                    RecurrenceExceptionDates="RecurrenceExceptions"
-                    RecurrenceRule="RecurrenceRule"
-                    RecurrenceId="RecurrenceId"
-                    Reminders="Lembrete">
-                    <Syncfusion:AppointmentMapping.ReminderMapping>
-                        <Syncfusion:ReminderMapping IsDismissed="Dismissed"
-                                                    ReminderTimeInterval="TimeInterval"/>
-                    </Syncfusion:AppointmentMapping.ReminderMapping>
-                </Syncfusion:AppointmentMapping>
-            </Syncfusion:SfScheduler.AppointmentMapping>
         </Syncfusion:SfScheduler>
 
         <!-- Barra de Perfil -->
@@ -125,12 +106,11 @@
                     <RowDefinition Height="632*"/>
                 </Grid.RowDefinitions>
 
-                <!-- Nome do usuário -->
+                <!-- Nome do Utilizador -->
                 <TextBlock x:Name="UsernameTextBlock" FontFamily="Montserrat" Text="Utilizador" Foreground="White" FontSize="16"  Margin="79,349,10,263" Grid.Row="1" />
-                <!-- Email do usuário -->
+                <!-- Email do Utilizador -->
                 <TextBlock x:Name="EmailTextBlock" FontFamily="Montserrat" Text="email@exemplo.com" Style="{StaticResource TextEmail}"  Margin="79,374,10,242" Grid.Row="1" />
-
-                <!-- Imagem do usuário -->
+                <!-- Imagem do Utilizador -->
                 <Image Source="\Images\profile.jpg" Width="43" Height="46" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="26,349,0,0" Grid.Row="1">
                     <Image.Clip>
                         <EllipseGeometry RadiusX="35" RadiusY="32" Center="23.5,25"/>
@@ -139,7 +119,7 @@
 
                 <Button Click="Definições_Click" Style="{StaticResource buttonPerfil}" Margin="10,340,10,228" Grid.Row="1"/>
 
-                <!-- Adicione os controles do sidepanel esquerdo aqui -->
+                <!-- Botôes Navegação e Layout -->
                 <Button Content="Página Inicial" Style="{StaticResource button1}"  Click="PáginaInicial_Click" Margin="25,26,25,597" Grid.RowSpan="2" />
                 <Icon:PackIconCodicons Kind="Home" Width="20" Height="20" Style="{StaticResource IconSide}" Margin="41,-1,0,0" Grid.Row="1"/>
                 <Button Content="Calendário" Style="{StaticResource buttonSelected}" Click="Calendário_Click" Margin="25,40,25,543" Grid.Row="1"/>

@@ -13,59 +13,54 @@ using System.Windows.Media;
 using System.Collections.Generic;
 using System.Linq;
 using System;
-using static Aplicação_ToDo.IT.Página_Calendário.PáginaCalendário;
 using System.Collections.ObjectModel;
 using Outlook = Microsoft.Office.Interop.Outlook;
 using Microsoft.Office.Interop.Outlook;
-
+using System.Net.Mail;
+using System.Net;
 
 namespace Aplicação_ToDo.IT.Página_Calendário
 {
     public partial class PáginaCalendário : Window
     {
-
-
         public ScheduleAppointmentCollection Appointments { get; set; } = new ScheduleAppointmentCollection();
-        public List<TimeSpan> Lembretes { get; set; } = new List<TimeSpan>();
-        
-
-
+        Evento novoEvento;
         public PáginaCalendário()
         {
             InitializeComponent();
 
-            // Exibir o nome de usuário e o e-mail do usuário
+            // Exibir o nome de Utilizador e o e-mail do Utilizador
             UsernameTextBlock.Text = CurrentUser.User.Username;
             EmailTextBlock.Text = CurrentUser.User.Email;
 
             Calendário.AppointmentDeleting += Calendário_AppointmentDeleting;
-            Calendário.ReminderAlertOpening += Scheduler_ReminderAlertOpening;
             Calendário.ReminderAlertOpening += Calendário_ReminderAlertOpening;
-            
+            Calendário.ReminderAlertActionChanged += OnScheduleReminderAlertActionChanged;
 
-
+           
             CarregarEventos();
             MostrarEventos();
             CarregarEventosNoCalendario();
 
             // Vincular a coleção de compromissos ao controle Scheduler
             Calendário.ItemsSource = Appointments;
-
-
         }
 
-
-        public class Reminder { public bool Dismissed { get; set; }
+        public class Reminder
+        {
+            public bool Dismissed { get; set; }
             public TimeSpan TimeInterval { get; set; }
         }
 
-
-
-
+        private static PáginaInicial páginaInicial;
         private void PáginaInicial_Click(object sender, RoutedEventArgs e)
         {
-            PáginaInicial mainWindow = new PáginaInicial();
-            mainWindow.Show();
+            if (páginaInicial == null || !páginaInicial.IsVisible)
+            {
+                páginaInicial = new PáginaInicial();
+            }
+
+            páginaInicial.Show();
             this.Close();
         }
 
@@ -120,14 +115,14 @@ namespace Aplicação_ToDo.IT.Página_Calendário
                 todosEventos = JsonConvert.DeserializeObject<List<Evento>>(json);
             }
 
-            // Remova os eventos do usuário atual
+            // Remove os eventos do Utilizador atual
             todosEventos.RemoveAll(e => e.UserID == CurrentUser.User.Id);
 
-            // Adicione os eventos atualizados do usuário atual
+            // Adiciona os eventos atualizados do Utilizador atual
             todosEventos.AddRange(eventos);
 
-            // Renomeie a segunda variável json para jsonToWrite
-            string jsonToWrite = JsonConvert.SerializeObject(todosEventos);
+            // Opção de formatação para tornar o JSON mais legível
+            string jsonToWrite = JsonConvert.SerializeObject(todosEventos, Formatting.Indented);
             File.WriteAllText(arquivoEventos, jsonToWrite);
         }
 
@@ -151,44 +146,56 @@ namespace Aplicação_ToDo.IT.Página_Calendário
             public int Id { get; set; }
             public string UserID { get; set; }
             public string Titulo { get; set; }
+            public string Local { get; set; }
+            public string Descrição { get; set; }
             public DateTime DataInicio { get; set; }
             public DateTime DataFim { get; set; }
-            public TimeSpan TempoLembrete { get; set; }
-
             public string DataInicioFormatada
             {
                 get { return DataInicio.ToString("dd/MM/yyyy"); }
             }
             public string DataFimFormatada
             {
-                get { return DataFim.ToString("dd/MM/yyyy"); }
+                get { return AllDay ? string.Empty : DataFim.ToString("dd/MM/yyyy"); }
             }
             public string HoraInicioFormatada
             {
-                get { return DataInicio.ToString("HH:mm"); }
+                get { return AllDay ? string.Empty : DataInicio.ToString("HH:mm"); }
             }
 
             public string HoraFimFormatada
             {
-                get { return DataFim.ToString("HH:mm"); }
+                get { return AllDay ? string.Empty : DataFim.ToString("HH:mm"); }
             }
             public bool AllDay { get; set; }
             public Brush Cor { get; set; }
             public Brush CorTexto { get; set; }
             public Importancia Importancia { get; set; }
             public ObservableCollection<Reminder> Reminders { get; set; }
-
-
-            // Adicionar mais propriedades conforme necessário
+            public string RecurrenceRule { get; set; }
         }
 
-        List<Evento> eventos = new List<Evento>
-        {
-
-        };
+        public static List<Evento> eventos = new List<Evento>();
         public List<Evento> MostrarEventos()
         {
             return eventos;
+        }
+
+        private ObservableCollection<SchedulerReminder> ConverterLembretes(ObservableCollection<Reminder> reminders)
+        {
+            if (reminders == null)
+                return null;
+
+            var schedulerReminders = new ObservableCollection<SchedulerReminder>();
+            foreach (var reminder in reminders)
+            {
+                schedulerReminders.Add(new SchedulerReminder
+                {
+                    IsDismissed = reminder.Dismissed,
+                    ReminderTimeInterval = reminder.TimeInterval
+                });
+            }
+            return schedulerReminders;
         }
 
         private void CarregarEventosNoCalendario()
@@ -197,74 +204,169 @@ namespace Aplicação_ToDo.IT.Página_Calendário
 
             foreach (var evento in eventos)
             {
+                ObservableCollection<SchedulerReminder> schedulerReminders = new ObservableCollection<SchedulerReminder>();
+
+                if (evento.Reminders != null)
+                {
+                    foreach (var reminder in evento.Reminders)
+                    {
+                        schedulerReminders.Add(new SchedulerReminder
+                        {
+                            IsDismissed = reminder.Dismissed,
+                            ReminderTimeInterval = reminder.TimeInterval
+                        });
+                    }
+                }
+
                 ScheduleAppointment appointment = new ScheduleAppointment
                 {
                     Id = evento.Id,
                     Subject = evento.Titulo,
+                    Location = evento.Local,
+                    Notes = evento.Descrição,
                     StartTime = evento.DataInicio,
                     EndTime = evento.DataFim,
                     IsAllDay = evento.AllDay,
                     AppointmentBackground = evento.Cor,
                     Foreground = evento.CorTexto,
+                    Reminders = schedulerReminders,
+                    RecurrenceRule = evento.RecurrenceRule
                 };
 
                 Appointments.Add(appointment);
             }
         }
 
-        private void Calendário_AppointmentEditorClosing(object sender, Syncfusion.UI.Xaml.Scheduler.AppointmentEditorClosingEventArgs e)
+        
+        
+
+        private async void Calendário_AppointmentEditorClosing(object sender, Syncfusion.UI.Xaml.Scheduler.AppointmentEditorClosingEventArgs e)
         {
             if (e.Appointment != null)
             {
-                Evento novoEvento = new Evento
+                ObservableCollection<SchedulerReminder> reminders = e.Appointment.Reminders ?? new ObservableCollection<SchedulerReminder>();
+
+                novoEvento = new Evento
                 {
                     Id = (int)e.Appointment.Id,
                     UserID = CurrentUser.User.Id,
                     Titulo = e.Appointment.Subject,
+                    Local = e.Appointment.Location,
+                    Descrição = e.Appointment.Notes,
                     DataInicio = e.Appointment.IsAllDay ? e.Appointment.StartTime.Date : e.Appointment.StartTime,
                     DataFim = e.Appointment.IsAllDay ? e.Appointment.EndTime.Date : e.Appointment.EndTime,
                     AllDay = e.Appointment.IsAllDay,
                     Cor = e.Appointment.AppointmentBackground,
+                    RecurrenceRule = e.Appointment.RecurrenceRule,
                     CorTexto = e.Appointment.Foreground,
-                    TempoLembrete = e.Appointment.Reminders?.FirstOrDefault()?.ReminderTimeInterval ?? TimeSpan.Zero,
-
+                    Reminders = new ObservableCollection<Reminder>(
+                        reminders.Select(r => new Reminder
+                        {
+                            Dismissed = r.IsDismissed,
+                            TimeInterval = r.ReminderTimeInterval
+                        })
+                    )
                 };
-                
-                // Verifique se o evento já existe na lista
+
+                // Verifica se o evento já existe na lista
                 var eventoExistente = eventos.FirstOrDefault(x => x.Id == novoEvento.Id);
 
                 if (eventoExistente != null)
                 {
-                    // Atualize o evento existente
+                    // Atualiza o evento existente
                     eventoExistente.Titulo = novoEvento.Titulo;
+                    eventoExistente.Local = novoEvento.Local;
+                    eventoExistente.Descrição = novoEvento.Descrição;
                     eventoExistente.DataInicio = novoEvento.DataInicio;
                     eventoExistente.DataFim = novoEvento.DataFim;
                     eventoExistente.AllDay = novoEvento.AllDay;
                     eventoExistente.Cor = novoEvento.Cor;
                     eventoExistente.CorTexto = novoEvento.CorTexto;
-                    eventoExistente.TempoLembrete = novoEvento.TempoLembrete;
+                    eventoExistente.Reminders = novoEvento.Reminders;
+                    eventoExistente.RecurrenceRule = novoEvento.RecurrenceRule;
+
+                    
                 }
                 else
                 {
-                    // Adicione o novo evento à lista
+                    // Adiciona o novo evento à lista
                     eventos.Add(novoEvento);
                 }
+
+
 
                 MostrarEventos();
                 SalvarEventos();
             }
         }
 
+        private async Task Calendário_ReminderAlertOpeningAsync(object sender, ReminderAlertOpeningEventArgs e)
+        {
+            if (novoEvento != null)
+            {
+                foreach (var reminder in novoEvento.Reminders)
+                {
+                    if (!reminder.Dismissed)
+                    {
+                        TimeSpan reminderInterval = TimeSpan.Parse(reminder.TimeInterval.ToString());
+                        DateTime reminderTime = novoEvento.DataInicio.ToUniversalTime() - reminderInterval;
+
+                        if (reminderTime > DateTime.UtcNow)
+                        {
+                            TimeSpan timeuntilreminder = reminderTime - DateTime.UtcNow;
+
+                            await Task.Delay(timeuntilreminder);
+
+                            string fromMail = "todoitapplab@gmail.com";
+                            string fromPassword = "vyte qpsw zktv xovx";
+                            string toMail = CurrentUser.User.Email;
+                            string subject = novoEvento.Titulo + "lembrete";
+                            string body = novoEvento.Titulo + " - " + novoEvento.DataInicio.ToString();
+
+                            MailMessage messagetouser = new MailMessage(fromMail, toMail)
+                            {
+                                Subject = subject,
+                                Body = body,
+                            };
+                            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com")
+                            {
+                                Port = 587,
+                                Credentials = new NetworkCredential(fromMail, fromPassword),
+                                EnableSsl = true,
+                            };
+                            {
+                                try
+                                {
+                                    smtpClient.Send(messagetouser);
+                                    MessageBox.Show("Email enviado com sucesso! Confirmação enviada para o seu email.");
+                                }
+                                catch (System.Exception ex)
+                                {
+                                    MessageBox.Show("Ocorreu um erro ao enviar o email: " + ex.Message);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+
+        private async void Calendário_ReminderAlertOpening(object sender, ReminderAlertOpeningEventArgs e)
+        {
+            await Calendário_ReminderAlertOpeningAsync(sender, e);
+        }
+
         private void Calendário_AppointmentDeleting(object sender, Syncfusion.UI.Xaml.Scheduler.AppointmentDeletingEventArgs e)
         {
             if (e.Appointment != null)
             {
-                // Encontre o evento correspondente na lista
+                // Encontra o evento correspondente na lista
                 var evento = eventos.FirstOrDefault(x => x.Id == (int)e.Appointment.Id);
 
                 if (evento != null)
                 {
-                    // Remova o evento da lista
+                    // Remove o evento da lista
                     eventos.Remove(evento);
                 }
 
@@ -274,7 +376,9 @@ namespace Aplicação_ToDo.IT.Página_Calendário
             }
         }
 
+
         private ScheduleAppointment draggedAppointment;
+        
 
         private void Calendário_AppointmentDragStarting(object sender, Syncfusion.UI.Xaml.Scheduler.AppointmentDragStartingEventArgs e)
         {
@@ -285,15 +389,15 @@ namespace Aplicação_ToDo.IT.Página_Calendário
         {
             if (draggedAppointment != null)
             {
-                // Encontre o evento correspondente na lista
+                // Encontra o evento correspondente na lista
                 var evento = eventos.FirstOrDefault(x => x.Id == (int)e.Appointment.Id);
 
                 if (evento != null)
                 {
-                    // Calcule a duração do compromisso
+                    // Calcula a duração do compromisso
                     var duration = draggedAppointment.EndTime - draggedAppointment.StartTime;
 
-                    // Atualize a data de início e fim do evento
+                    // Atualiza a data de início e fim do evento
                     evento.DataInicio = e.DropTime;
                     evento.DataFim = e.DropTime.Add(duration);
                 }
@@ -304,41 +408,57 @@ namespace Aplicação_ToDo.IT.Página_Calendário
 
             draggedAppointment = null;
         }
-        private void Scheduler_ReminderAlertOpening(object sender, ReminderAlertOpeningEventArgs e)
-        {
-            var reminders = e.Reminders;
-            var appointment = e.Reminders[0].Appointment;
-        }
 
-        private async void Calendário_ReminderAlertOpening(object sender, ReminderAlertOpeningEventArgs e)
+        //private void Scheduler_ReminderAlertOpening(object sender, ReminderAlertOpeningEventArgs e)
+        //{
+        //    var reminders = e.Reminders;
+        //    var appointment = e.Reminders[0].Appointment;
+        //}
+
+        private void OnScheduleReminderAlertActionChanged(object sender, Syncfusion.UI.Xaml.Scheduler.ReminderAlertActionChangedEventArgs e)
         {
-            await Task.Run(() =>
+            if (e.ReminderAction == ReminderAction.Dismiss)
             {
-                foreach (var reminder in e.Reminders)
+                var reminder = e.Reminders[0];
+
+                var evento = eventos.FirstOrDefault(x => x.Id == (int)reminder.Appointment.Id);
+                if (evento != null)
                 {
-                    try
+                    var eventoReminder = evento.Reminders.FirstOrDefault(r => r.TimeInterval == reminder.ReminderTimeInterval);
+                    if (eventoReminder != null)
                     {
-                        System.Diagnostics.Debug.WriteLine("Enviando lembrete para: " + reminder.Appointment.Subject);
-
-                        Outlook.Application application = new Outlook.Application();
-                        Outlook.MailItem mail = (Outlook.MailItem)application.CreateItem(Outlook.OlItemType.olMailItem);
-                        mail.Subject = reminder.Appointment.Subject + "reminder alert";
-                        mail.To = "bruno.rafaelcostab@gmail.com";
-                        mail.Body = reminder.Appointment.Subject + " - " + reminder.Appointment.ActualStartTime.ToString();
-                        mail.Importance = Outlook.OlImportance.olImportanceNormal;
-                        mail.Send();
-
-                        System.Diagnostics.Debug.WriteLine("Lembrete enviado com sucesso para: " + reminder.Appointment.Subject);
+                        evento.Reminders.Remove(eventoReminder);
                     }
-                    catch(System.Exception ex)
+
+                    SalvarEventos();
+                }
+            }
+            else if (e.ReminderAction == ReminderAction.DismissAll)
+            {
+                var reminders = e.Reminders;
+
+                foreach (var reminder in reminders)
+                {
+                    var evento = eventos.FirstOrDefault(x => x.Id == (int)reminder.Appointment.Id);
+                    if (evento != null)
                     {
-                        System.Diagnostics.Debug.WriteLine("Erro ao enviar lembrete para: " + reminder.Appointment.Subject);
-                        System.Diagnostics.Debug.WriteLine("Detalhes do erro: " + ex.ToString());
+                        var eventoReminder = evento.Reminders.FirstOrDefault(r => r.TimeInterval == reminder.ReminderTimeInterval);
+                        if (eventoReminder != null)
+                        {
+                            eventoReminder.Dismissed = true;
+                        }
                     }
                 }
-                    
-                
-            });
+
+                SalvarEventos();
+            }
+            else if (e.ReminderAction == ReminderAction.Snooze)
+            {
+                var reminder = e.Reminders[0];
+                var snoozeTime = e.SnoozeTime;
+            }
         }
+
+        
     }
 }

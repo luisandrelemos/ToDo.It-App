@@ -21,7 +21,7 @@ namespace Aplicação_ToDo.IT.Página_Definições
         {
             InitializeComponent();
 
-            // Exibir o nome de usuário e o e-mail do usuário
+            // Exibir o nome de Utilizador e o e-mail do Utilizador
             UsernameTextBlock.Text = CurrentUser.User.Username;
             EmailTextBlock.Text = CurrentUser.User.Email;
         }
@@ -86,11 +86,11 @@ namespace Aplicação_ToDo.IT.Página_Definições
             }
 
             // Carregar o arquivo JSON
-            string jsonFilePath = "C:\\Users\\pedro\\source\\repos\\PL5_G04\\UTAD.ToDo.It-App\\Aplicação ToDo.IT\\SaveData\\utilizadores.json";
+            string jsonFilePath = "C:\\Users\\bruno\\Source\\Repos\\PL5_G04\\UTAD.ToDo.It-App\\Aplicação ToDo.IT\\SaveData\\utilizadores.json";
             string json = File.ReadAllText(jsonFilePath);
             List<UserData> users = JsonConvert.DeserializeObject<List<UserData>>(json);
 
-            // Encontrar o usuário atual na lista
+            // Encontrar o Utilizador atual na lista
             UserData user = users.Where(u => u.Username == CurrentUser.User.Username).FirstOrDefault();
 
             // Se o usuário foi encontrado, verificar a senha antiga

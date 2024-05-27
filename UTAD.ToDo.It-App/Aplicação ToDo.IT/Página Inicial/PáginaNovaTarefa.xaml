@@ -1,5 +1,7 @@
 ﻿<Window xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"  x:Class="Aplicação_ToDo.IT.Página_Inicial.PáginaNovaTarefa"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+        syncfusionskin:SfSkinManager.Theme="{syncfusionskin:SkinManagerExtension ThemeName=Windows11Dark}"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -22,17 +24,17 @@
 
     <Grid>
         <!-- Barra Superior com cantos arredondados -->
-        <Border Background="#545252" Height="40" VerticalAlignment="Top" CornerRadius="25,25,0,0">
+        <Border Background="#403e3e" Height="40" VerticalAlignment="Top" CornerRadius="25,25,0,0">
             <Grid>
                 <!-- Texto da Barra -->
-                <TextBlock FontFamily="Montserrat" Text="Criar Nova Tarefa" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" Foreground="White" FontSize="18"/>
+                <TextBlock FontFamily="Montserrat" Text="Editar/Criar Tarefa" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" Foreground="White" FontSize="18"/>
                 <!-- Botão Fechar -->
                 <Button Foreground="White" FontFamily="Montserrat" Content="X" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="688,0,0,0" VerticalAlignment="Center" FontSize="18" Click="CloseButton_Click" Height="22"/>
             </Grid>
         </Border>
 
         <!-- Conteúdo da Página -->
-        <Border Background="#8a8a8a" Margin="0,40,0,0" CornerRadius="0,0,25,25">
+        <Border Background="#575656" Margin="0,40,0,0" CornerRadius="0,0,25,25">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -50,10 +52,10 @@
                 </Border>
 
                 <!-- Linha abaixo da caixa de texto -->
-                <Separator Grid.Row="2" Margin="44,23,44,225" Style="{StaticResource MySeparatorStyle}" />
-                <Separator Grid.Row="2" Margin="44,82,44,166" Style="{StaticResource MySeparatorStyle}" />
-                <Separator Grid.Row="2" Margin="44,155,44,96" Style="{StaticResource MySeparatorStyle}" />
-                <Separator Grid.Row="2" Margin="44,219,44,32" Style="{StaticResource MySeparatorStyle}" />
+                <Separator Grid.Row="2" Margin="44,23,44,225" Background="#363434" />
+                <Separator Grid.Row="2" Margin="44,82,44,166" Background="#363434" />
+                <Separator Grid.Row="2" Margin="44,155,44,94" Background="#363434" />
+                <Separator Grid.Row="2" Margin="44,219,44,31" Background="#363434" />
 
                 <!-- Título "Prioridade" e caixa de seleção -->
                 <Grid Grid.Row="2" Margin="98,38,98,-38">
