@@ -1,0 +1,112 @@
+﻿<Window xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"  x:Class="Aplicação_ToDo.IT.Página_Inicial.PáginaEditarTarefa"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+        syncfusionskin:SfSkinManager.Theme="{syncfusionskin:SkinManagerExtension ThemeName=Windows11Dark}"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Aplicação_ToDo.IT.Página_Inicial"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        mc:Ignorable="d"
+        Title="Editar Tarefa" Height="450" Width="720"
+        AllowsTransparency="True"
+        Background="Transparent" 
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <Style x:Key="MySeparatorStyle" TargetType="Separator">
+            <Setter Property="Background" Value="#545252" />
+            <Setter Property="Height" Value="1" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <!-- Barra Superior com cantos arredondados -->
+        <Border Background="#403e3e" Height="40" VerticalAlignment="Top" CornerRadius="25,25,0,0">
+            <Grid>
+                <!-- Texto da Barra -->
+                <TextBlock FontFamily="Montserrat" Text="Editar Tarefa" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" Foreground="White" FontSize="18"/>
+                <!-- Botão Fechar -->
+                <Button Foreground="White" FontFamily="Montserrat" Content="X" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="688,0,0,0" VerticalAlignment="Center" FontSize="18" Click="CloseButton_Click" Height="22"/>
+            </Grid>
+        </Border>
+
+        
+        
+        <!-- Conteúdo da Página -->
+        <Border Background="#575656" Margin="0,40,0,0" CornerRadius="0,0,25,25">
+            <Grid>
+                <!-- Retângulo para o título da tarefa -->
+                <Border BorderBrush="#00cafc" BorderThickness="2" Margin="44,19,398,346" CornerRadius="5" Grid.Row="0">
+                    <Grid Margin="8,9,6,9">
+                        <TextBlock  FontFamily="Montserrat" x:Name="textAdd" MouseDown="textAdd_MouseDown" FontSize="18" Text="Adicionar Titulo" Style="{StaticResource textHintADD}" Margin="50,0,50,0" />
+                        <TextBox x:Name="add" Background="Transparent" TextChanged="txtAdd_TextChanged" Style="{StaticResource textBoxADD}" Margin="0,-3,0,-3" />
+                    </Grid>
+                </Border>
+
+                <!-- Retângulo para o localização da tarefa -->
+                <Border BorderBrush="#00cafc" BorderThickness="2" Margin="396,19,44,346" CornerRadius="5" Grid.Row="0">
+                    <Grid Margin="8,9,6,9">
+                        <TextBlock  FontFamily="Montserrat" x:Name="textAddLocal" MouseDown="textAddLocal_MouseDown" FontSize="18" Text="Adicionar Localização" Style="{StaticResource textHintADD}" Margin="30,0,30,0" />
+                        <TextBox x:Name="addlocal" Background="Transparent" TextChanged="textAddLocal_TextChanged" Style="{StaticResource textBoxADD}" Margin="0,-3,0,-3" />
+                    </Grid>
+                </Border>
+                
+
+
+                <!-- Título "Prioridade" e caixa de seleção -->
+                <CheckBox x:Name="allDay"  VerticalAlignment="Top" Margin="44,199,585,0" Content="All Day" />
+                <TextBlock Grid.Column="0" Foreground="White" FontFamily="Montserrat" FontSize="18" Text="Prioridade" Margin="435,198,181,191" />
+                <Icon:PackIconEvaIcons Kind="Flag" Width="20" Height="20" Foreground="#00f0ff" Margin="396,199,0,0"/>
+                <Icon:PackIconFeatherIcons Kind="Clock"  Width="20" Height="20" Foreground="#00f0ff" Margin="44,100,0,0"/>
+                <Icon:PackIconFeatherIcons Kind="Clock"  Width="20" Height="20" Foreground="#00f0ff" Margin="396,100,0,0"/>
+                <Icon:PackIconUnicons Kind="AlignLeftJustify" Width="25" Height="20" Foreground="#00f0ff" Margin="44,275,0,0"/>
+                <Syncfusion:SfDatePicker x:Name="DateTimeInicio" Margin="44,144,570,0" VerticalAlignment="Top" Height="27" />
+                <ComboBox x:Name="SortComboBox" Margin="396,233,143,149" SelectionChanged="SortComboBox_SelectionChanged">
+                    <ComboBoxItem Content="Importante" FontFamily="Montserrat"/>
+                    <ComboBoxItem Content="Muito Importante" FontFamily="Montserrat"/>
+                    <ComboBoxItem Content="Pouco Importante" FontFamily="Montserrat"/>
+                    <ComboBoxItem Content="Indiferente" FontFamily="Montserrat"/>
+                </ComboBox>
+                <Syncfusion:SfTimePicker x:Name="TimeInicio" AllowNull="True" HorizontalAlignment="Left" Height="27" Margin="216,144,0,0" Value="12:00" FormatString="HH:mm" VerticalAlignment="Top" Watermark="Pick a time" Width="106"/>
+                <Syncfusion:SfDatePicker x:Name="DateTimeFim" Margin="396,144,218,0" VerticalAlignment="Top" Height="27" />
+                <Syncfusion:SfTimePicker x:Name="TimeFim" AllowNull="True" HorizontalAlignment="Left" Height="28" Margin="570,143,0,0" Value="12:00" FormatString="HH:mm" VerticalAlignment="Top" Watermark="Pick a time" Width="106"/>
+
+                <!-- Título "Data e Hora Inicio" e caixa de seleção -->
+                <TextBlock Grid.Column="0" Foreground="White" FontFamily="Montserrat" FontSize="18" Margin="83,100,431,290" ><Run Text="Data e Hora De ínicio"/></TextBlock>
+
+
+                <!-- Título "Data e Hora Fim" e caixa de seleção -->
+                <TextBlock Grid.Column="0" Foreground="White" FontFamily="Montserrat" FontSize="18" Margin="433,99,81,290" ><Run Text="Data e Hora Do Fim"/></TextBlock>
+
+                <!-- Descrição -->
+                <TextBox x:Name="tb_mensagem" TextWrapping="Wrap" Margin="96,275,360,19" TextChanged="tb_mensagem_TextChanged">
+                    <TextBox.Style>
+                        <Style TargetType="{x:Type TextBox}">
+                            <Setter Property="Foreground" Value="White"></Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type TextBox}">
+                                        <Border CornerRadius="3" Background="#FF757575">
+                                            <!-- Adiciona o elemento de conteúdo -->
+                                            <ScrollViewer x:Name="PART_ContentHost"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+
+                <!-- Botão de Salvar -->
+                <Button Content="Guardar" Style="{StaticResource buttonGuardarLembrete}"  Click="GuardarNovaTarefa_Click" Margin="586,356,44,19" />
+
+                <!-- Botão de Cancelar -->
+                <Button Content="Cancelar" Style="{StaticResource buttonGuardarLembrete}"  Click="CloseButton_Click" Margin="449,356,181,19" />
+
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
